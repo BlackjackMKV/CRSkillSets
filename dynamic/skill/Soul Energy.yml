@@ -1,0 +1,69 @@
+Soul Energy:
+  name: 'Soul Energy'
+  type: 'Passive'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Ender Pearl'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - "&eYou can draw energy from the &cSouls&e you've"
+  - '&ecollected to passively increase your own power.'
+  - '&eScales based on number of &cSouls&e.'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 10
+            seconds-scale: 0
+          children:
+            Value Mana-c:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                key: 'soulsenergy'
+            Value Set-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                key: 'soulsenergy'
+                value-base: 1+_soulsenergy
+                value-scale: 0
+            Message-e:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                message: '{soulsenergy}'

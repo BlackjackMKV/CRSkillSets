@@ -1,34 +1,38 @@
-Ankore: 
+Ankore:
   name: 'Ankore'
   prefix: '&8Ankore'
   group: 'Race'
-  mana: '&4Souls'
-  max-level: 15
+  mana: 'Souls'
+  max-level: 20
   parent: ''
-  needs-permission: 'false'
-  attributes: 
-    health-base: '20'
-    spirit-scale: '0'
-    strength-base: '0'
-    dexterity-base: '0'
-    dexterity-scale: '0'
-    mana-base: '9999'
-    health-scale: '0'
-    vitality-scale: '0'
-    spirit-base: '0'
-    intelligence-scale: '0'
-    strength-scale: '0'
-    mana-scale: '0'
-    vitality-base: '0'
-    intelligence-base: '0'
-  mana-regen: 0.0
-  tree: 'REQUIREMENT'
-  skills: 
+  needs-permission: 'False'
+  exp-source: 273
+  mana-regen: 0
+  tree: 'Requirement'
+  skills:
   - 'Soul Robber'
   - 'Unholy'
-  icon: 'BONE'
+  - 'Soul Energy'
+  icon: 'Bone'
   icon-data: 0
-  icon-lore: 
+  icon-lore:
   - '&2Ankore - Undead Race'
   - '&bA race of semi-undead beings who use souls as their power.'
-  exp-source: 273
+  blacklist:
+  - ''
+  action-bar: ''
+  attributes:
+    health-base: 15
+    health-scale: 0
+    mana-base: 9999
+    mana-scale: 0
+    vitality-base: 0
+    vitality-scale: 0
+    spirit-base: 0
+    spirit-scale: 0
+    intelligence-base: 0
+    intelligence-scale: 0
+    dexterity-base: 0
+    dexterity-scale: 0
+    strength-base: 0
+    strength-scale: 0
