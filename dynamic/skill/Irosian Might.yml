@@ -1,0 +1,72 @@
+Irosian Might: 
+  name: 'Irosian Might'
+  type: 'Passive'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '2'
+    level-base: '3'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'GOLD_HELMET'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePermanently decreases the amount of '
+  - '&edamage you receive.'
+  - ''
+  - '&2Damage Received: {attr:defBuff.value}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '5'
+          children: 
+            Defense Buff-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'False'
+                skill: 'False'
+                value-scale: '-0.05'
+                icon-key: 'defBuff'
+                type: 'Multiplier'
+                value-base: '0.9'
+                seconds-scale: '0'
+                seconds-base: '5'
+              children:  {}
+            Defense Buff-d: 
+              type: 'mechanic'
+              data: 
+                counts: 'False'
+                skill: 'True'
+                value-scale: '-0.05'
+                icon-key: ''
+                type: 'Multiplier'
+                value-base: '0.9'
+                seconds-scale: '0'
+                seconds-base: '5'
+              children:  {}

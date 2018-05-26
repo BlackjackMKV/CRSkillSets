@@ -1,0 +1,35 @@
+Insectoid: 
+  name: 'Insectoid'
+  prefix: '&bInsectoid'
+  group: 'Race'
+  mana: '&2Armor'
+  max-level: 15
+  parent: ''
+  needs-permission: 'false'
+  attributes: 
+    health-base: '20'
+    spirit-scale: '0'
+    strength-base: '0'
+    dexterity-base: '0'
+    dexterity-scale: '0'
+    mana-base: '100'
+    health-scale: '0'
+    vitality-scale: '0'
+    spirit-base: '0'
+    intelligence-scale: '0'
+    strength-scale: '0'
+    mana-scale: '0'
+    vitality-base: '0'
+    intelligence-base: '0'
+  mana-regen: 0.0
+  tree: 'REQUIREMENT'
+  skills: 
+  - 'Bug Shell'
+  - 'Scratch'
+  - 'Swarmling'
+  icon: 'WEB'
+  icon-data: 0
+  icon-lore: 
+  - '&2Insectoid - Hive Race'
+  - '&bUnderground-dwelling species who live in hives. '
+  exp-source: 273

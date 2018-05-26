@@ -1,0 +1,22 @@
+limit: 3
+active: 1
+health: 20.0
+mana: 0.0
+accounts: 
+  acc1: 
+    classes: 
+      Irosian: 
+        level: 15
+        points: 1
+        exp: 8.0
+    skills: 
+      Metal Obelisk: 
+        level: 5
+        points: 0
+      Ground Spike: 
+        level: 5
+        points: 0
+      Irosian Might: 
+        level: 5
+        points: 0
+    binds:  {}

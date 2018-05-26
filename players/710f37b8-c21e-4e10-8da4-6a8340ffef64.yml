@@ -1,0 +1,25 @@
+limit: 3
+active: 1
+health: 20.0
+mana: 0.0
+accounts: 
+  acc1: 
+    classes: 
+      Aetherian: 
+        level: 17
+        points: 0
+        exp: 152.0
+    skills: 
+      Aetherian Might: 
+        level: 4
+        points: 0
+      Whirlwind Strike: 
+        level: 0
+        points: 0
+      Aetherian Flight: 
+        level: 1
+        points: 0
+      Cyclone: 
+        level: 5
+        points: 0
+    binds:  {}

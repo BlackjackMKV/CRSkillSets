@@ -1,0 +1,91 @@
+limit: 10
+active: 5
+health: 20.0
+mana: 43.0
+accounts: 
+  acc1: 
+    classes: 
+      Ruwa: 
+        level: 16
+        points: 0
+        exp: 30.0
+    skills: 
+      Ruwa Inheritance: 
+        level: 4
+        points: 0
+      Maelstrom: 
+        level: 2
+        points: 0
+      Aquatic Leap: 
+        level: 0
+        points: 0
+    binds:  {}
+  acc2: 
+    classes: 
+      Aetherian: 
+        level: 1
+        points: 0
+        exp: 5.0
+    skills: 
+      Aetherian Might: 
+        level: 1
+        points: 0
+      Whirlwind Strike: 
+        level: 0
+        points: 0
+      Aetherian Flight: 
+        level: 0
+        points: 0
+      Cyclone: 
+        level: 0
+        points: 0
+    binds:  {}
+  acc3: 
+    classes: 
+      Irosian: 
+        level: 20
+        points: 5
+        exp: 106.0
+    skills: 
+      Metal Obelisk: 
+        level: 5
+        points: 0
+      Ground Spike: 
+        level: 0
+        points: 0
+      Irosian Might: 
+        level: 5
+        points: 0
+    binds:  {}
+  acc4: 
+    classes: 
+      Insectoid: 
+        level: 14
+        points: 0
+        exp: 202.0
+    skills: 
+      Bug Shell: 
+        level: 5
+        points: 0
+      Scratch: 
+        level: 4
+        points: 0
+      Swarmling: 
+        level: 5
+        points: 0
+    binds: 
+      WOOD_SWORD: 'Swarmling'
+  acc5: 
+    classes: 
+      Ankore: 
+        level: 5
+        points: 0
+        exp: 51.0
+    skills: 
+      Soul Robber: 
+        level: 5
+        points: 0
+      Unholy: 
+        level: 1
+        points: 0
+    binds:  {}

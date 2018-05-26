@@ -1,0 +1,176 @@
+loaded: 'true'
+Irosian: 
+  name: 'Irosian'
+  prefix: '&bIrosian'
+  group: 'Race'
+  mana: ''
+  max-level: 15
+  parent: ''
+  needs-permission: 'false'
+  attributes: 
+    health-base: '20'
+    spirit-scale: '0'
+    strength-base: '0'
+    dexterity-base: '0'
+    dexterity-scale: '0'
+    mana-base: '0'
+    health-scale: '0'
+    vitality-scale: '0'
+    spirit-base: '0'
+    intelligence-scale: '0'
+    strength-scale: '0'
+    mana-scale: '0'
+    vitality-base: '0'
+    intelligence-base: '0'
+  mana-regen: 0.0
+  tree: 'REQUIREMENT'
+  skills: 
+  - 'Irosian Might'
+  - 'Ground Spike'
+  - 'Metal Obelisk'
+  icon: 'STONE'
+  icon-data: 0
+  icon-lore: 
+  - '&2Irosian - Ground Race'
+  - '&bResilient race comprised primarily of metal and stone. '
+  exp-source: 273
+Ruwa: 
+  name: 'Ruwa'
+  prefix: '&bRuwa'
+  group: 'Race'
+  mana: ''
+  max-level: 15
+  parent: ''
+  needs-permission: 'false'
+  attributes: 
+    health-base: '20'
+    spirit-scale: '0'
+    strength-base: '0'
+    dexterity-base: '0'
+    dexterity-scale: '0'
+    mana-base: '0'
+    health-scale: '0'
+    vitality-scale: '0'
+    spirit-base: '0'
+    intelligence-scale: '0'
+    strength-scale: '0'
+    mana-scale: '0'
+    vitality-base: '0'
+    intelligence-base: '0'
+  mana-regen: 0.0
+  tree: 'REQUIREMENT'
+  skills: 
+  - 'Ruwa Inheritance'
+  - 'Aquatic Leap'
+  - 'Maelstrom'
+  icon: 'WATER_LILY'
+  icon-data: 0
+  icon-lore: 
+  - '&2Ruwa - Sea Race'
+  - '&bA water dweller race which has evolved to live underwater.'
+  exp-source: 273
+Aetherian: 
+  name: 'Aetherian'
+  prefix: '&bAetherian'
+  group: 'Race'
+  mana: ''
+  max-level: 15
+  parent: ''
+  needs-permission: 'false'
+  attributes: 
+    health-base: '20'
+    spirit-scale: '0'
+    strength-base: '0'
+    dexterity-base: '0'
+    dexterity-scale: '0'
+    mana-base: '0'
+    health-scale: '0'
+    vitality-scale: '0'
+    spirit-base: '0'
+    intelligence-scale: '0'
+    strength-scale: '0'
+    mana-scale: '0'
+    vitality-base: '0'
+    intelligence-base: '0'
+  mana-regen: 0.0
+  tree: 'REQUIREMENT'
+  skills: 
+  - 'Aetherian Flight'
+  - 'Aetherian Might'
+  - 'Whirlwind Strike'
+  - 'Cyclone'
+  icon: 'FEATHER'
+  icon-data: 0
+  icon-lore: 
+  - '&2Aetherian - Aerial Race'
+  - '&bA winged race with high movement speed and strong offensive skills.'
+  exp-source: 273
+Insectoid: 
+  name: 'Insectoid'
+  prefix: '&bInsectoid'
+  group: 'Race'
+  mana: '&2Armor'
+  max-level: 15
+  parent: ''
+  needs-permission: 'false'
+  attributes: 
+    health-base: '20'
+    spirit-scale: '0'
+    strength-base: '0'
+    dexterity-base: '0'
+    dexterity-scale: '0'
+    mana-base: '100'
+    health-scale: '0'
+    vitality-scale: '0'
+    spirit-base: '0'
+    intelligence-scale: '0'
+    strength-scale: '0'
+    mana-scale: '0'
+    vitality-base: '0'
+    intelligence-base: '0'
+  mana-regen: 0.0
+  tree: 'REQUIREMENT'
+  skills: 
+  - 'Bug Shell'
+  - 'Scratch'
+  - 'Swarmling'
+  icon: 'WEB'
+  icon-data: 0
+  icon-lore: 
+  - '&2Insectoid - Hive Race'
+  - '&bUnderground-dwelling species who live in hives. '
+  exp-source: 273
+Ankore: 
+  name: 'Ankore'
+  prefix: '&8Ankore'
+  group: 'Race'
+  mana: '&4Souls'
+  max-level: 15
+  parent: ''
+  needs-permission: 'false'
+  attributes: 
+    health-base: '20'
+    spirit-scale: '0'
+    strength-base: '0'
+    dexterity-base: '0'
+    dexterity-scale: '0'
+    mana-base: '9999'
+    health-scale: '0'
+    vitality-scale: '0'
+    spirit-base: '0'
+    intelligence-scale: '0'
+    strength-scale: '0'
+    mana-scale: '0'
+    vitality-base: '0'
+    intelligence-base: '0'
+  mana-regen: 0.0
+  tree: 'REQUIREMENT'
+  skills: 
+  - 'Soul Robber'
+  - 'Unholy'
+  icon: 'BONE'
+  icon-data: 0
+  icon-lore: 
+  - '&2Ankore - Undead Race'
+  - '&bA race of semi-undead beings who use souls as their power.'
+  exp-source: 273

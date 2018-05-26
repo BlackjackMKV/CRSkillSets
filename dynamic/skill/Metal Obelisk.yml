@@ -1,0 +1,112 @@
+Metal Obelisk: 
+  name: 'Metal Obelisk'
+  type: 'Area Control'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-2'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '30'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'END_ROD'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePlace an obelisk which emits an aura. '
+  - '&eAll hostiles near its radius are slowed.'
+  - ''
+  - '&2AoE Radius: {attr:obeliskArea.radius}'
+  - '&2Duration: {attr:repeat.repetitions}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Location-b: 
+          type: 'target'
+          data: 
+            range-scale: '0'
+            range-base: '4'
+            icon-key: ''
+            ground: 'True'
+          children: 
+            Repeat-c: 
+              type: 'mechanic'
+              data: 
+                period: '1'
+                delay: '1'
+                repetitions-base: '8'
+                counts: 'True'
+                icon-key: 'repeat'
+                repetitions-scale: '0'
+              children: 
+                Area-d: 
+                  type: 'target'
+                  data: 
+                    caster: 'False'
+                    max-base: '99'
+                    radius-scale: '0.5'
+                    icon-key: 'obeliskArea'
+                    radius-base: '6'
+                    wall: 'True'
+                    group: 'Enemy'
+                    max-scale: '0'
+                  children: 
+                    Potion-e: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Slow'
+                        counts: 'False'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '0'
+                        tier-base: '2'
+                        seconds-base: '1'
+                      children:  {}
+                Offset-f: 
+                  type: 'target'
+                  data: 
+                    right-scale: '0'
+                    forward-base: '0'
+                    right-base: '0'
+                    forward-scale: '0'
+                    upward-scale: '0'
+                    icon-key: ''
+                    upward-base: '1'
+                  children: 
+                    Particle-g: 
+                      type: 'mechanic'
+                      data: 
+                        data: '0'
+                        counts: 'False'
+                        forward: '0'
+                        radius-scale: '0.5'
+                        particles-scale: '0'
+                        particles-base: '8'
+                        right: '0'
+                        radius-base: '6'
+                        arrangement: 'Circle'
+                        icon-key: ''
+                        particle: 'Ender Signal'
+                        direction: 'XZ'
+                        upward: '0'
+                      children:  {}

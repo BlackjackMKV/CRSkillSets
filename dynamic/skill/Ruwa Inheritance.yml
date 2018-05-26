@@ -1,0 +1,140 @@
+Ruwa Inheritance: 
+  name: 'Ruwa Inheritance'
+  type: 'Passive'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '4'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'GOLD_HELMET'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePermanently makes water strengthen you. '
+  - '&eYou also move faster in water and slower while out of water. '
+  - ''
+  - '&2Attack Multiplier: {attr:dmgBuff.value}'
+  - '&2Damage Received: {attr:defBuff.value}'
+  - '&2Land Move Speed: {attr:speedDebuff.multiplier}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '1'
+          children: 
+            Water-c: 
+              type: 'condition'
+              data: 
+                icon-key: ''
+                state: 'In Water'
+              children: 
+                Potion-f: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Speed'
+                    counts: 'False'
+                    icon-key: ''
+                    ambient: 'False'
+                    tier-scale: '1'
+                    seconds-scale: '0'
+                    tier-base: '2'
+                    seconds-base: '2'
+                  children:  {}
+                Damage Buff-g: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    skill: 'False'
+                    value-scale: '0.1'
+                    icon-key: 'dmgBuff'
+                    type: 'Multiplier'
+                    value-base: '1.2'
+                    seconds-scale: '0'
+                    seconds-base: '1'
+                  children:  {}
+                Defense Buff-h: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    skill: 'False'
+                    value-scale: '-0.05'
+                    icon-key: 'defBuff'
+                    type: 'Multiplier'
+                    value-base: '0.9'
+                    seconds-scale: '0'
+                    seconds-base: '1'
+                  children:  {}
+                Defense Buff-i: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    skill: 'True'
+                    value-scale: '-0.05'
+                    icon-key: ''
+                    type: 'Multiplier'
+                    value-base: '0.9'
+                    seconds-scale: '0'
+                    seconds-base: '1'
+                  children:  {}
+                Potion-j: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Night Vision'
+                    counts: 'False'
+                    icon-key: ''
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '0'
+                    tier-base: '1'
+                    seconds-base: '12'
+                  children:  {}
+                Potion-k: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Water Breathing'
+                    counts: 'False'
+                    icon-key: ''
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '0'
+                    tier-base: '1'
+                    seconds-base: '12'
+                  children:  {}
+                Potion-l: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Jump'
+                    counts: 'False'
+                    icon-key: ''
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '0'
+                    tier-base: '2'
+                    seconds-base: '2'
+                  children:  {}

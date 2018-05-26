@@ -1,0 +1,27 @@
+limit: 3
+active: 1
+health: 20.0
+mana: 0.0
+accounts: 
+  acc1: 
+    classes: 
+      Ruwa: 
+        level: 1
+        points: 0
+        exp: 16.0
+    skills: 
+      Ruwa Inheritance: 
+        level: 0
+        points: 0
+      Maelstrom: 
+        level: 0
+        points: 0
+      Water Surge: 
+        level: 0
+        points: 0
+      Tidal Wave: 
+        level: 1
+        points: 0
+    binds: 
+      POTATO_ITEM: 'Tidal Wave'
+      RAW_BEEF: 'Tidal Wave'

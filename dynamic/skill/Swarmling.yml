@@ -1,0 +1,74 @@
+Swarmling: 
+  name: 'Swarmling'
+  type: 'Summon'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-10'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '120'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'STRING'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eRequest aid from your hive. Your loyal'
+  - '&ecompanions will depend you with their'
+  - '&elives.'
+  - ''
+  - '&2Swarmling Health: {attr:swarmling.Health}'
+  - '&2Attack Damage: {attr:swarmling.Damage}'
+  - '&2Swarmling Amount: {attr:swarmling.Amount}'
+  - '&2Summon Duration {attr:swarmling.Duration}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Wolf-b: 
+          type: 'mechanic'
+          data: 
+            health-base: '20'
+            color: 'Black'
+            counts: 'True'
+            health-scale: '5'
+            amount-base: '2'
+            damage-base: '4'
+            seconds-scale: '5'
+            seconds-base: '20'
+            skills: 
+            - ''
+            damage-scale: '1'
+            name: "{player}'s Minion"
+            icon-key: 'swarmling'
+            amount-scale: '1'
+          children: 
+            Disguise-c: 
+              type: 'mechanic'
+              data: 
+                mob: 'Silverfish'
+                duration-base: '-1'
+                counts: 'True'
+                icon-key: ''
+                duration-scale: '0'
+                type: 'Mob'
+                adult: 'True'
+              children:  {}

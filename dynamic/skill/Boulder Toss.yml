@@ -1,0 +1,103 @@
+Boulder Toss: 
+  name: 'Boulder Toss'
+  type: 'Offense'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '16'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'COBBLESTONE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eThrow a projectile which slows and '
+  - '&edeals damage in an area.'
+  - ''
+  - '&2AoE Radius: {attr:targetArea.radius}'
+  - '&2Damage: {attr:targetDamage.value}'
+  - '&2Slow III Duration: {attr:slow.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Projectile-b: 
+          type: 'mechanic'
+          data: 
+            right-scale: '0'
+            flaming: 'False'
+            cost: ''
+            forward-base: '0'
+            right-base: '0'
+            forward-scale: '0'
+            counts: 'True'
+            upward-scale: '0'
+            amount-base: '1'
+            spread: 'Cone'
+            angle-scale: '0'
+            use-effect: 'False'
+            velocity-base: '3'
+            icon-key: ''
+            amount-scale: '0'
+            position: '1'
+            angle-base: '30'
+            upward-base: '0'
+            projectile: 'Snowball'
+            velocity-scale: '0'
+            group: 'Enemy'
+          children: 
+            Area-c: 
+              type: 'target'
+              data: 
+                caster: 'False'
+                max-base: '99'
+                radius-scale: '0.25'
+                icon-key: 'targetArea'
+                radius-base: '3'
+                wall: 'True'
+                group: 'Enemy'
+                max-scale: '0'
+              children: 
+                Damage-d: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    value-scale: '2'
+                    true: 'False'
+                    classifier: 'default'
+                    icon-key: 'targetDamage'
+                    type: 'Damage'
+                    value-base: '8'
+                  children:  {}
+                Potion-e: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Slow'
+                    counts: 'False'
+                    icon-key: 'slow'
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '0.3'
+                    tier-base: '3'
+                    seconds-base: '2'
+                  children:  {}

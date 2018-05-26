@@ -1,0 +1,36 @@
+Aetherian: 
+  name: 'Aetherian'
+  prefix: '&bAetherian'
+  group: 'Race'
+  mana: ''
+  max-level: 15
+  parent: ''
+  needs-permission: 'false'
+  attributes: 
+    health-base: '20'
+    spirit-scale: '0'
+    strength-base: '0'
+    dexterity-base: '0'
+    dexterity-scale: '0'
+    mana-base: '0'
+    health-scale: '0'
+    vitality-scale: '0'
+    spirit-base: '0'
+    intelligence-scale: '0'
+    strength-scale: '0'
+    mana-scale: '0'
+    vitality-base: '0'
+    intelligence-base: '0'
+  mana-regen: 0.0
+  tree: 'REQUIREMENT'
+  skills: 
+  - 'Aetherian Flight'
+  - 'Aetherian Might'
+  - 'Whirlwind Strike'
+  - 'Cyclone'
+  icon: 'FEATHER'
+  icon-data: 0
+  icon-lore: 
+  - '&2Aetherian - Aerial Race'
+  - '&bA winged race with high movement speed and strong offensive skills.'
+  exp-source: 273

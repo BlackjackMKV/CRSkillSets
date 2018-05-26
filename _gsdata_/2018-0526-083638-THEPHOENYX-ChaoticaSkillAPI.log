@@ -1,0 +1,11 @@
+2018-05-26 08:36:40: -- Analysis Started by User Command
+2018-05-26 08:36:41: R: State file does not exist: sftp://ptero01.omghosting.net:2022/plugins/SkillAPI/_gsdata_/_file_state_v4._gs
+2018-05-26 08:36:41: /testyetagain2.txt: Warning: Older file to replace Newer file
+2018-05-26 08:36:41: Changes: 1, Conflicts: 0, CopyTime: 0, FixState: 2, Errors: 0, All: 90
+2018-05-26 08:36:41: Left to Right: Copy File: 1 
+2018-05-26 08:36:41: -- Analysis Complete. Time 00:00:03, Speed: 1 files/s
+2018-05-26 08:36:41: 
+2018-05-26 08:36:49: == Sync Started by User Command
+2018-05-26 08:36:52: Copy Over 'D:/Users/tjehu/Desktop/Old Desktop Icons/ChaoticaSync/SkillAPI/CRSkillSets/testyetagain2.txt' -> 'sftp://ptero01.omghosting.net:2022/plugins/SkillAPI/testyetagain2.txt' (0)
+2018-05-26 08:36:54: == Sync Complete. Time: 00:00:07, Speed: 3.19 KB/s, OK: 3, Errors: 0
+2018-05-26 08:36:54: 

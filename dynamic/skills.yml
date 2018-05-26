@@ -1,0 +1,1895 @@
+loaded: 'true'
+Aetherian Flight: 
+  name: 'Aetherian Flight'
+  type: 'Passive, Starter'
+  max-level: 1
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'FEATHER'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '&ePermanently grants you the ability to fly '
+  - '&eat the cost of increased hunger consumption.'
+  - ''
+  - '&2Moderate flight speed. Type and enter /fly to use flight.'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '30'
+          children: 
+            Permission-c: 
+              type: 'mechanic'
+              data: 
+                perm: 'flyspeed.fly'
+                counts: 'False'
+                icon-key: ''
+                seconds-scale: '0'
+                seconds-base: '30'
+              children:  {}
+Aetherian Might: 
+  name: 'Aetherian Might'
+  type: 'Passive'
+  max-level: 4
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'GOLD_HELMET'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePermanently increases your melee'
+  - '&eattack strength and your movement speed.'
+  - ''
+  - '&2Attack Multiplier: &fx{attr:attackMultiplier.value}'
+  - '&2Speed Multiplier: &fx{attr:speedMultiplier.multiplier}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '5'
+          children: 
+            Speed-d: 
+              type: 'mechanic'
+              data: 
+                multiplier-base: '1.04'
+                duration-base: '5'
+                counts: 'False'
+                icon-key: 'speedMultiplier'
+                multiplier-scale: '0.02'
+                duration-scale: '0'
+              children:  {}
+Aquatic Leap: 
+  name: 'Aquatic Leap'
+  type: 'Mobility'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '8'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'INK_SACK'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eLeap a long distance from water.'
+  - ''
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Water-b: 
+          type: 'condition'
+          data: 
+            icon-key: ''
+            state: 'In Water'
+          children: 
+            Launch-c: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                forward-base: '3'
+                right-base: '0'
+                forward-scale: '0.5'
+                counts: 'True'
+                upward-scale: '0.5'
+                icon-key: ''
+                upward-base: '2'
+                relative: 'Target'
+              children:  {}
+Bug Shell: 
+  name: 'Bug Shell'
+  type: 'Passive'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '2'
+    level-base: '3'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'INK_SACK'
+  icon-data: 8
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePassively restore 1 armor per sec out'
+  - '&eof combat. Recover health quicker on'
+  - '&edeep levels. '
+  - '&eWhen taking damage, a percentage of'
+  - '&ethe damage is ignored depending on'
+  - '&eyour Armor level.'
+  - ''
+  - '&2Combat Tag Duration: &66'
+  - '&2Armor/Hit: {attr:armorLoss.Amount}'
+  desc:  []
+  components: 
+    Took Physical Damage: 
+      type: 'trigger'
+      data: 
+        dmg-min: '0'
+        mana: 'False'
+        dmg-max: '999'
+        cooldown: 'False'
+        icon-key: ''
+        type: 'Both'
+        target: 'True'
+      children: 
+        Value Add-t: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: 'armorLoss'
+            amount-scale: '+1'
+            amount-base: '-10'
+            key: 'armorCurrent'
+          children:  {}
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '1'
+          children: 
+            Combat-c: 
+              type: 'condition'
+              data: 
+                seconds: '6'
+                icon-key: ''
+                combat: 'False'
+              children: 
+                Mana-d: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '10'
+                    icon-key: ''
+                    max-value-base: '39'
+                    type: 'Mana'
+                    min-value-base: '0'
+                  children: 
+                    Mana-e: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Mana'
+                        value-base: '1'
+                      children:  {}
+            Delay-g: 
+              type: 'mechanic'
+              data: 
+                counts: 'False'
+                delay-base: '0.1'
+                icon-key: ''
+                delay-scale: '0'
+              children: 
+                Value Multiply-h: 
+                  type: 'mechanic'
+                  data: 
+                    multiplier-base: '0.01'
+                    counts: 'False'
+                    icon-key: ''
+                    multiplier-scale: '0'
+                    key: 'armorCurrent'
+                  children:  {}
+                Delay-i: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    delay-base: '0.1'
+                    icon-key: ''
+                    delay-scale: '0'
+                  children: 
+                    Value Add-j: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        icon-key: ''
+                        amount-scale: '0'
+                        amount-base: 'armorCurrent'
+                        key: 'armorBase'
+                      children:  {}
+                    Delay-k: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        delay-base: '0.1'
+                        icon-key: ''
+                        delay-scale: '0'
+                      children: 
+                        Defense Buff-l: 
+                          type: 'mechanic'
+                          data: 
+                            counts: 'False'
+                            skill: 'False'
+                            value-scale: '0'
+                            icon-key: ''
+                            type: 'Multiplier'
+                            value-base: 'armorBase'
+                            seconds-scale: '0'
+                            seconds-base: '1'
+                          children:  {}
+                        Defense Buff-m: 
+                          type: 'mechanic'
+                          data: 
+                            counts: 'False'
+                            skill: 'True'
+                            value-scale: '0'
+                            icon-key: ''
+                            type: 'Multiplier'
+                            value-base: 'armorBase'
+                            seconds-scale: '0'
+                            seconds-base: '1'
+                          children:  {}
+                        Delay-n: 
+                          type: 'mechanic'
+                          data: 
+                            counts: 'False'
+                            delay-base: '0.05'
+                            icon-key: ''
+                            delay-scale: '0'
+                          children: 
+                            Value Set-o: 
+                              type: 'mechanic'
+                              data: 
+                                counts: 'False'
+                                value-scale: '0'
+                                icon-key: ''
+                                value-base: '1'
+                                key: 'armorBase'
+                              children:  {}
+            Elevation-p: 
+              type: 'condition'
+              data: 
+                min-value-scale: '0'
+                max-value-scale: '0'
+                icon-key: ''
+                max-value-base: '40'
+                type: 'Normal'
+                min-value-base: '1'
+              children: 
+                Heal-q: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    value-scale: '0'
+                    icon-key: ''
+                    type: 'Health'
+                    value-base: '0.25'
+                  children:  {}
+        Value Set-r: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            value-scale: '0'
+            icon-key: ''
+            value-base: '1'
+            key: 'armorBase'
+          children:  {}
+Cyclone: 
+  name: 'Cyclone'
+  type: 'Offense'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-2.5'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '30'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'STRING'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eSpin around, slowing and inflicting '
+  - '&edamage to all nearby hostiles.'
+  - ''
+  - '&2AoE Radius: {attr:areaEffect.radius}'
+  - '&2AoE Damage: {attr:skillDamage.value}'
+  - '&2Slow II Duration: {attr:slow.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Area-b: 
+          type: 'target'
+          data: 
+            caster: 'False'
+            max-base: '99'
+            radius-scale: '0.25'
+            icon-key: 'areaEffect'
+            radius-base: '4'
+            wall: 'True'
+            group: 'Enemy'
+            max-scale: '0'
+          children: 
+            Damage-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '3'
+                true: 'False'
+                classifier: 'default'
+                icon-key: 'skillDamage'
+                type: 'Damage'
+                value-base: '8'
+              children:  {}
+            Potion-d: 
+              type: 'mechanic'
+              data: 
+                potion: 'Slow'
+                counts: 'True'
+                icon-key: 'slow'
+                ambient: 'False'
+                tier-scale: '0'
+                seconds-scale: '0.5'
+                tier-base: '2'
+                seconds-base: '2'
+              children:  {}
+Ground Spike: 
+  name: 'Ground Spike'
+  type: 'Offense, Control'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '20'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'HOPPER'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eCause a shockwave to erupt spikes'
+  - '&ebeneath your foes. Targets every'
+  - '&eopponent in a cone in front of you.'
+  - '&eThis stuns and damages them.'
+  - ''
+  - '&2Range: {attr:skillRange.range}'
+  - '&2Stun Duration: {attr:skillStun.duration}'
+  - '&2Damage: {attr:skillDamage.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Cone-b: 
+          type: 'target'
+          data: 
+            angle-scale: '0'
+            caster: 'False'
+            max-base: '99'
+            range-scale: '0'
+            range-base: '8'
+            icon-key: 'skillRange'
+            angle-base: '60'
+            wall: 'True'
+            group: 'Enemy'
+            max-scale: '0'
+          children: 
+            Damage-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '2'
+                true: 'False'
+                classifier: 'default'
+                icon-key: 'skillDamage'
+                type: 'Damage'
+                value-base: '8'
+              children:  {}
+            Status-d: 
+              type: 'mechanic'
+              data: 
+                duration-base: '1.6'
+                counts: 'True'
+                icon-key: 'skillStun'
+                duration-scale: '0.2'
+                status: 'Stun'
+              children:  {}
+            Launch-e: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                forward-base: '0'
+                right-base: '0'
+                forward-scale: '0'
+                counts: 'True'
+                upward-scale: '0'
+                icon-key: ''
+                upward-base: '1'
+                relative: 'Target'
+              children:  {}
+            Particle-f: 
+              type: 'mechanic'
+              data: 
+                visible-radius: '25'
+                amount: '1'
+                counts: 'True'
+                forward: '0'
+                radius-scale: '0'
+                particles-scale: '0'
+                particles-base: '6'
+                right: '0'
+                radius-base: '1'
+                speed: '1'
+                arrangement: 'Circle'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                icon-key: ''
+                particle: 'Explode'
+                direction: 'XZ'
+                upward: '0'
+              children:  {}
+Irosian Might: 
+  name: 'Irosian Might'
+  type: 'Passive'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '2'
+    level-base: '3'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'GOLD_HELMET'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePermanently decreases the amount of '
+  - '&edamage you receive.'
+  - ''
+  - '&2Damage Received: {attr:defBuff.value}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '5'
+          children: 
+            Defense Buff-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'False'
+                skill: 'False'
+                value-scale: '-0.05'
+                icon-key: 'defBuff'
+                type: 'Multiplier'
+                value-base: '0.9'
+                seconds-scale: '0'
+                seconds-base: '5'
+              children:  {}
+            Defense Buff-d: 
+              type: 'mechanic'
+              data: 
+                counts: 'False'
+                skill: 'True'
+                value-scale: '-0.05'
+                icon-key: ''
+                type: 'Multiplier'
+                value-base: '0.9'
+                seconds-scale: '0'
+                seconds-base: '5'
+              children:  {}
+Maelstrom: 
+  name: 'Maelstrom'
+  type: 'Area Control'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '32'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'WEB'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eCommand water to create a strong current, '
+  - '&eslowing all nearby hostiles in water. '
+  - '&eCan only be activated while in water.'
+  - ''
+  - '&2AoE Radius: {attr:skillArea.radius}'
+  - '&2Duration: {attr:maelstrom.repetitions}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Water-b: 
+          type: 'condition'
+          data: 
+            icon-key: ''
+            state: 'In Water'
+          children: 
+            Location-e: 
+              type: 'target'
+              data: 
+                range-scale: '0'
+                range-base: '4'
+                icon-key: ''
+                ground: 'True'
+              children: 
+                Repeat-f: 
+                  type: 'mechanic'
+                  data: 
+                    period: '1'
+                    delay: '1'
+                    repetitions-base: '4'
+                    counts: 'True'
+                    icon-key: 'maelstrom'
+                    repetitions-scale: '1'
+                  children: 
+                    Area-g: 
+                      type: 'target'
+                      data: 
+                        caster: 'False'
+                        max-base: '99'
+                        radius-scale: '1'
+                        icon-key: 'skillArea'
+                        radius-base: '12'
+                        wall: 'True'
+                        group: 'Enemy'
+                        max-scale: '0'
+                      children: 
+                        Water-h: 
+                          type: 'condition'
+                          data: 
+                            icon-key: ''
+                            state: 'In Water'
+                          children: 
+                            Potion-i: 
+                              type: 'mechanic'
+                              data: 
+                                potion: 'Slow'
+                                counts: 'False'
+                                icon-key: ''
+                                ambient: 'False'
+                                tier-scale: '0'
+                                seconds-scale: '0'
+                                tier-base: '2'
+                                seconds-base: '1'
+                              children:  {}
+                    Particle-j: 
+                      type: 'mechanic'
+                      data: 
+                        visible-radius: '25'
+                        amount: '1'
+                        counts: 'False'
+                        forward: '0'
+                        radius-scale: '1'
+                        particles-scale: '0'
+                        particles-base: '20'
+                        right: '0'
+                        radius-base: '12'
+                        speed: '1'
+                        arrangement: 'Circle'
+                        dx: '0'
+                        dy: '0'
+                        dz: '0'
+                        icon-key: ''
+                        particle: 'Bubble'
+                        direction: 'XZ'
+                        upward: '0'
+                      children:  {}
+Metal Obelisk: 
+  name: 'Metal Obelisk'
+  type: 'Area Control'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-2'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '30'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'END_ROD'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePlace an obelisk which emits an aura. '
+  - '&eAll hostiles near its radius are slowed.'
+  - ''
+  - '&2AoE Radius: {attr:obeliskArea.radius}'
+  - '&2Duration: {attr:repeat.repetitions}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Location-b: 
+          type: 'target'
+          data: 
+            range-scale: '0'
+            range-base: '4'
+            icon-key: ''
+            ground: 'True'
+          children: 
+            Repeat-c: 
+              type: 'mechanic'
+              data: 
+                period: '1'
+                delay: '1'
+                repetitions-base: '8'
+                counts: 'True'
+                icon-key: 'repeat'
+                repetitions-scale: '0'
+              children: 
+                Area-d: 
+                  type: 'target'
+                  data: 
+                    caster: 'False'
+                    max-base: '99'
+                    radius-scale: '0.5'
+                    icon-key: 'obeliskArea'
+                    radius-base: '6'
+                    wall: 'True'
+                    group: 'Enemy'
+                    max-scale: '0'
+                  children: 
+                    Potion-e: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Slow'
+                        counts: 'False'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '0'
+                        tier-base: '2'
+                        seconds-base: '1'
+                      children:  {}
+                Offset-f: 
+                  type: 'target'
+                  data: 
+                    right-scale: '0'
+                    forward-base: '0'
+                    right-base: '0'
+                    forward-scale: '0'
+                    upward-scale: '0'
+                    icon-key: ''
+                    upward-base: '1'
+                  children: 
+                    Particle-g: 
+                      type: 'mechanic'
+                      data: 
+                        data: '0'
+                        counts: 'False'
+                        forward: '0'
+                        radius-scale: '0.5'
+                        particles-scale: '0'
+                        particles-base: '8'
+                        right: '0'
+                        radius-base: '6'
+                        arrangement: 'Circle'
+                        icon-key: ''
+                        particle: 'Ender Signal'
+                        direction: 'XZ'
+                        upward: '0'
+                      children:  {}
+Ruwa Inheritance: 
+  name: 'Ruwa Inheritance'
+  type: 'Passive'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '4'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'GOLD_HELMET'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePermanently makes water strengthen you. '
+  - '&eYou also move faster in water and slower while out of water. '
+  - ''
+  - '&2Attack Multiplier: {attr:dmgBuff.value}'
+  - '&2Damage Received: {attr:defBuff.value}'
+  - '&2Land Move Speed: {attr:speedDebuff.multiplier}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '1'
+          children: 
+            Water-c: 
+              type: 'condition'
+              data: 
+                icon-key: ''
+                state: 'In Water'
+              children: 
+                Potion-f: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Speed'
+                    counts: 'False'
+                    icon-key: ''
+                    ambient: 'False'
+                    tier-scale: '1'
+                    seconds-scale: '0'
+                    tier-base: '2'
+                    seconds-base: '2'
+                  children:  {}
+                Damage Buff-g: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    skill: 'False'
+                    value-scale: '0.1'
+                    icon-key: 'dmgBuff'
+                    type: 'Multiplier'
+                    value-base: '1.2'
+                    seconds-scale: '0'
+                    seconds-base: '1'
+                  children:  {}
+                Defense Buff-h: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    skill: 'False'
+                    value-scale: '-0.05'
+                    icon-key: 'defBuff'
+                    type: 'Multiplier'
+                    value-base: '0.9'
+                    seconds-scale: '0'
+                    seconds-base: '1'
+                  children:  {}
+                Defense Buff-i: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    skill: 'True'
+                    value-scale: '-0.05'
+                    icon-key: ''
+                    type: 'Multiplier'
+                    value-base: '0.9'
+                    seconds-scale: '0'
+                    seconds-base: '1'
+                  children:  {}
+                Potion-j: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Night Vision'
+                    counts: 'False'
+                    icon-key: ''
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '0'
+                    tier-base: '1'
+                    seconds-base: '12'
+                  children:  {}
+                Potion-k: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Water Breathing'
+                    counts: 'False'
+                    icon-key: ''
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '0'
+                    tier-base: '1'
+                    seconds-base: '12'
+                  children:  {}
+                Potion-l: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Jump'
+                    counts: 'False'
+                    icon-key: ''
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '0'
+                    tier-base: '2'
+                    seconds-base: '2'
+                  children:  {}
+Scratch: 
+  name: 'Scratch'
+  type: 'Offensive'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '16'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'IRON_SWORD'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePrepares your next melee attack within'
+  - '&e4 sec to deal additional bleed damage over'
+  - '&e1.5 sec, ignoring armor.'
+  - ''
+  - '&2True Damage/0.5 sec: {attr:bleedDamage.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Sound-e: 
+          type: 'mechanic'
+          data: 
+            pitch-scale: '0'
+            counts: 'True'
+            volume-base: '100'
+            volume-scale: '0'
+            icon-key: ''
+            pitch-base: '1.5'
+            version: '1.9+'
+            newsound: 'Entity Egg Throw'
+          children:  {}
+Swarmling: 
+  name: 'Swarmling'
+  type: 'Summon'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-10'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '120'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'STRING'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eRequest aid from your hive. Your loyal'
+  - '&ecompanions will depend you with their'
+  - '&elives.'
+  - ''
+  - '&2Swarmling Health: {attr:swarmling.Health}'
+  - '&2Attack Damage: {attr:swarmling.Damage}'
+  - '&2Swarmling Amount: {attr:swarmling.Amount}'
+  - '&2Summon Duration {attr:swarmling.Duration}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Wolf-b: 
+          type: 'mechanic'
+          data: 
+            health-base: '20'
+            color: 'Black'
+            counts: 'True'
+            health-scale: '5'
+            amount-base: '2'
+            damage-base: '4'
+            seconds-scale: '5'
+            seconds-base: '20'
+            skills: 
+            - ''
+            damage-scale: '1'
+            name: "{player}'s Minion"
+            icon-key: 'swarmling'
+            amount-scale: '1'
+          children: 
+            Disguise-c: 
+              type: 'mechanic'
+              data: 
+                mob: 'Silverfish'
+                duration-base: '-1'
+                counts: 'True'
+                icon-key: ''
+                duration-scale: '0'
+                type: 'Mob'
+                adult: 'True'
+              children:  {}
+Whirlwind Strike: 
+  name: 'Whirlwind Strike'
+  type: 'Offense'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-0.5'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '12'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'ELYTRA'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eThis skill acts differently, '
+  - '&edepending on whether the player is'
+  - '&ecrouching or not.'
+  - '&e*Cast to push the target with great force.'
+  - '&e*Crouch and cast to ready yourself for'
+  - '&e4 sec. Attacking within this duration flings'
+  - '&ethe target into the air.'
+  - ''
+  - '&2Airborne Duration: {attr:airborne.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Crouch-b: 
+          type: 'condition'
+          data: 
+            crouch: 'True'
+            icon-key: ''
+          children: 
+            Sound-k: 
+              type: 'mechanic'
+              data: 
+                pitch-scale: '0'
+                counts: 'True'
+                volume-base: '100'
+                volume-scale: '0'
+                icon-key: ''
+                pitch-base: '1.5'
+                version: '1.9+'
+                newsound: 'Entity Egg Throw'
+              children:  {}
+Aetherian Dash: 
+  name: 'Aetherian Dash'
+  type: 'Mobility'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-2'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '20'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'GLASS'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eAn evasive maneuver which also temporarily '
+  - '&eraises your defense.'
+  - ''
+  - '&2Buff Duration: {attr:defBuff.seconds}'
+  - '&2Damage Received: {attr:defBuff.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Launch-b: 
+          type: 'mechanic'
+          data: 
+            right-scale: '0'
+            forward-base: '2'
+            right-base: '0'
+            forward-scale: '0'
+            counts: 'True'
+            upward-scale: 'NaN'
+            icon-key: ''
+            upward-base: '0.5'
+            relative: 'Target'
+          children:  {}
+        Defense Buff-c: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            skill: 'False'
+            value-scale: '-0.05'
+            icon-key: 'defBuff'
+            type: 'Multiplier'
+            value-base: '0.8'
+            seconds-scale: '0.5'
+            seconds-base: '4'
+          children:  {}
+        Defense Buff-d: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            skill: 'True'
+            value-scale: '-0.05'
+            icon-key: ''
+            type: 'Multiplier'
+            value-base: '0.8'
+            seconds-scale: '0.5'
+            seconds-base: '4'
+          children:  {}
+Aetherian Focus: 
+  name: 'Aetherian Focus'
+  type: 'Passive'
+  max-level: 4
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '8'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'IRON_SWORD'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eWhenever this skill is active, your next '
+  - '&emelee attack deals additional armor-ignoring damage.'
+  - '&eAfter a cooldown, this skill can be activated again.'
+  - ''
+  - '&2Piercing Damage Bonus: {attr:trueDamage.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Physical Damage: 
+      type: 'trigger'
+      data: 
+        dmg-min: '0'
+        mana: 'False'
+        dmg-max: '999'
+        cooldown: 'True'
+        icon-key: ''
+        type: 'Melee'
+        target: 'False'
+      children: 
+        Damage-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            value-scale: '1'
+            true: 'True'
+            classifier: 'default'
+            icon-key: 'trueDamage'
+            type: 'Damage'
+            value-base: '2'
+          children:  {}
+        Self-c: 
+          type: 'target'
+          data: 
+            icon-key: ''
+          children:  {}
+Boulder Toss: 
+  name: 'Boulder Toss'
+  type: 'Offense'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '16'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'COBBLESTONE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eThrow a projectile which slows and '
+  - '&edeals damage in an area.'
+  - ''
+  - '&2AoE Radius: {attr:targetArea.radius}'
+  - '&2Damage: {attr:targetDamage.value}'
+  - '&2Slow III Duration: {attr:slow.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Projectile-b: 
+          type: 'mechanic'
+          data: 
+            right-scale: '0'
+            flaming: 'False'
+            cost: ''
+            forward-base: '0'
+            right-base: '0'
+            forward-scale: '0'
+            counts: 'True'
+            upward-scale: '0'
+            amount-base: '1'
+            spread: 'Cone'
+            angle-scale: '0'
+            use-effect: 'False'
+            velocity-base: '3'
+            icon-key: ''
+            amount-scale: '0'
+            position: '1'
+            angle-base: '30'
+            upward-base: '0'
+            projectile: 'Snowball'
+            velocity-scale: '0'
+            group: 'Enemy'
+          children: 
+            Area-c: 
+              type: 'target'
+              data: 
+                caster: 'False'
+                max-base: '99'
+                radius-scale: '0.25'
+                icon-key: 'targetArea'
+                radius-base: '3'
+                wall: 'True'
+                group: 'Enemy'
+                max-scale: '0'
+              children: 
+                Damage-d: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    value-scale: '2'
+                    true: 'False'
+                    classifier: 'default'
+                    icon-key: 'targetDamage'
+                    type: 'Damage'
+                    value-base: '8'
+                  children:  {}
+                Potion-e: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Slow'
+                    counts: 'False'
+                    icon-key: 'slow'
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '0.3'
+                    tier-base: '3'
+                    seconds-base: '2'
+                  children:  {}
+Irosian Strength: 
+  name: 'Irosian Strength'
+  type: 'Passive'
+  max-level: 1
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '5'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'STONE_AXE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePermanently increases your melee attack '
+  - '&estrength. Dealing melee damage decreases '
+  - '&ethe cooldown of Irosian active skills.'
+  - ''
+  - '&2Attack Multiplier: &fx1.1'
+  - '&2Cooldown Reduction: &f1'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '5'
+          children: 
+            Damage Buff-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'False'
+                skill: 'False'
+                value-scale: '0'
+                icon-key: ''
+                type: 'Multiplier'
+                value-base: '1.1'
+                seconds-scale: '0'
+                seconds-base: '5'
+              children:  {}
+    Physical Damage: 
+      type: 'trigger'
+      data: 
+        dmg-min: '0'
+        mana: 'False'
+        dmg-max: '999'
+        cooldown: 'False'
+        icon-key: ''
+        type: 'Melee'
+        target: 'True'
+      children: 
+        Cooldown-e: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            skill: 'Boulder Toss'
+            value-scale: '0'
+            icon-key: ''
+            type: 'Seconds'
+            value-base: '1'
+          children:  {}
+        Cooldown-f: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            skill: 'Metal Obelisk'
+            value-scale: '0'
+            icon-key: ''
+            type: 'Seconds'
+            value-base: '1'
+          children:  {}
+Tidal Wave: 
+  name: 'Tidal Wave'
+  type: 'Passive'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '8'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'PRISMARINE_SHARD'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eAttacking a hostile marks them. After a 4 sec delay, '
+  - '&ethe hostile receives a burst of damage.'
+  - ''
+  - '&2Damage: {attr:skillDamage.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Physical Damage: 
+      type: 'trigger'
+      data: 
+        dmg-min: '0'
+        mana: 'False'
+        dmg-max: '999'
+        cooldown: 'True'
+        icon-key: ''
+        type: 'Both'
+        target: 'False'
+      children: 
+        Delay-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            delay-base: '4'
+            icon-key: ''
+            delay-scale: '0'
+          children: 
+            Particle-c: 
+              type: 'mechanic'
+              data: 
+                visible-radius: '25'
+                amount: '1'
+                counts: 'False'
+                forward: '0'
+                radius-scale: '0'
+                particles-scale: '0'
+                particles-base: '8'
+                right: '0'
+                radius-base: '1'
+                speed: '1'
+                arrangement: 'Circle'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                icon-key: ''
+                particle: 'Bubble'
+                direction: 'XZ'
+                upward: '0'
+              children:  {}
+            Sound-d: 
+              type: 'mechanic'
+              data: 
+                pitch-scale: '0'
+                counts: 'False'
+                volume-base: '100'
+                volume-scale: '0'
+                icon-key: ''
+                pitch-base: '1'
+                version: '1.9+'
+                newsound: 'Entity Player Swim'
+              children:  {}
+            Damage-e: 
+              type: 'mechanic'
+              data: 
+                counts: 'False'
+                value-scale: '4'
+                true: 'False'
+                classifier: 'default'
+                icon-key: 'skillDamage'
+                type: 'Damage'
+                value-base: '8'
+              children:  {}
+        Particle-f: 
+          type: 'mechanic'
+          data: 
+            visible-radius: '25'
+            amount: '1'
+            counts: 'False'
+            forward: '0'
+            radius-scale: '0'
+            particles-scale: '0'
+            particles-base: '8'
+            right: '0'
+            radius-base: '1'
+            speed: '1'
+            arrangement: 'Circle'
+            dx: '0'
+            dy: '0'
+            dz: '0'
+            icon-key: ''
+            particle: 'Red Dust'
+            direction: 'XZ'
+            upward: '0'
+          children:  {}
+Water Surge: 
+  name: 'Water Surge'
+  type: 'Offense'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '20'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'WATER_BUCKET'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eCommand water to fire a projectile which '
+  - '&estuns the target. Can only be activated '
+  - '&ewhile in water.'
+  - ''
+  - '&2Stun Duration: {attr:statusStun.duration}'
+  - '&2Damage: {attr:skillDamage.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Water-b: 
+          type: 'condition'
+          data: 
+            icon-key: ''
+            state: 'In Water'
+          children: 
+            Particle Projectile-c: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                forward-base: '0'
+                counts: 'True'
+                upward-scale: '0'
+                lifespan: '2'
+                particles-base: '8'
+                radius-base: '2'
+                speed: '1'
+                frequency: '0.05'
+                arrangement: 'Sphere'
+                use-effect: 'False'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                velocity-base: '3'
+                particle: 'Bubble'
+                upward-base: '0'
+                pierce: 'False'
+                group: 'Enemy'
+                visible-radius: '25'
+                amount: '1'
+                right-base: '0'
+                forward-scale: '0'
+                radius-scale: '0'
+                particles-scale: '0'
+                amount-base: '1'
+                spread: 'Cone'
+                angle-scale: '0'
+                gravity: '0'
+                icon-key: ''
+                amount-scale: '0'
+                position: '0'
+                angle-base: '30'
+                velocity-scale: '0'
+              children: 
+                Damage-d: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    value-scale: '2'
+                    true: 'False'
+                    classifier: 'default'
+                    icon-key: 'skillDamage'
+                    type: 'Damage'
+                    value-base: '8'
+                  children:  {}
+                Status-e: 
+                  type: 'mechanic'
+                  data: 
+                    duration-base: '1.2'
+                    counts: 'False'
+                    icon-key: 'statusStun'
+                    duration-scale: '0.2'
+                    status: 'Stun'
+                  children:  {}
+Soul Robber: 
+  name: 'Soul Robber'
+  type: 'Passive'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'BONE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eWhen you get a kill, it captures the escaping soul and'
+  - '&eadds it to your soul reservoir for later use.'
+  - ''
+  - '&2Souls Per Kill: &fx{level}'
+  desc:  []
+  components: 
+    Kill: 
+      type: 'trigger'
+      data: 
+        mana: 'False'
+        cooldown: 'False'
+        icon-key: ''
+      children: 
+        Mana-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            value-scale: '1'
+            icon-key: ''
+            type: 'Mana'
+            value-base: '1'
+          children:  {}
+Unholy: 
+  name: 'Unholy'
+  type: 'Passive'
+  max-level: 1
+  skill-req-lvl: 0
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '0'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '0'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'FIRE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '&eYou take extra damage(2x) from Light magic,'
+  - '&eand you burn under the full light of the sun.'
+  - '&cThe price of being one of the Undead...'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '8'
+          children: 
+            Water-c: 
+              type: 'condition'
+              data: 
+                icon-key: ''
+                state: 'Out Of Water'
+              children: 
+                Light-d: 
+                  type: 'condition'
+                  data: 
+                    min-light-scale: '0'
+                    max-light-scale: '16'
+                    max-light-base: '16'
+                    icon-key: ''
+                    min-light-base: '15'
+                  children: 
+                    Fire-e: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        icon-key: ''
+                        seconds-scale: '1'
+                        seconds-base: '10'
+                      children:  {}

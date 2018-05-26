@@ -1,0 +1,114 @@
+Ground Spike: 
+  name: 'Ground Spike'
+  type: 'Offense, Control'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '20'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'HOPPER'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eCause a shockwave to erupt spikes'
+  - '&ebeneath your foes. Targets every'
+  - '&eopponent in a cone in front of you.'
+  - '&eThis stuns and damages them.'
+  - ''
+  - '&2Range: {attr:skillRange.range}'
+  - '&2Stun Duration: {attr:skillStun.duration}'
+  - '&2Damage: {attr:skillDamage.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Cone-b: 
+          type: 'target'
+          data: 
+            angle-scale: '0'
+            caster: 'False'
+            max-base: '99'
+            range-scale: '0'
+            range-base: '8'
+            icon-key: 'skillRange'
+            angle-base: '60'
+            wall: 'True'
+            group: 'Enemy'
+            max-scale: '0'
+          children: 
+            Damage-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '2'
+                true: 'False'
+                classifier: 'default'
+                icon-key: 'skillDamage'
+                type: 'Damage'
+                value-base: '8'
+              children:  {}
+            Status-d: 
+              type: 'mechanic'
+              data: 
+                duration-base: '1.6'
+                counts: 'True'
+                icon-key: 'skillStun'
+                duration-scale: '0.2'
+                status: 'Stun'
+              children:  {}
+            Launch-e: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                forward-base: '0'
+                right-base: '0'
+                forward-scale: '0'
+                counts: 'True'
+                upward-scale: '0'
+                icon-key: ''
+                upward-base: '1'
+                relative: 'Target'
+              children:  {}
+            Particle-f: 
+              type: 'mechanic'
+              data: 
+                visible-radius: '25'
+                amount: '1'
+                counts: 'True'
+                forward: '0'
+                radius-scale: '0'
+                particles-scale: '0'
+                particles-base: '6'
+                right: '0'
+                radius-base: '1'
+                speed: '1'
+                arrangement: 'Circle'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                icon-key: ''
+                particle: 'Explode'
+                direction: 'XZ'
+                upward: '0'
+              children:  {}

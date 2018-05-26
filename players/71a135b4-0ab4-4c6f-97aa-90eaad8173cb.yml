@@ -1,0 +1,97 @@
+limit: 3
+active: 5
+health: 20.0
+mana: 1.0
+accounts: 
+  acc1: 
+    classes: 
+      Irosian: 
+        level: 14
+        points: 0
+        exp: 47.0
+    skills: 
+      Metal Obelisk: 
+        level: 4
+        points: 0
+      Ground Spike: 
+        level: 5
+        points: 0
+      Irosian Might: 
+        level: 5
+        points: 0
+    binds: 
+      DIAMOND_PICKAXE: 'Metal Obelisk'
+      DIAMOND_AXE: 'Ground Spike'
+  acc2: 
+    classes: 
+      Aetherian: 
+        level: 1
+        points: 0
+        exp: 0.0
+    skills: 
+      Aetherian Might: 
+        level: 0
+        points: 0
+      Whirlwind Strike: 
+        level: 1
+        points: 0
+      Aetherian Flight: 
+        level: 0
+        points: 0
+      Cyclone: 
+        level: 0
+        points: 0
+    binds: 
+      DIAMOND_AXE: 'Whirlwind Strike'
+  acc3: 
+    classes: 
+      Ruwa: 
+        level: 1
+        points: 0
+        exp: 0.0
+    skills: 
+      Ruwa Inheritance: 
+        level: 0
+        points: 0
+      Maelstrom: 
+        level: 0
+        points: 0
+      Aquatic Leap: 
+        level: 1
+        points: 0
+    binds: 
+      DIAMOND_AXE: 'Aquatic Leap'
+  acc4: 
+    classes: 
+      Insectoid: 
+        level: 15
+        points: 0
+        exp: 360.0
+    skills: 
+      Bug Shell: 
+        level: 5
+        points: 0
+      Scratch: 
+        level: 5
+        points: 0
+      Swarmling: 
+        level: 5
+        points: 0
+    binds: 
+      DIAMOND_PICKAXE: 'Swarmling'
+      DIAMOND_AXE: 'Scratch'
+  acc5: 
+    classes: 
+      Ankore: 
+        level: 2
+        points: 0
+        exp: 23.0
+    skills: 
+      Soul Robber: 
+        level: 2
+        points: 0
+      Unholy: 
+        level: 1
+        points: 0
+    binds: 
+      DIAMOND_AXE: 'Unholy'

@@ -1,0 +1,210 @@
+Bug Shell: 
+  name: 'Bug Shell'
+  type: 'Passive'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '2'
+    level-base: '3'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'INK_SACK'
+  icon-data: 8
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePassively restore 1 armor per sec out'
+  - '&eof combat. Recover health quicker on'
+  - '&edeep levels. '
+  - '&eWhen taking damage, a percentage of'
+  - '&ethe damage is ignored depending on'
+  - '&eyour Armor level.'
+  - ''
+  - '&2Combat Tag Duration: &66'
+  - '&2Armor/Hit: {attr:armorLoss.Amount}'
+  desc:  []
+  components: 
+    Took Physical Damage: 
+      type: 'trigger'
+      data: 
+        dmg-min: '0'
+        mana: 'False'
+        dmg-max: '999'
+        cooldown: 'False'
+        icon-key: ''
+        type: 'Both'
+        target: 'True'
+      children: 
+        Value Add-t: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: 'armorLoss'
+            amount-scale: '+1'
+            amount-base: '-10'
+            key: 'armorCurrent'
+          children:  {}
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '1'
+          children: 
+            Combat-c: 
+              type: 'condition'
+              data: 
+                seconds: '6'
+                icon-key: ''
+                combat: 'False'
+              children: 
+                Mana-d: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '10'
+                    icon-key: ''
+                    max-value-base: '39'
+                    type: 'Mana'
+                    min-value-base: '0'
+                  children: 
+                    Mana-e: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Mana'
+                        value-base: '1'
+                      children:  {}
+            Delay-g: 
+              type: 'mechanic'
+              data: 
+                counts: 'False'
+                delay-base: '0.1'
+                icon-key: ''
+                delay-scale: '0'
+              children: 
+                Value Multiply-h: 
+                  type: 'mechanic'
+                  data: 
+                    multiplier-base: '0.01'
+                    counts: 'False'
+                    icon-key: ''
+                    multiplier-scale: '0'
+                    key: 'armorCurrent'
+                  children:  {}
+                Delay-i: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    delay-base: '0.1'
+                    icon-key: ''
+                    delay-scale: '0'
+                  children: 
+                    Value Add-j: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        icon-key: ''
+                        amount-scale: '0'
+                        amount-base: 'armorCurrent'
+                        key: 'armorBase'
+                      children:  {}
+                    Delay-k: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        delay-base: '0.1'
+                        icon-key: ''
+                        delay-scale: '0'
+                      children: 
+                        Defense Buff-l: 
+                          type: 'mechanic'
+                          data: 
+                            counts: 'False'
+                            skill: 'False'
+                            value-scale: '0'
+                            icon-key: ''
+                            type: 'Multiplier'
+                            value-base: 'armorBase'
+                            seconds-scale: '0'
+                            seconds-base: '1'
+                          children:  {}
+                        Defense Buff-m: 
+                          type: 'mechanic'
+                          data: 
+                            counts: 'False'
+                            skill: 'True'
+                            value-scale: '0'
+                            icon-key: ''
+                            type: 'Multiplier'
+                            value-base: 'armorBase'
+                            seconds-scale: '0'
+                            seconds-base: '1'
+                          children:  {}
+                        Delay-n: 
+                          type: 'mechanic'
+                          data: 
+                            counts: 'False'
+                            delay-base: '0.05'
+                            icon-key: ''
+                            delay-scale: '0'
+                          children: 
+                            Value Set-o: 
+                              type: 'mechanic'
+                              data: 
+                                counts: 'False'
+                                value-scale: '0'
+                                icon-key: ''
+                                value-base: '1'
+                                key: 'armorBase'
+                              children:  {}
+            Elevation-p: 
+              type: 'condition'
+              data: 
+                min-value-scale: '0'
+                max-value-scale: '0'
+                icon-key: ''
+                max-value-base: '40'
+                type: 'Normal'
+                min-value-base: '1'
+              children: 
+                Heal-q: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    value-scale: '0'
+                    icon-key: ''
+                    type: 'Health'
+                    value-base: '0.25'
+                  children:  {}
+        Value Set-r: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            value-scale: '0'
+            icon-key: ''
+            value-base: '1'
+            key: 'armorBase'
+          children:  {}

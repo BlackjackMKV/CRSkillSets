@@ -1,0 +1,22 @@
+limit: 3
+active: 1
+health: 20.0
+mana: 0.0
+accounts: 
+  acc1: 
+    classes: 
+      Ruwa: 
+        level: 3
+        points: 0
+        exp: 29.0
+    skills: 
+      Ruwa Inheritance: 
+        level: 1
+        points: 0
+      Maelstrom: 
+        level: 1
+        points: 0
+      Aquatic Leap: 
+        level: 0
+        points: 0
+    binds:  {}

@@ -1,0 +1,59 @@
+Aetherian Might: 
+  name: 'Aetherian Might'
+  type: 'Passive'
+  max-level: 4
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'GOLD_HELMET'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePermanently increases your melee'
+  - '&eattack strength and your movement speed.'
+  - ''
+  - '&2Attack Multiplier: &fx{attr:attackMultiplier.value}'
+  - '&2Speed Multiplier: &fx{attr:speedMultiplier.multiplier}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '5'
+          children: 
+            Speed-d: 
+              type: 'mechanic'
+              data: 
+                multiplier-base: '1.04'
+                duration-base: '5'
+                counts: 'False'
+                icon-key: 'speedMultiplier'
+                multiplier-scale: '0.02'
+                duration-scale: '0'
+              children:  {}

@@ -1,0 +1,78 @@
+Cyclone: 
+  name: 'Cyclone'
+  type: 'Offense'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-2.5'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '30'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'STRING'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eSpin around, slowing and inflicting '
+  - '&edamage to all nearby hostiles.'
+  - ''
+  - '&2AoE Radius: {attr:areaEffect.radius}'
+  - '&2AoE Damage: {attr:skillDamage.value}'
+  - '&2Slow II Duration: {attr:slow.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Area-b: 
+          type: 'target'
+          data: 
+            caster: 'False'
+            max-base: '99'
+            radius-scale: '0.25'
+            icon-key: 'areaEffect'
+            radius-base: '4'
+            wall: 'True'
+            group: 'Enemy'
+            max-scale: '0'
+          children: 
+            Damage-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '3'
+                true: 'False'
+                classifier: 'default'
+                icon-key: 'skillDamage'
+                type: 'Damage'
+                value-base: '8'
+              children:  {}
+            Potion-d: 
+              type: 'mechanic'
+              data: 
+                potion: 'Slow'
+                counts: 'True'
+                icon-key: 'slow'
+                ambient: 'False'
+                tier-scale: '0'
+                seconds-scale: '0.5'
+                tier-base: '2'
+                seconds-base: '2'
+              children:  {}

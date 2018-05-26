@@ -1,0 +1,28 @@
+limit: 3
+active: 1
+health: 20.0
+mana: 0.0
+accounts: 
+  acc1: 
+    classes: 
+      Aetherian: 
+        level: 2
+        points: 1
+        exp: 11.0
+    skills: 
+      Aetherian Might: 
+        level: 0
+        points: 0
+      Aetherian Focus: 
+        level: 0
+        points: 0
+      Aetherian Dash: 
+        level: 0
+        points: 0
+      Aetherian Flight: 
+        level: 1
+        points: 0
+      Cyclone: 
+        level: 0
+        points: 0
+    binds:  {}

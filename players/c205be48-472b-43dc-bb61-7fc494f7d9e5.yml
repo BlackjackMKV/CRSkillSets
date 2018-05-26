@@ -1,0 +1,32 @@
+limit: 3
+active: 1
+health: 20.0
+mana: 0.0
+accounts: 
+  acc1: 
+    classes: 
+      Aetherian: 
+        level: 20
+        points: 0
+        exp: 2.0
+    skills: 
+      Aetherian Might: 
+        level: 5
+        points: 0
+      Aetherian Focus: 
+        level: 4
+        points: 0
+      Aetherian Dash: 
+        level: 5
+        points: 0
+      Aetherian Flight: 
+        level: 1
+        points: 0
+      Cyclone: 
+        level: 5
+        points: 0
+    binds: 
+      GHAST_TEAR: 'Cyclone'
+      ARROW: 'Aetherian Dash'
+      SULPHUR: 'Aetherian Flight'
+      DIAMOND_SWORD: 'Cyclone'

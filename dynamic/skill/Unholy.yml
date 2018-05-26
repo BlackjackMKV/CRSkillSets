@@ -1,0 +1,67 @@
+Unholy: 
+  name: 'Unholy'
+  type: 'Passive'
+  max-level: 1
+  skill-req-lvl: 0
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '0'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '0'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'FIRE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '&eYou take extra damage(2x) from Light magic,'
+  - '&eand you burn under the full light of the sun.'
+  - '&cThe price of being one of the Undead...'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '8'
+          children: 
+            Water-c: 
+              type: 'condition'
+              data: 
+                icon-key: ''
+                state: 'Out Of Water'
+              children: 
+                Light-d: 
+                  type: 'condition'
+                  data: 
+                    min-light-scale: '0'
+                    max-light-scale: '16'
+                    max-light-base: '16'
+                    icon-key: ''
+                    min-light-base: '15'
+                  children: 
+                    Fire-e: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        icon-key: ''
+                        seconds-scale: '1'
+                        seconds-base: '10'
+                      children:  {}

@@ -1,0 +1,64 @@
+Aetherian Focus: 
+  name: 'Aetherian Focus'
+  type: 'Passive'
+  max-level: 4
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '8'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'IRON_SWORD'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eWhenever this skill is active, your next '
+  - '&emelee attack deals additional armor-ignoring damage.'
+  - '&eAfter a cooldown, this skill can be activated again.'
+  - ''
+  - '&2Piercing Damage Bonus: {attr:trueDamage.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Physical Damage: 
+      type: 'trigger'
+      data: 
+        dmg-min: '0'
+        mana: 'False'
+        dmg-max: '999'
+        cooldown: 'True'
+        icon-key: ''
+        type: 'Melee'
+        target: 'False'
+      children: 
+        Damage-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            value-scale: '1'
+            true: 'True'
+            classifier: 'default'
+            icon-key: 'trueDamage'
+            type: 'Damage'
+            value-base: '2'
+          children:  {}
+        Self-c: 
+          type: 'target'
+          data: 
+            icon-key: ''
+          children:  {}

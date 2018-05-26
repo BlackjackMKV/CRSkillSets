@@ -1,0 +1,27 @@
+limit: 3
+active: 1
+health: 20.0
+mana: 0.0
+accounts: 
+  acc1: 
+    classes: 
+      Irosian: 
+        level: 20
+        points: 0
+        exp: 6.0
+    skills: 
+      Metal Obelisk: 
+        level: 5
+        points: 0
+      Boulder Toss: 
+        level: 5
+        points: 0
+      Irosian Might: 
+        level: 9
+        points: 0
+      Irosian Strength: 
+        level: 1
+        points: 0
+    binds: 
+      COBBLESTONE: 'Boulder Toss'
+      DIAMOND_SWORD: 'Metal Obelisk'

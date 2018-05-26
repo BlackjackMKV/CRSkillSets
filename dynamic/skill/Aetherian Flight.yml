@@ -1,0 +1,54 @@
+Aetherian Flight: 
+  name: 'Aetherian Flight'
+  type: 'Passive, Starter'
+  max-level: 1
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'FEATHER'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '&ePermanently grants you the ability to fly '
+  - '&eat the cost of increased hunger consumption.'
+  - ''
+  - '&2Moderate flight speed. Type and enter /fly to use flight.'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '30'
+          children: 
+            Permission-c: 
+              type: 'mechanic'
+              data: 
+                perm: 'flyspeed.fly'
+                counts: 'False'
+                icon-key: ''
+                seconds-scale: '0'
+                seconds-base: '30'
+              children:  {}
