@@ -1,67 +1,68 @@
-Unholy: 
+Unholy:
   name: 'Unholy'
   type: 'Passive'
   max-level: 1
+  skill-req: ''
   skill-req-lvl: 0
   needs-permission: 'false'
-  attributes: 
-    cost-base: '0'
-    cooldown-scale: '0'
-    incompatible: 
-    - ''
-    cost-scale: '0'
-    level-scale: '0'
-    level-base: '0'
-    mana-base: '0'
-    points-spent-req-base: '0'
-    mana-scale: '0'
-    cooldown-base: '0'
-    points-spent-req-scale: '0'
   msg: '&6{player} &2has cast &6{skill}'
-  icon: 'FIRE'
+  combo: ''
+  indicator: '2D'
+  icon: 'BLAZE_POWDER'
   icon-data: 0
-  icon-lore: 
+  icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
   - '&eYou take extra damage(2x) from Light magic,'
   - '&eand you burn under the full light of the sun.'
   - '&cThe price of being one of the Undead...'
-  desc:  []
-  components: 
-    Initialize: 
+  attributes:
+    level-base: 0
+    level-scale: 0
+    cost-base: 0
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
       type: 'trigger'
-      data: 
+      data:
         icon-key: ''
-      children: 
-        Passive-b: 
+      children:
+        Passive-b:
           type: 'mechanic'
-          data: 
-            counts: 'True'
+          data:
             icon-key: ''
-            seconds-scale: '0'
-            seconds-base: '8'
-          children: 
-            Water-c: 
+            counts: 'False'
+            seconds-base: 5
+            seconds-scale: 0
+          children:
+            Water-c:
               type: 'condition'
-              data: 
+              data:
                 icon-key: ''
                 state: 'Out Of Water'
-              children: 
-                Light-d: 
+              children:
+                Light-d:
                   type: 'condition'
-                  data: 
-                    min-light-scale: '0'
-                    max-light-scale: '16'
-                    max-light-base: '16'
+                  data:
                     icon-key: ''
-                    min-light-base: '15'
-                  children: 
-                    Fire-e: 
+                    min-light-base: 14
+                    min-light-scale: 0
+                    max-light-base: 17
+                    max-light-scale: 16
+                  children:
+                    Fire-e:
                       type: 'mechanic'
-                      data: 
-                        counts: 'False'
+                      data:
                         icon-key: ''
-                        seconds-scale: '1'
-                        seconds-base: '10'
-                      children:  {}
+                        counts: 'False'
+                        seconds-base: 10
+                        seconds-scale: 0
