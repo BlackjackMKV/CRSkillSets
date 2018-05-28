@@ -1,0 +1,81 @@
+Soul Release:
+  name: 'Soul Release'
+  type: 'Tactical Offense'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Lava Bucket'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eReleases &42000 Souls&e in a massive energy burst.'
+  - '&eThe burst has an explosion power of approximately'
+  - '&e6x that of TNT.'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 10
+    level-scale: 0
+    cost-base: 5
+    cost-scale: 0
+    cooldown-base: 600
+    cooldown-scale: 0
+    mana-base: 2000
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Immunity-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            type: 'Block Explosion'
+            seconds-base: 3
+            seconds-scale: 0
+            multiplier-base: 0
+            multiplier-scale: 0
+        Immunity-c:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            type: 'Entity Explosion'
+            seconds-base: 3
+            seconds-scale: 0
+            multiplier-base: 0
+            multiplier-scale: 0
+        Delay-d:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            delay-base: 0.1
+            delay-scale: 0
+          children:
+            Explosion-e:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                power-base: 25
+                power-scale: 0
+                damage: 'False'
+                fire: 'False'
