@@ -353,9 +353,9 @@ Experience:
   # The formula used for calculating required experience
   # The formula is: x*lvl*lvl + y*lvl + z
   formula: 
-    x: '1'
-    y: '8'
-    z: '16'
+    x: '5'
+    y: '20'
+    z: '75'
 
   # Whether or not to use a custom equation
   use-custom: 'false'
