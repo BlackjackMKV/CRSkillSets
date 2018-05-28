@@ -1,0 +1,86 @@
+Soul Reaper:
+  name: 'Soul Reaper'
+  type: 'Tactical Offense'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Redstone'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eTargets all enemies within 30 blocks of the target entity.'
+  - '&eBreaks their soul tether, causing their souls to release all'
+  - '&etheir stored energy in the form of an electrical blast.'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 15
+    level-scale: 0
+    cost-base: 10
+    cost-scale: 0
+    cooldown-base: 1800
+    cooldown-scale: 0
+    mana-base: 5000
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Single-b:
+          type: 'target'
+          data:
+            icon-key: ''
+            range-base: 50
+            range-scale: 0
+            tolerance-base: 4
+            tolerance-scale: 0
+            group: 'Enemy'
+            wall: 'False'
+          children:
+            Area-c:
+              type: 'target'
+              data:
+                icon-key: ''
+                radius-base: 30
+                radius-scale: 0
+                group: 'Enemy'
+                wall: 'True'
+                caster: 'False'
+                max-base: 99
+                max-scale: 0
+              children:
+                Lightning-d:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    damage: 'True'
+                    forward-base: 0
+                    forward-scale: 0
+                    right-base: 0
+                    right-scale: 0
+                Explosion-e:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    power-base: 5
+                    power-scale: 0
+                    damage: 'False'
+                    fire: 'True'
