@@ -1,16 +1,27 @@
-Condense Souls:
+Condense Souls: 
   name: 'Condense Souls'
   type: 'Utility'
   max-level: 5
   skill-req: 'Soul Robber'
   skill-req-lvl: 1
-  needs-permission: 'False'
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '2'
+    level-base: '1'
+    mana-base: '500'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '5'
+    points-spent-req-scale: '0'
   msg: '&6{player} &2has condensed &4500 Souls&2 into &bAuralite'
-  combo: ''
-  indicator: '2D'
-  icon: 'Lapis Ore'
+  icon: 'LAPIS_ORE'
   icon-data: 0
-  icon-lore:
+  icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
@@ -19,29 +30,18 @@ Condense Souls:
   - ''
   - '&2Mana: {attr:mana}'
   - '&2Cooldown: {attr:cooldown}'
-  attributes:
-    level-base: 1
-    level-scale: 2
-    cost-base: 1
-    cost-scale: 0
-    cooldown-base: 5
-    cooldown-scale: -1
-    mana-base: 500
-    mana-scale: 0
-    points-spent-req-base: 0
-    points-spent-req-scale: 0
-    incompatible:
-    - ''
-  components:
-    Cast-a:
+  desc:  []
+  components: 
+    Cast: 
       type: 'trigger'
-      data:
+      data: 
         icon-key: ''
-      children:
-        Command-b:
+      children: 
+        Command-b: 
           type: 'mechanic'
-          data:
-            icon-key: ''
+          data: 
             counts: 'True'
-            command: 'give @p wooden_sword 1 2 {display: {Name: "&9Auralite"}, Unbreakable: 1}'
+            icon-key: ''
             type: 'Console'
+            command: 'give {player} wooden_sword 1 2 {display: {Name: "§9Auralite"}, Unbreakable: 1}'
+          children:  {}
