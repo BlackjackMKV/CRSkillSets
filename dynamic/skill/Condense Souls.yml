@@ -1,0 +1,53 @@
+Condense Souls:
+  name: 'Condense Souls'
+  type: 'Utility'
+  max-level: 5
+  skill-req: 'Soul Robber'
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has condensed &4500 Souls&2 into &bAuralite'
+  combo: ''
+  indicator: '2D'
+  icon: 'Lapis Ore'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 2
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 5
+    cooldown-scale: -1
+    mana-base: 500
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Item-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            material: 'Ink Sack'
+            amount: 1
+            data: 0
+            byte: 100
+            custom: 'True'
+            name: '&9Auralite'
+            lore:
+            - '&b500 souls condensed into a solid form.'

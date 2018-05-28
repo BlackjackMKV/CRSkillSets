@@ -1,0 +1,89 @@
+Absorb Auralite:
+  name: 'Absorb Auralite'
+  type: 'Dynamic'
+  max-level: 1
+  skill-req: 'Soul Robber'
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has absorbed &4500 Souls&2 from &bAuralite'
+  combo: ''
+  indicator: '2D'
+  icon: 'Lapis Block'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Inventory-b:
+          type: 'condition'
+          data:
+            icon-key: ''
+            amount-base: 1
+            amount-scale: 0
+            check-mat: 'True'
+            material: 'Ink Sack'
+            check-data: 'True'
+            data: 100
+            check-lore: 'False'
+            check-name: 'True'
+            name: '&9Auralite'
+            regex: 'False'
+          children:
+            Item Remove-c:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                amount-base: 1
+                amount-scale: 0
+                check-mat: 'True'
+                material: 'Ink Sack'
+                check-data: 'True'
+                data: 100
+                check-lore: 'False'
+                check-name: 'True'
+                name: '&9Auralite'
+                regex: 'False'
+            Mana-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                type: 'Mana'
+                value-base: 500
+                value-scale: 0
+            Else-e:
+              type: 'condition'
+              data:
+                icon-key: ''
+              children:
+                Message-f:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    message: "&cYou don't have any &9Auralite&c!"
