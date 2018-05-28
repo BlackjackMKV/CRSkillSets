@@ -1,7 +1,7 @@
 race: 
   default: 'none'
   permission: 'none'
-  profess-reset: 'false'
+  profess-reset: 'true'
   can-reset: 'true'
   show-scoreboard: 'true'
   exp-lost-on-death: 0.0
