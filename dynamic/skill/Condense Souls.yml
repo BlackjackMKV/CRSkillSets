@@ -38,16 +38,10 @@ Condense Souls:
       data:
         icon-key: ''
       children:
-        Item-b:
+        Command-b:
           type: 'mechanic'
           data:
             icon-key: ''
             counts: 'True'
-            material: 'Ink Sack'
-            amount: 1
-            data: 0
-            byte: 100
-            custom: 'True'
-            name: '&9Auralite'
-            lore:
-            - '&b500 souls condensed into a solid form.'
+            command: 'give @p wooden_sword 1 2 {display: {Name: "&9Auralite"}, Unbreakable: 1}'
+            type: 'Console'
