@@ -1,0 +1,87 @@
+Soul Seal:
+  name: 'Soul Seal'
+  type: 'Offense'
+  max-level: 5
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Ice'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eLocks the target in an ice prison.'
+  - '&eThey are invulnerable while in this state, but also'
+  - '&eunable to do anything.'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 2
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 60
+    cooldown-scale: -10
+    mana-base: 50
+    mana-scale: 5
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Single-b:
+          type: 'target'
+          data:
+            icon-key: ''
+            range-base: 32
+            range-scale: 0
+            tolerance-base: 4
+            tolerance-scale: 0
+            group: 'Enemy'
+            wall: 'False'
+          children:
+            Status-c:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                status: 'Stun'
+                duration-base: 15
+                duration-scale: 15
+            Status-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                status: 'Invincible'
+                duration-base: 15
+                duration-scale: 15
+            Status-e:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                status: 'Root'
+                duration-base: 15
+                duration-scale: 15
+            Status-f:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                status: 'Silence'
+                duration-base: 15
+                duration-scale: 15
