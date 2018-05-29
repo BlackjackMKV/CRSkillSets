@@ -1,0 +1,153 @@
+Arcane Bolt:
+  name: 'Arcane Bolt'
+  type: 'Projectile'
+  max-level: 5
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Slime Ball'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eLaunch a projectile. Deals more damage'
+  - '&eand inflicts heavier stun the further it'
+  - '&etravels.'
+  - ''
+  - '&2Mana Cost: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 20
+    cooldown-scale: -1.5
+    mana-base: 20
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - 'Celestial Storm'
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Value Set-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            key: 'ArcaneBoltPower'
+            value-base: 4
+            value-scale: 0
+        Projectile-c:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            projectile: 'Snowball'
+            flaming: 'True'
+            cost: ''
+            group: 'Enemy'
+            spread: 'Cone'
+            amount-base: 1
+            amount-scale: 0
+            velocity-base: 3
+            velocity-scale: 0
+            angle-base: 30
+            angle-scale: 0
+            position: 1
+            forward-base: 0
+            forward-scale: 0
+            upward-base: 0
+            upward-scale: 0
+            right-base: 0
+            right-scale: 0
+            use-effect: 'False'
+          children:
+            Value Multiply-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                key: 'ArcaneBoltPower'
+                multiplier-base: 1.5
+                multiplier-scale: 0.375
+            Damage-e:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                type: 'Damage'
+                value-base: ArcaneBoltPower
+                value-scale: 
+                true: 'False'
+                classifier: 'Magic'
+            Delay-f:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                delay-base: 0.2
+                delay-scale: 0
+              children:
+                Value Multiply-g:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    key: 'ArcaneBoltPower'
+                    multiplier-base: 0.0667
+                    multiplier-scale: 0
+                Status-h:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    status: 'Stun'
+                    duration-base: ArcaneBoltPower
+                    duration-scale: 0
+        Repeat-i:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            repetitions-base: 4
+            repetitions-scale: 0
+            period: 1
+            delay: 1
+          children:
+            Value Add-j:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                key: 'ArcaneBoltPower'
+                amount-base: 1
+                amount-scale: 0
+        Delay-k:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            delay-base: 12
+            delay-scale: 0
+          children:
+            Value Set-l:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                key: 'ArcaneBoltPower'
+                value-base: 4
+                value-scale: 0

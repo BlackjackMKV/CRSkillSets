@@ -1,0 +1,92 @@
+Arcane Blast:
+  name: 'Arcane Blast'
+  type: 'AoE Control'
+  max-level: 5
+  skill-req: 'Arcane Bolt'
+  skill-req-lvl: 3
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Quartz'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eDeals area damage in a cone in front'
+  - '&eof you. Slows targets.'
+  - ''
+  - '&2Range: {attr:arcaneBlastRange.range}'
+  - '&2Damage: {attr:blastDamage.value}'
+  - '&2Slow III Duration: {attr:blastSlow.seconds}'
+  - '&2Mana Cost: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 24
+    cooldown-scale: -2
+    mana-base: 15
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Cone-b:
+          type: 'target'
+          data:
+            icon-key: 'arcaneBlastRange'
+            range-base: 8
+            range-scale: 1
+            angle-base: 90
+            angle-scale: 0
+            group: 'Enemy'
+            wall: 'True'
+            caster: 'False'
+            max-base: 99
+            max-scale: 0
+          children:
+            Damage-c:
+              type: 'mechanic'
+              data:
+                icon-key: 'blastDamage'
+                counts: 'False'
+                type: 'Damage'
+                value-base: 8
+                value-scale: 2
+                true: 'False'
+                classifier: 'Explosive'
+            Potion-d:
+              type: 'mechanic'
+              data:
+                icon-key: 'blastSlow'
+                counts: 'False'
+                potion: 'Slow'
+                ambient: 'False'
+                tier-base: 3
+                tier-scale: 0
+                seconds-base: 1.5
+                seconds-scale: 0.5
+        Sound-e:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            version: '1.9+'
+            newsound: 'Entity Firework Large Blast'
+            volume-base: 100
+            volume-scale: 0
+            pitch-base: 0.7
+            pitch-scale: 0

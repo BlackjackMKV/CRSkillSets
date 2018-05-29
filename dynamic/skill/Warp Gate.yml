@@ -1,0 +1,101 @@
+Warp Gate:
+  name: 'Warp Gate'
+  type: 'Mobility'
+  max-level: 5
+  skill-req: 'Celestial Storm'
+  skill-req-lvl: 3
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Ender Pearl'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eTeleport to the target location, granting'
+  - '&eyourself increased attack strength. Crouch'
+  - '&ewithin 6 sec after casting to teleport back. '
+  - ''
+  - '&2Warp Range: {attr:warpRange.range}'
+  - '&2Damage Multiplier: &6x{attr:warpGateBuff.value}'
+  - '&2Buff Duration: {attr:warpGateBuff.seconds}'
+  - '&2Mana Cost: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 30
+    cooldown-scale: -2.5
+    mana-base: 40
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Value Location-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            key: 'WarpGateStart'
+        Location-c:
+          type: 'target'
+          data:
+            icon-key: 'warpRange'
+            range-base: 12
+            range-scale: 3
+            ground: 'True'
+          children:
+            Warp Target-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                type: 'Caster to Target'
+            Self-e:
+              type: 'target'
+              data:
+                icon-key: ''
+              children:
+                Buff-f:
+                  type: 'mechanic'
+                  data:
+                    icon-key: 'warpGateBuff'
+                    counts: 'False'
+                    type: 'DAMAGE'
+                    modifier: 'Multiplier'
+                    value-base: 1.2
+                    value-scale: 0.1
+                    seconds-base: 6
+                    seconds-scale: 1
+        Trigger-g:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            trigger: 'Crouch'
+            duration-base: 6
+            duration-scale: 0
+            stackable: 'True'
+            once: 'True'
+            type: 'Start Crouching'
+          children:
+            Warp Value-h:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                key: 'WarpGateStart'

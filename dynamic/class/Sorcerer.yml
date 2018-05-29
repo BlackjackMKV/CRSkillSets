@@ -1,0 +1,43 @@
+Sorcerer:
+  name: 'Sorcerer'
+  prefix: ''
+  group: 'Class'
+  mana: '&2Mana'
+  max-level: 15
+  parent: ''
+  needs-permission: 'False'
+  exp-source: 273
+  mana-regen: 1
+  tree: 'Requirement'
+  skills:
+  - 'Arcane Bolt'
+  - 'Arcane Blast'
+  - 'Celestial Storm'
+  - 'Warp Gate'
+  - 'Moonshade'
+  icon: 'Jack O Lantern'
+  icon-data: 0
+  icon-lore:
+  - '&2Sorcerer - Mage Class'
+  - '&bWielders of arcane magic, the Sorcerers '
+  - '&bare versatile combatants who can'
+  - '&bhandle multiple opponents from longer'
+  - '&branges. '
+  blacklist:
+  - ''
+  action-bar: ''
+  attributes:
+    health-base: 20
+    health-scale: 0
+    mana-base: 100
+    mana-scale: 0
+    vitality-base: 0
+    vitality-scale: 0
+    spirit-base: 0
+    spirit-scale: 0
+    intelligence-base: 0
+    intelligence-scale: 0
+    dexterity-base: 0
+    dexterity-scale: 0
+    strength-base: 0
+    strength-scale: 0
