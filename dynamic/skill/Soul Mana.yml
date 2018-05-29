@@ -25,7 +25,7 @@ Soul Mana:
   attributes:
     level-base: 1
     level-scale: 0
-    cost-base: 1
+    cost-base: 2
     cost-scale: 0
     cooldown-base: 0
     cooldown-scale: 0
@@ -41,443 +41,652 @@ Soul Mana:
       data:
         icon-key: ''
       children:
-        Passive-b:
+        Self-b:
+          type: 'target'
+          data:
+            icon-key: ''
+          children:
+            Passive-c:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                seconds-base: 10
+                seconds-scale: 0
+              children:
+                Mana-d:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    type: 'Mana'
+                    min-value-base: 0
+                    min-value-scale: 0
+                    max-value-base: 999
+                    max-value-scale: 0
+                  children:
+                    Damage Buff-e:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 0.5
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Damage Buff-f:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 0.5
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-g:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 2
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-h:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 2
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Value Set-i:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        key: 'soullevel'
+                        value-base: 0
+                        value-scale: 0
+                    Potion-j:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        potion: 'Slow'
+                        ambient: 'False'
+                        tier-base: 2
+                        tier-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 1
+                Mana-k:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    type: 'Mana'
+                    min-value-base: 1000
+                    min-value-scale: 0
+                    max-value-base: 1999
+                    max-value-scale: 0
+                  children:
+                    Damage Buff-l:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 1
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Damage Buff-m:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 1
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-n:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 1
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-o:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 1
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Value Set-p:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        key: 'soullevel'
+                        value-base: 1
+                        value-scale: 0
+                Mana-q:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    type: 'Mana'
+                    min-value-base: 2000
+                    min-value-scale: 0
+                    max-value-base: 3999
+                    max-value-scale: 0
+                  children:
+                    Damage Buff-r:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 1.5
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Damage Buff-s:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 1.5
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-t:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 0.95
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-u:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 0.95
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Value Set-v:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        key: 'soullevel'
+                        value-base: 2
+                        value-scale: 0
+                    Potion-w:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        potion: 'Speed'
+                        ambient: 'False'
+                        tier-base: 1
+                        tier-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 1
+                Mana-x:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    type: 'Mana'
+                    min-value-base: 4000
+                    min-value-scale: 0
+                    max-value-base: 5999
+                    max-value-scale: 0
+                  children:
+                    Damage Buff-y:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 2
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Damage Buff-z:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 2
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-ab:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 0.9
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-bb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 0.9
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Value Set-cb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        key: 'soullevel'
+                        value-base: 3
+                        value-scale: 0
+                    Potion-db:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        potion: 'Speed'
+                        ambient: 'False'
+                        tier-base: 1
+                        tier-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 1
+                Mana-eb:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    type: 'Mana'
+                    min-value-base: 6000
+                    min-value-scale: 0
+                    max-value-base: 7999
+                    max-value-scale: 0
+                  children:
+                    Damage Buff-fb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 2.5
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Damage Buff-gb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 2.5
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-hb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 0.85
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-ib:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 0.85
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Value Set-jb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        key: 'soullevel'
+                        value-base: 4
+                        value-scale: 0
+                    Potion-kb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        potion: 'Speed'
+                        ambient: 'False'
+                        tier-base: 1
+                        tier-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 1
+                    Potion-lb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        potion: 'Regeneration'
+                        ambient: 'False'
+                        tier-base: 1
+                        tier-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 1
+                Mana-mb:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    type: 'Mana'
+                    min-value-base: 8000
+                    min-value-scale: 0
+                    max-value-base: 8999
+                    max-value-scale: 0
+                  children:
+                    Damage Buff-nb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 3
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Damage Buff-ob:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 3
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-pb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 0.8
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-qb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 0.8
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Value Set-rb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        key: 'soullevel'
+                        value-base: 5
+                        value-scale: 0
+                    Potion-sb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        potion: 'Speed'
+                        ambient: 'False'
+                        tier-base: 2
+                        tier-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 1
+                Mana-tb:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    type: 'Mana'
+                    min-value-base: 9000
+                    min-value-scale: 0
+                    max-value-base: 9499
+                    max-value-scale: 0
+                  children:
+                    Damage Buff-ub:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 3.5
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Damage Buff-vb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 3.5
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-wb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 0.8
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-xb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 0.8
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Value Set-yb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        key: 'soullevel'
+                        value-base: 6
+                        value-scale: 0
+                    Potion-zb:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        potion: 'Speed'
+                        ambient: 'False'
+                        tier-base: 1
+                        tier-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 1
+                    Potion-ac:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        potion: 'Increase Damage'
+                        ambient: 'False'
+                        tier-base: 1
+                        tier-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 1
+                Mana-bc:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    type: 'Mana'
+                    min-value-base: 9500
+                    min-value-scale: 0
+                    max-value-base: 9999
+                    max-value-scale: 0
+                  children:
+                    Damage Buff-cc:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 4
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Damage Buff-dc:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 4
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-ec:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 0.8
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Defense Buff-fc:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 0.8
+                        value-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 0
+                    Value Set-gc:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        key: 'soullevel'
+                        value-base: 7
+                        value-scale: 0
+                    Potion-hc:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        potion: 'Speed'
+                        ambient: 'False'
+                        tier-base: 2
+                        tier-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 1
+                    Potion-ic:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        potion: 'Damage Resistance'
+                        ambient: 'False'
+                        tier-base: 1
+                        tier-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 1
+                    Potion-jc:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        potion: 'Increase Damage'
+                        ambient: 'False'
+                        tier-base: 1
+                        tier-scale: 0
+                        seconds-base: 11
+                        seconds-scale: 1
+    Took Physical Damage-kc:
+      type: 'trigger'
+      data:
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        target: 'True'
+        type: 'Both'
+        dmg-min: 0
+        dmg-max: 999
+      children:
+        Status-lc:
           type: 'mechanic'
           data:
             icon-key: ''
             counts: 'False'
-            seconds-base: 10
-            seconds-scale: 0
-          children:
-            Mana-c:
-              type: 'condition'
-              data:
-                icon-key: ''
-                type: 'Mana'
-                min-value-base: 0
-                min-value-scale: 0
-                max-value-base: 999
-                max-value-scale: 0
-              children:
-                Damage Buff-d:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 0.50
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Damage Buff-e:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 0.50
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-f:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 2
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-g:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 2
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-            Mana-h:
-              type: 'condition'
-              data:
-                icon-key: ''
-                type: 'Mana'
-                min-value-base: 1000
-                min-value-scale: 0
-                max-value-base: 1999
-                max-value-scale: 0
-              children:
-                Damage Buff-i:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 1
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Damage Buff-j:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 1
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-k:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 1
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-l:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 1
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-            Mana-m:
-              type: 'condition'
-              data:
-                icon-key: ''
-                type: 'Mana'
-                min-value-base: 2000
-                min-value-scale: 0
-                max-value-base: 3999
-                max-value-scale: 0
-              children:
-                Damage Buff-n:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 1.50
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Damage Buff-o:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 1.50
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-p:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 0.95
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-q:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 0.95
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-            Mana-r:
-              type: 'condition'
-              data:
-                icon-key: ''
-                type: 'Mana'
-                min-value-base: 4000
-                min-value-scale: 0
-                max-value-base: 5999
-                max-value-scale: 0
-              children:
-                Damage Buff-s:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 2
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Damage Buff-t:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 2
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-u:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 0.9
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-v:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 0.9
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-            Mana-w:
-              type: 'condition'
-              data:
-                icon-key: ''
-                type: 'Mana'
-                min-value-base: 6000
-                min-value-scale: 0
-                max-value-base: 7999
-                max-value-scale: 0
-              children:
-                Damage Buff-x:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 2.5
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Damage Buff-y:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 2.5
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-z:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 0.85
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-ab:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 0.85
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-            Mana-bb:
-              type: 'condition'
-              data:
-                icon-key: ''
-                type: 'Mana'
-                min-value-base: 8000
-                min-value-scale: 0
-                max-value-base: 8999
-                max-value-scale: 0
-              children:
-                Damage Buff-cb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 3
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Damage Buff-db:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 3
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-eb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 0.8
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-fb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 0.8
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-            Mana-gb:
-              type: 'condition'
-              data:
-                icon-key: ''
-                type: 'Mana'
-                min-value-base: 9000
-                min-value-scale: 0
-                max-value-base: 9499
-                max-value-scale: 0
-              children:
-                Damage Buff-hb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 3.5
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Damage Buff-ib:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 3.5
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-jb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 0.8
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-kb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 0.8
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-            Mana-lb:
-              type: 'condition'
-              data:
-                icon-key: ''
-                type: 'Mana'
-                min-value-base: 9500
-                min-value-scale: 0
-                max-value-base: 9999
-                max-value-scale: 0
-              children:
-                Damage Buff-mb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 4
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Damage Buff-nb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 4
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-ob:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 0.8
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
-                Defense Buff-pb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 0.8
-                    value-scale: 0
-                    seconds-base: 11
-                    seconds-scale: 0
+            status: 'Absorb'
+            duration-base: 5
+            duration-scale: 0

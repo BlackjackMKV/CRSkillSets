@@ -210,26 +210,6 @@ Bug Shell:
   - '&2Armor/Hit: {attr:armorLoss.Amount}'
   desc:  []
   components: 
-    Took Physical Damage: 
-      type: 'trigger'
-      data: 
-        dmg-min: '0'
-        mana: 'False'
-        dmg-max: '999'
-        cooldown: 'False'
-        icon-key: ''
-        type: 'Both'
-        target: 'True'
-      children: 
-        Value Add-t: 
-          type: 'mechanic'
-          data: 
-            counts: 'False'
-            icon-key: 'armorLoss'
-            amount-scale: '+1'
-            amount-base: '-10'
-            key: 'armorCurrent'
-          children:  {}
     Initialize: 
       type: 'trigger'
       data: 
@@ -379,6 +359,26 @@ Bug Shell:
             icon-key: ''
             value-base: '1'
             key: 'armorBase'
+          children:  {}
+    Took Physical Damage: 
+      type: 'trigger'
+      data: 
+        dmg-min: '0'
+        mana: 'False'
+        dmg-max: '999'
+        cooldown: 'False'
+        icon-key: ''
+        type: 'Both'
+        target: 'True'
+      children: 
+        Value Add-t: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: 'armorLoss'
+            amount-scale: '+1'
+            amount-base: '-10'
+            key: 'armorCurrent'
           children:  {}
 Cyclone: 
   name: 'Cyclone'
@@ -1846,7 +1846,7 @@ Unholy:
     cooldown-base: '0'
     points-spent-req-scale: '0'
   msg: '&6{player} &2has cast &6{skill}'
-  icon: 'FIRE'
+  icon: 'BLAZE_POWDER'
   icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
@@ -1865,10 +1865,10 @@ Unholy:
         Passive-b: 
           type: 'mechanic'
           data: 
-            counts: 'True'
+            counts: 'False'
             icon-key: ''
             seconds-scale: '0'
-            seconds-base: '8'
+            seconds-base: '5'
           children: 
             Water-c: 
               type: 'condition'
@@ -1881,15 +1881,1333 @@ Unholy:
                   data: 
                     min-light-scale: '0'
                     max-light-scale: '16'
-                    max-light-base: '16'
+                    max-light-base: '17'
                     icon-key: ''
-                    min-light-base: '15'
+                    min-light-base: '14'
                   children: 
                     Fire-e: 
                       type: 'mechanic'
                       data: 
                         counts: 'False'
                         icon-key: ''
-                        seconds-scale: '1'
+                        seconds-scale: '0'
                         seconds-base: '10'
                       children:  {}
+Soul Energy: 
+  name: 'Soul Energy'
+  type: 'Passive'
+  max-level: 1
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'ENDER_PEARL'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - "&eYou can draw energy from the &cSouls&e you've"
+  - '&ecollected to passively increase your own power.'
+  - '&eScales based on number of &cSouls&e.'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '20'
+          children: 
+            Delay-d: 
+              type: 'mechanic'
+              data: 
+                counts: 'False'
+                delay-base: '1'
+                icon-key: ''
+                delay-scale: '0'
+              children: 
+                Delay-e: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    delay-base: '1'
+                    icon-key: ''
+                    delay-scale: '0'
+                  children: 
+                    Delay-f: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        delay-base: '1'
+                        icon-key: ''
+                        delay-scale: '0'
+                      children: 
+                        Value Multiply-g: 
+                          type: 'mechanic'
+                          data: 
+                            multiplier-base: '0.00020004000800160032006401280256051'
+                            counts: 'False'
+                            icon-key: ''
+                            multiplier-scale: '0'
+                            key: 'soulenergy'
+                          children:  {}
+                        Delay-h: 
+                          type: 'mechanic'
+                          data: 
+                            counts: 'False'
+                            delay-base: '1'
+                            icon-key: ''
+                            delay-scale: '0'
+                          children: 
+                            Message-i: 
+                              type: 'mechanic'
+                              data: 
+                                counts: 'False'
+                                icon-key: ''
+                                message: 'Current Energy Effect: {soulenergy}'
+                              children:  {}
+                    Value Add-k: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        icon-key: ''
+                        amount-scale: '0'
+                        amount-base: '4996'
+                        key: 'soulenergy'
+                      children:  {}
+                Value Multiply-l: 
+                  type: 'mechanic'
+                  data: 
+                    multiplier-base: '3'
+                    counts: 'False'
+                    icon-key: ''
+                    multiplier-scale: '0'
+                    key: 'soulenergy'
+                  children:  {}
+Absorb Auralite: 
+  name: 'Absorb Auralite'
+  type: 'Utility'
+  max-level: 1
+  skill-req: 'Soul Robber'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has absorbed &4500 Souls&2 from &bAuralite'
+  icon: 'LAPIS_BLOCK'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Inventory-b: 
+          type: 'condition'
+          data: 
+            regex: 'False'
+            material: 'Wood Sword'
+            check-name: 'True'
+            name: 'Auralite'
+            icon-key: ''
+            amount-scale: '0'
+            check-mat: 'True'
+            amount-base: '1'
+            check-data: 'False'
+            check-lore: 'False'
+          children: 
+            Item Remove-c: 
+              type: 'mechanic'
+              data: 
+                regex: 'False'
+                material: 'Wood Sword'
+                counts: 'True'
+                check-name: 'False'
+                name: '§9Auralite'
+                icon-key: ''
+                amount-scale: '0'
+                check-mat: 'True'
+                amount-base: '1'
+                check-data: 'False'
+                check-lore: 'False'
+              children:  {}
+            Mana-d: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '0'
+                icon-key: ''
+                type: 'Mana'
+                value-base: '500'
+              children:  {}
+Condense Souls: 
+  name: 'Condense Souls'
+  type: 'Utility'
+  max-level: 5
+  skill-req: 'Soul Robber'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '2'
+    level-base: '1'
+    mana-base: '500'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '5'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has condensed &4500 Souls&2 into &bAuralite'
+  icon: 'LAPIS_ORE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Command-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            type: 'Console'
+            command: 'give {player} wooden_sword 1 2 {display: {Name: "§9Auralite"}, Unbreakable: 1}'
+          children:  {}
+New Maybe Improved Aetherian Flight: 
+  name: 'New Maybe Improved Aetherian Flight'
+  type: 'Dynamic'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'JACK_O_LANTERN'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'False'
+            icon-key: ''
+            seconds-scale: '2'
+            seconds-base: '3'
+          children: 
+            Block-c: 
+              type: 'condition'
+              data: 
+                standing: 'On Block'
+                material: 'Air'
+                icon-key: ''
+              children: 
+                Mana-d: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'False'
+                    value-scale: '1'
+                    icon-key: ''
+                    type: 'Mana'
+                    value-base: '-5'
+                  children:  {}
+                Permission-e: 
+                  type: 'mechanic'
+                  data: 
+                    perm: 'essentials.fly'
+                    counts: 'False'
+                    icon-key: ''
+                    seconds-scale: '3'
+                    seconds-base: '3'
+                  children:  {}
+                Immunity-f: 
+                  type: 'mechanic'
+                  data: 
+                    multiplier-base: '0'
+                    counts: 'False'
+                    icon-key: ''
+                    multiplier-scale: '0'
+                    type: 'Fall'
+                    seconds-scale: '2'
+                    seconds-base: '4'
+                  children:  {}
+Soul Reaper: 
+  name: 'Soul Reaper'
+  type: 'Tactical Offense'
+  max-level: 1
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '10'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '15'
+    mana-base: '5000'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '1800'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'REDSTONE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eTargets all enemies within 30 blocks of the target entity.'
+  - '&eBreaks their soul tether, causing their souls to release all'
+  - '&etheir stored energy in the form of an electrical blast.'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Single-b: 
+          type: 'target'
+          data: 
+            range-scale: '0'
+            range-base: '50'
+            tolerance-scale: '0'
+            tolerance-base: '4'
+            icon-key: ''
+            wall: 'False'
+            group: 'Enemy'
+          children: 
+            Area-c: 
+              type: 'target'
+              data: 
+                caster: 'False'
+                max-base: '99'
+                radius-scale: '0'
+                icon-key: ''
+                radius-base: '30'
+                wall: 'True'
+                group: 'Enemy'
+                max-scale: '0'
+              children: 
+                Lightning-d: 
+                  type: 'mechanic'
+                  data: 
+                    right-scale: '0'
+                    damage: 'True'
+                    forward-base: '0'
+                    right-base: '0'
+                    forward-scale: '0'
+                    counts: 'True'
+                    icon-key: ''
+                  children:  {}
+                Explosion-e: 
+                  type: 'mechanic'
+                  data: 
+                    damage: 'False'
+                    power-scale: '0'
+                    counts: 'True'
+                    power-base: '5'
+                    icon-key: ''
+                    fire: 'True'
+                  children:  {}
+Soul Release: 
+  name: 'Soul Release'
+  type: 'Tactical Offense'
+  max-level: 1
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '5'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '10'
+    mana-base: '2000'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '600'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'LAVA_BUCKET'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eReleases &42000 Souls&e in a massive energy burst.'
+  - '&eThe burst has an explosion power of approximately'
+  - '&e6x that of TNT.'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Immunity-b: 
+          type: 'mechanic'
+          data: 
+            multiplier-base: '0'
+            counts: 'True'
+            icon-key: ''
+            multiplier-scale: '0'
+            type: 'Block Explosion'
+            seconds-scale: '0'
+            seconds-base: '3'
+          children:  {}
+        Immunity-c: 
+          type: 'mechanic'
+          data: 
+            multiplier-base: '0'
+            counts: 'True'
+            icon-key: ''
+            multiplier-scale: '0'
+            type: 'Entity Explosion'
+            seconds-scale: '0'
+            seconds-base: '3'
+          children:  {}
+        Delay-d: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            delay-base: '0.1'
+            icon-key: ''
+            delay-scale: '0'
+          children: 
+            Explosion-e: 
+              type: 'mechanic'
+              data: 
+                damage: 'False'
+                power-scale: '0'
+                counts: 'True'
+                power-base: '25'
+                icon-key: ''
+                fire: 'False'
+              children:  {}
+Soul Seal: 
+  name: 'Soul Seal'
+  type: 'Offense'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-10'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '2'
+    level-base: '1'
+    mana-base: '50'
+    points-spent-req-base: '0'
+    mana-scale: '5'
+    cooldown-base: '60'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'ICE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eLocks the target in an ice prison.'
+  - '&eThey are invulnerable while in this state, but also'
+  - '&eunable to do anything.'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Single-b: 
+          type: 'target'
+          data: 
+            range-scale: '0'
+            range-base: '32'
+            tolerance-scale: '0'
+            tolerance-base: '4'
+            icon-key: ''
+            wall: 'False'
+            group: 'Enemy'
+          children: 
+            Status-c: 
+              type: 'mechanic'
+              data: 
+                duration-base: '15'
+                counts: 'True'
+                icon-key: ''
+                duration-scale: '15'
+                status: 'Stun'
+              children:  {}
+            Status-d: 
+              type: 'mechanic'
+              data: 
+                duration-base: '15'
+                counts: 'True'
+                icon-key: ''
+                duration-scale: '15'
+                status: 'Invincible'
+              children:  {}
+            Status-e: 
+              type: 'mechanic'
+              data: 
+                duration-base: '15'
+                counts: 'True'
+                icon-key: ''
+                duration-scale: '15'
+                status: 'Root'
+              children:  {}
+            Status-f: 
+              type: 'mechanic'
+              data: 
+                duration-base: '15'
+                counts: 'True'
+                icon-key: ''
+                duration-scale: '15'
+                status: 'Silence'
+              children:  {}
+Soul Mana: 
+  name: 'Soul Mana'
+  type: 'Passive'
+  max-level: 1
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'ENDER_PEARL'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - "&eYou can draw energy from the &cSouls&e you've"
+  - '&ecollected to passively increase your own power.'
+  - '&eScales based on number of &cSouls&e.'
+  - '&eMaxes out at 4x damage and 20% less damage'
+  - '&e at 9999 &cSouls&e.'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Self-b: 
+          type: 'target'
+          data: 
+            icon-key: ''
+          children: 
+            Passive-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'False'
+                icon-key: ''
+                seconds-scale: '0'
+                seconds-base: '10'
+              children: 
+                Mana-d: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '0'
+                    icon-key: ''
+                    max-value-base: '999'
+                    type: 'Mana'
+                    min-value-base: '0'
+                  children: 
+                    Damage Buff-e: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.5'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Damage Buff-f: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.5'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-g: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '2'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-h: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '2'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Value Set-i: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        value-base: '0'
+                        key: 'soullevel'
+                      children:  {}
+                    Potion-j: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Slow'
+                        counts: 'False'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '2'
+                        seconds-base: '11'
+                      children:  {}
+                Mana-k: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '0'
+                    icon-key: ''
+                    max-value-base: '1999'
+                    type: 'Mana'
+                    min-value-base: '1000'
+                  children: 
+                    Damage Buff-l: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '1'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Damage Buff-m: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '1'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-n: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '1'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-o: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '1'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Value Set-p: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        value-base: '1'
+                        key: 'soullevel'
+                      children:  {}
+                Mana-q: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '0'
+                    icon-key: ''
+                    max-value-base: '3999'
+                    type: 'Mana'
+                    min-value-base: '2000'
+                  children: 
+                    Damage Buff-r: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '1.5'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Damage Buff-s: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '1.5'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-t: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.95'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-u: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.95'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Value Set-v: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        value-base: '2'
+                        key: 'soullevel'
+                      children:  {}
+                    Potion-w: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Speed'
+                        counts: 'False'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '1'
+                        seconds-base: '11'
+                      children:  {}
+                Mana-x: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '0'
+                    icon-key: ''
+                    max-value-base: '5999'
+                    type: 'Mana'
+                    min-value-base: '4000'
+                  children: 
+                    Damage Buff-y: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '2'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Damage Buff-z: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '2'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-ab: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.9'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-bb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.9'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Value Set-cb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        value-base: '3'
+                        key: 'soullevel'
+                      children:  {}
+                    Potion-db: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Speed'
+                        counts: 'False'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '1'
+                        seconds-base: '11'
+                      children:  {}
+                Mana-eb: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '0'
+                    icon-key: ''
+                    max-value-base: '7999'
+                    type: 'Mana'
+                    min-value-base: '6000'
+                  children: 
+                    Damage Buff-fb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '2.5'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Damage Buff-gb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '2.5'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-hb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.85'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-ib: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.85'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Value Set-jb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        value-base: '4'
+                        key: 'soullevel'
+                      children:  {}
+                    Potion-kb: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Speed'
+                        counts: 'True'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '1'
+                        seconds-base: '11'
+                      children:  {}
+                    Potion-lb: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Regeneration'
+                        counts: 'False'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '1'
+                        seconds-base: '11'
+                      children:  {}
+                Mana-mb: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '0'
+                    icon-key: ''
+                    max-value-base: '8999'
+                    type: 'Mana'
+                    min-value-base: '8000'
+                  children: 
+                    Damage Buff-nb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '3'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Damage Buff-ob: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '3'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-pb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.8'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-qb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.8'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Value Set-rb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        value-base: '5'
+                        key: 'soullevel'
+                      children:  {}
+                    Potion-sb: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Speed'
+                        counts: 'True'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '2'
+                        seconds-base: '11'
+                      children:  {}
+                Mana-tb: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '0'
+                    icon-key: ''
+                    max-value-base: '9499'
+                    type: 'Mana'
+                    min-value-base: '9000'
+                  children: 
+                    Damage Buff-ub: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '3.5'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Damage Buff-vb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '3.5'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-wb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.8'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-xb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.8'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Value Set-yb: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        value-base: '6'
+                        key: 'soullevel'
+                      children:  {}
+                    Potion-zb: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Speed'
+                        counts: 'True'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '1'
+                        seconds-base: '11'
+                      children:  {}
+                    Potion-ac: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Increase Damage'
+                        counts: 'False'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '1'
+                        seconds-base: '11'
+                      children:  {}
+                Mana-bc: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '0'
+                    icon-key: ''
+                    max-value-base: '9999'
+                    type: 'Mana'
+                    min-value-base: '9500'
+                  children: 
+                    Damage Buff-cc: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '4'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Damage Buff-dc: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '4'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-ec: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'False'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.8'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Defense Buff-fc: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'False'
+                        skill: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.8'
+                        seconds-scale: '0'
+                        seconds-base: '11'
+                      children:  {}
+                    Value Set-gc: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        value-base: '7'
+                        key: 'soullevel'
+                      children:  {}
+                    Potion-hc: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Speed'
+                        counts: 'True'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '2'
+                        seconds-base: '11'
+                      children:  {}
+                    Potion-ic: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Damage Resistance'
+                        counts: 'False'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '1'
+                        seconds-base: '11'
+                      children:  {}
+                    Potion-jc: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Increase Damage'
+                        counts: 'False'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '1'
+                        seconds-base: '11'
+                      children:  {}
+    Took Physical Damage: 
+      type: 'trigger'
+      data: 
+        dmg-min: '0'
+        mana: 'False'
+        dmg-max: '999'
+        cooldown: 'False'
+        icon-key: ''
+        type: 'Both'
+        target: 'True'
+      children: 
+        Status-lc: 
+          type: 'mechanic'
+          data: 
+            duration-base: '5'
+            counts: 'False'
+            icon-key: ''
+            duration-scale: '0'
+            status: 'Absorb'
+          children:  {}

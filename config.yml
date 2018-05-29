@@ -237,7 +237,7 @@ GUI:
   scoreboard-enabled: 'true'
 
   # Whether or not to add a prefix to players with their class name
-  show-class-name: 'true'
+  show-class-name: 'false'
 
   # Whether or not to display a player's level below their name
   show-class-level: 'false'
