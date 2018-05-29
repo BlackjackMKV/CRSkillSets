@@ -25,7 +25,7 @@ Soul Mana:
   attributes:
     level-base: 1
     level-scale: 0
-    cost-base: 2
+    cost-base: 1
     cost-scale: 0
     cooldown-base: 0
     cooldown-scale: 0
@@ -682,11 +682,26 @@ Soul Mana:
         dmg-min: 0
         dmg-max: 999
       children:
-        Status-lc:
-          type: 'mechanic'
+        Value-lc:
+          type: 'condition'
           data:
             icon-key: ''
-            counts: 'False'
-            status: 'Absorb'
-            duration-base: 5
-            duration-scale: 0
+            key: 'soullevel'
+            min-value-base: 6
+            min-value-scale: 0
+            max-value-base: 999
+            max-value-scale: 0
+          children:
+            Self-mc:
+              type: 'target'
+              data:
+                icon-key: ''
+              children:
+                Status-nc:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    status: 'Absorb'
+                    duration-base: 5
+                    duration-scale: 0
