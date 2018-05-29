@@ -44,7 +44,7 @@ Soul Energy:
           data:
             icon-key: ''
             counts: 'False'
-            seconds-base: 10
+            seconds-base: 20
             seconds-scale: 0
           children:
             Value Mana-c:
@@ -52,18 +52,77 @@ Soul Energy:
               data:
                 icon-key: ''
                 counts: 'False'
-                key: 'soulsenergy'
-            Value Set-d:
+                key: 'soulenergy'
+            Delay-d:
               type: 'mechanic'
               data:
                 icon-key: ''
                 counts: 'False'
-                key: 'soulsenergy'
-                value-base: 1+_soulsenergy
-                value-scale: 0
-            Message-e:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'False'
-                message: '{soulsenergy}'
+                delay-base: 1
+                delay-scale: 0
+              children:
+                Delay-e:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    delay-base: 1
+                    delay-scale: 0
+                  children:
+                    Delay-f:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        delay-base: 1
+                        delay-scale: 0
+                      children:
+                        Value Multiply-g:
+                          type: 'mechanic'
+                          data:
+                            icon-key: ''
+                            counts: 'False'
+                            key: 'soulenergy'
+                            multiplier-base: 0.00020004000800160032006401280256051
+                            multiplier-scale: 0
+                        Delay-h:
+                          type: 'mechanic'
+                          data:
+                            icon-key: ''
+                            counts: 'False'
+                            delay-base: 1
+                            delay-scale: 0
+                          children:
+                            Message-i:
+                              type: 'mechanic'
+                              data:
+                                icon-key: ''
+                                counts: 'False'
+                                message: 'Current Energy Effect: {soulenergy}'
+                            Buff-j:
+                              type: 'mechanic'
+                              data:
+                                icon-key: ''
+                                counts: 'False'
+                                type: 'DAMAGE'
+                                modifier: 'Multiplier'
+                                value-base: soulenergy
+                                value-scale: 0
+                                seconds-base: 20
+                                seconds-scale: 0
+                    Value Add-k:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        key: 'soulenergy'
+                        amount-base: 4996
+                        amount-scale: 0
+                Value Multiply-l:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    key: 'soulenergy'
+                    multiplier-base: 3
+                    multiplier-scale: 0
