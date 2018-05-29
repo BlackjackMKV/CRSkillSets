@@ -24,7 +24,6 @@ Celestial Storm:
   - '&2Radius: {attr:spellRange.radius}'
   - '&2AoE Damage: {attr:spellDamage2.value}'
   - '&2Nearest Damage: {attr:spellDamage.value}'
-  - '&2Mana Cost: {attr:mana}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -33,7 +32,7 @@ Celestial Storm:
     cost-scale: 0
     cooldown-base: 24
     cooldown-scale: -2
-    mana-base: 30
+    mana-base: 
     mana-scale: 0
     points-spent-req-base: 0
     points-spent-req-scale: 0

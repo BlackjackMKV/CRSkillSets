@@ -2,12 +2,12 @@ Sorcerer:
   name: 'Sorcerer'
   prefix: ''
   group: 'Class'
-  mana: '&2Mana'
+  mana: ''
   max-level: 15
   parent: ''
   needs-permission: 'False'
   exp-source: 273
-  mana-regen: 1
+  mana-regen: 0
   tree: 'Requirement'
   skills:
   - 'Arcane Bolt'
@@ -27,9 +27,9 @@ Sorcerer:
   - ''
   action-bar: ''
   attributes:
-    health-base: 20
+    health-base: 0
     health-scale: 0
-    mana-base: 100
+    mana-base: 0
     mana-scale: 0
     vitality-base: 0
     vitality-scale: 0

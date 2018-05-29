@@ -21,7 +21,6 @@ Arcane Bolt:
   - '&eand inflicts heavier stun the further it'
   - '&etravels.'
   - ''
-  - '&2Mana Cost: {attr:mana}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -30,7 +29,7 @@ Arcane Bolt:
     cost-scale: 0
     cooldown-base: 20
     cooldown-scale: -1.5
-    mana-base: 20
+    mana-base: 0
     mana-scale: 0
     points-spent-req-base: 0
     points-spent-req-scale: 0
@@ -90,7 +89,7 @@ Arcane Bolt:
                 counts: 'False'
                 type: 'Damage'
                 value-base: ArcaneBoltPower
-                value-scale: 
+                value-scale: NaN
                 true: 'False'
                 classifier: 'Magic'
             Delay-f:

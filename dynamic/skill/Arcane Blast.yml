@@ -23,7 +23,6 @@ Arcane Blast:
   - '&2Range: {attr:arcaneBlastRange.range}'
   - '&2Damage: {attr:blastDamage.value}'
   - '&2Slow III Duration: {attr:blastSlow.seconds}'
-  - '&2Mana Cost: {attr:mana}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -32,7 +31,7 @@ Arcane Blast:
     cost-scale: 0
     cooldown-base: 24
     cooldown-scale: -2
-    mana-base: 15
+    mana-base: 0
     mana-scale: 0
     points-spent-req-base: 0
     points-spent-req-scale: 0

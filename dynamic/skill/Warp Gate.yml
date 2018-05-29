@@ -24,7 +24,6 @@ Warp Gate:
   - '&2Warp Range: {attr:warpRange.range}'
   - '&2Damage Multiplier: &6x{attr:warpGateBuff.value}'
   - '&2Buff Duration: {attr:warpGateBuff.seconds}'
-  - '&2Mana Cost: {attr:mana}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -33,7 +32,7 @@ Warp Gate:
     cost-scale: 0
     cooldown-base: 30
     cooldown-scale: -2.5
-    mana-base: 40
+    mana-base: 0
     mana-scale: 0
     points-spent-req-base: 0
     points-spent-req-scale: 0

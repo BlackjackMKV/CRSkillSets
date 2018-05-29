@@ -25,7 +25,6 @@ Moonshade:
   - '&2Radius: &616'
   - '&2Speed Multiplier: {attr:moonshadeSpeed.multiplier}'
   - '&2Duration: {attr:moonshadeDuration.repetitions}'
-  - '&2Mana Cost: {attr:mana}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -34,7 +33,7 @@ Moonshade:
     cost-scale: 0
     cooldown-base: 40
     cooldown-scale: -2.5
-    mana-base: 60
+    mana-base: 0
     mana-scale: 0
     points-spent-req-base: 0
     points-spent-req-scale: 0
