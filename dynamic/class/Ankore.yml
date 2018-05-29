@@ -27,7 +27,7 @@ Ankore:
   - ''
   action-bar: ''
   attributes:
-    health-base: 15
+    health-base: 20
     health-scale: 0
     mana-base: 9999
     mana-scale: 0
