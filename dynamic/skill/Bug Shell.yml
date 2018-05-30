@@ -1,26 +1,16 @@
-Bug Shell: 
+Bug Shell:
   name: 'Bug Shell'
   type: 'Passive'
   max-level: 5
+  skill-req: ''
   skill-req-lvl: 1
-  needs-permission: 'false'
-  attributes: 
-    cost-base: '1'
-    cooldown-scale: '0'
-    incompatible: 
-    - ''
-    cost-scale: '0'
-    level-scale: '2'
-    level-base: '3'
-    mana-base: '0'
-    points-spent-req-base: '0'
-    mana-scale: '0'
-    cooldown-base: '0'
-    points-spent-req-scale: '0'
-  msg: '&6{player} &2has cast &6{skill}&r'
-  icon: 'INK_SACK'
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Ink Sack'
   icon-data: 8
-  icon-lore: 
+  icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
@@ -34,177 +24,157 @@ Bug Shell:
   - '&ethe damage is ignored depending on'
   - '&eyour Armor level.'
   - ''
-  - '&2Combat Tag Duration: &66'
-  - '&2Armor/Hit: {attr:armorLoss.Amount}'
-  desc:  []
-  components: 
-    Took Physical Damage: 
+  - '&2Combat Tag Duration: &610'
+  - '&2Armor/Hit: {attr:armorLoss.value}'
+  attributes:
+    level-base: 3
+    level-scale: 2
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Took Physical Damage-a:
       type: 'trigger'
-      data: 
-        dmg-min: '0'
+      data:
+        icon-key: ''
         mana: 'False'
-        dmg-max: '999'
         cooldown: 'False'
-        icon-key: ''
-        type: 'Both'
         target: 'True'
-      children: 
-        Value Add-t: 
+        type: 'Both'
+        dmg-min: 0
+        dmg-max: 999
+      children:
+        Mana-b:
           type: 'mechanic'
-          data: 
-            counts: 'False'
+          data:
             icon-key: 'armorLoss'
-            amount-scale: '+1'
-            amount-base: '-10'
-            key: 'armorCurrent'
-          children:  {}
-    Initialize: 
-      type: 'trigger'
-      data: 
-        icon-key: ''
-      children: 
-        Passive-b: 
-          type: 'mechanic'
-          data: 
             counts: 'False'
+            type: 'Mana'
+            value-base: -10
+            value-scale: 1
+    Initialize-c:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-d:
+          type: 'mechanic'
+          data:
             icon-key: ''
-            seconds-scale: '0'
-            seconds-base: '1'
-          children: 
-            Combat-c: 
+            counts: 'False'
+            seconds-base: 1
+            seconds-scale: 0
+          children:
+            Combat-e:
               type: 'condition'
-              data: 
-                seconds: '6'
+              data:
                 icon-key: ''
                 combat: 'False'
-              children: 
-                Mana-d: 
+                seconds: 10
+              children:
+                Mana-f:
                   type: 'condition'
-                  data: 
-                    min-value-scale: '0'
-                    max-value-scale: '10'
+                  data:
                     icon-key: ''
-                    max-value-base: '39'
                     type: 'Mana'
-                    min-value-base: '0'
-                  children: 
-                    Mana-e: 
+                    min-value-base: 0
+                    min-value-scale: 0
+                    max-value-base: 39
+                    max-value-scale: 10
+                  children:
+                    Mana-g:
                       type: 'mechanic'
-                      data: 
-                        counts: 'False'
-                        value-scale: '0'
+                      data:
                         icon-key: ''
+                        counts: 'False'
                         type: 'Mana'
-                        value-base: '1'
-                      children:  {}
-            Delay-g: 
-              type: 'mechanic'
-              data: 
-                counts: 'False'
-                delay-base: '0.1'
-                icon-key: ''
-                delay-scale: '0'
-              children: 
-                Value Multiply-h: 
-                  type: 'mechanic'
-                  data: 
-                    multiplier-base: '0.01'
-                    counts: 'False'
-                    icon-key: ''
-                    multiplier-scale: '0'
-                    key: 'armorCurrent'
-                  children:  {}
-                Delay-i: 
-                  type: 'mechanic'
-                  data: 
-                    counts: 'False'
-                    delay-base: '0.1'
-                    icon-key: ''
-                    delay-scale: '0'
-                  children: 
-                    Value Add-j: 
-                      type: 'mechanic'
-                      data: 
-                        counts: 'False'
-                        icon-key: ''
-                        amount-scale: '0'
-                        amount-base: 'armorCurrent'
-                        key: 'armorBase'
-                      children:  {}
-                    Delay-k: 
-                      type: 'mechanic'
-                      data: 
-                        counts: 'False'
-                        delay-base: '0.1'
-                        icon-key: ''
-                        delay-scale: '0'
-                      children: 
-                        Defense Buff-l: 
-                          type: 'mechanic'
-                          data: 
-                            counts: 'False'
-                            skill: 'False'
-                            value-scale: '0'
-                            icon-key: ''
-                            type: 'Multiplier'
-                            value-base: 'armorBase'
-                            seconds-scale: '0'
-                            seconds-base: '1'
-                          children:  {}
-                        Defense Buff-m: 
-                          type: 'mechanic'
-                          data: 
-                            counts: 'False'
-                            skill: 'True'
-                            value-scale: '0'
-                            icon-key: ''
-                            type: 'Multiplier'
-                            value-base: 'armorBase'
-                            seconds-scale: '0'
-                            seconds-base: '1'
-                          children:  {}
-                        Delay-n: 
-                          type: 'mechanic'
-                          data: 
-                            counts: 'False'
-                            delay-base: '0.05'
-                            icon-key: ''
-                            delay-scale: '0'
-                          children: 
-                            Value Set-o: 
-                              type: 'mechanic'
-                              data: 
-                                counts: 'False'
-                                value-scale: '0'
-                                icon-key: ''
-                                value-base: '1'
-                                key: 'armorBase'
-                              children:  {}
-            Elevation-p: 
+                        value-base: 1
+                        value-scale: 0
+            Elevation-h:
               type: 'condition'
-              data: 
-                min-value-scale: '0'
-                max-value-scale: '0'
+              data:
                 icon-key: ''
-                max-value-base: '40'
                 type: 'Normal'
-                min-value-base: '1'
-              children: 
-                Heal-q: 
+                min-value-base: 1
+                min-value-scale: 0
+                max-value-base: 40
+                max-value-scale: 0
+              children:
+                Heal-i:
                   type: 'mechanic'
-                  data: 
-                    counts: 'False'
-                    value-scale: '0'
+                  data:
                     icon-key: ''
+                    counts: 'False'
                     type: 'Health'
-                    value-base: '0.25'
-                  children:  {}
-        Value Set-r: 
-          type: 'mechanic'
-          data: 
-            counts: 'False'
-            value-scale: '0'
-            icon-key: ''
-            value-base: '1'
-            key: 'armorBase'
-          children:  {}
+                    value-base: 0.25
+                    value-scale: 0
+            Mana-j:
+              type: 'condition'
+              data:
+                icon-key: ''
+                type: 'Mana'
+                min-value-base: 30
+                min-value-scale: 0
+                max-value-base: 59
+                max-value-scale: 0
+              children:
+                Potion-k:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    potion: 'Damage Resistance'
+                    ambient: 'False'
+                    tier-base: 1
+                    tier-scale: 0
+                    seconds-base: 1.5
+                    seconds-scale: 0
+            Mana-l:
+              type: 'condition'
+              data:
+                icon-key: ''
+                type: 'Mana'
+                min-value-base: 60
+                min-value-scale: 0
+                max-value-base: 89
+                max-value-scale: 0
+              children:
+                Potion-m:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    potion: 'Damage Resistance'
+                    ambient: 'False'
+                    tier-base: 2
+                    tier-scale: 0
+                    seconds-base: 1.5
+                    seconds-scale: 0
+            Mana-n:
+              type: 'condition'
+              data:
+                icon-key: ''
+                type: 'Mana'
+                min-value-base: 90
+                min-value-scale: 0
+                max-value-base: 100
+                max-value-scale: 0
+              children:
+                Potion-o:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    potion: 'Damage Resistance'
+                    ambient: 'False'
+                    tier-base: 3
+                    tier-scale: 0
+                    seconds-base: 1.5
+                    seconds-scale: 0
