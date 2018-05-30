@@ -1,26 +1,16 @@
-Aetherian Might: 
+Aetherian Might:
   name: 'Aetherian Might'
   type: 'Passive'
   max-level: 4
+  skill-req: ''
   skill-req-lvl: 1
-  needs-permission: 'false'
-  attributes: 
-    cost-base: '1'
-    cooldown-scale: '0'
-    incompatible: 
-    - ''
-    cost-scale: '0'
-    level-scale: '0'
-    level-base: '1'
-    mana-base: '0'
-    points-spent-req-base: '0'
-    mana-scale: '0'
-    cooldown-base: '0'
-    points-spent-req-scale: '0'
+  needs-permission: 'False'
   msg: '&6{player} &2has cast &6{skill}&r'
-  icon: 'GOLD_HELMET'
+  combo: ''
+  indicator: '2D'
+  icon: 'Gold Helmet'
   icon-data: 0
-  icon-lore: 
+  icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
@@ -32,28 +22,50 @@ Aetherian Might:
   - ''
   - '&2Attack Multiplier: &fx{attr:attackMultiplier.value}'
   - '&2Speed Multiplier: &fx{attr:speedMultiplier.multiplier}'
-  desc:  []
-  components: 
-    Initialize: 
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
       type: 'trigger'
-      data: 
+      data:
         icon-key: ''
-      children: 
-        Passive-b: 
+      children:
+        Passive-b:
           type: 'mechanic'
-          data: 
-            counts: 'False'
+          data:
             icon-key: ''
-            seconds-scale: '0'
-            seconds-base: '5'
-          children: 
-            Speed-d: 
+            counts: 'False'
+            seconds-base: 5
+            seconds-scale: 0
+          children:
+            Speed-c:
               type: 'mechanic'
-              data: 
-                multiplier-base: '1.04'
-                duration-base: '5'
-                counts: 'False'
+              data:
                 icon-key: 'speedMultiplier'
-                multiplier-scale: '0.02'
-                duration-scale: '0'
-              children:  {}
+                counts: 'False'
+                multiplier-base: 1.04
+                multiplier-scale: 0.02
+                duration-base: 5
+                duration-scale: 0
+            Damage Buff-d:
+              type: 'mechanic'
+              data:
+                icon-key: 'attackMultiplier'
+                counts: 'False'
+                type: 'Multiplier'
+                skill: 'False'
+                value-base: 1.1
+                value-scale: 0.05
+                seconds-base: 5
+                seconds-scale: 0
