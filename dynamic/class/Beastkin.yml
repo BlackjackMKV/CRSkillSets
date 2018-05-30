@@ -1,0 +1,39 @@
+Beastkin:
+  name: 'Beastkin'
+  prefix: '&bBeastkin'
+  group: 'Race'
+  mana: '&cBloodrush'
+  max-level: 15
+  parent: ''
+  needs-permission: 'False'
+  exp-source: 273
+  mana-regen: 0
+  tree: 'Requirement'
+  skills:
+  - 'Primal Instinct'
+  - 'Primal Hunt'
+  - 'Beast Rage'
+  icon: 'Jack O Lantern'
+  icon-data: 0
+  icon-lore:
+  - '&2Beastkin - Flock Race'
+  - '&bAn agressive race who thrives in the'
+  - '&bmidst of combat.'
+  blacklist:
+  - ''
+  action-bar: ''
+  attributes:
+    health-base: 20
+    health-scale: 0
+    mana-base: 100
+    mana-scale: 0
+    vitality-base: 0
+    vitality-scale: 0
+    spirit-base: 0
+    spirit-scale: 0
+    intelligence-base: 0
+    intelligence-scale: 0
+    dexterity-base: 0
+    dexterity-scale: 0
+    strength-base: 0
+    strength-scale: 0

@@ -1,0 +1,87 @@
+Primal Hunt:
+  name: 'Primal Hunt'
+  type: 'Sustain'
+  max-level: 5
+  skill-req: 'Primal Instinct'
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Bone'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eMelee skill. Makes your next melee'
+  - '&eattack within 4 sec restore some of'
+  - '&eyour health.'
+  - ''
+  - '&2Lifesteal: {attr:healthRecovery.value}'
+  - '&2Bloodrush Required: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 16
+    cooldown-scale: -1
+    mana-base: 40
+    mana-scale: -2
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Sound-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            version: '1.9+'
+            newsound: 'Ambient Cave'
+            volume-base: 100
+            volume-scale: 0
+            pitch-base: 1.5
+            pitch-scale: 0
+        Trigger-c:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            trigger: 'Physical Damage'
+            duration-base: 4
+            duration-scale: 0
+            stackable: 'True'
+            once: 'True'
+            type: 'Melee'
+            target: 'True'
+            dmg-min: 0
+            dmg-max: 999
+          children:
+            Heal-d:
+              type: 'mechanic'
+              data:
+                icon-key: 'healthRecovery'
+                counts: 'True'
+                type: 'Health'
+                value-base: 2
+                value-scale: 1
+            Mana-e:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                type: 'Mana'
+                value-base: 40
+                value-scale: -2

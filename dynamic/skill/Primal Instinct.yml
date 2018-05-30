@@ -1,5 +1,5 @@
-Bug Shell:
-  name: 'Bug Shell'
+Primal Instinct:
+  name: 'Primal Instinct'
   type: 'Passive'
   max-level: 5
   skill-req: ''
@@ -8,8 +8,8 @@ Bug Shell:
   msg: ''
   combo: ''
   indicator: '2D'
-  icon: 'Ink Sack'
-  icon-data: 8
+  icon: 'Stick'
+  icon-data: 0
   icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
@@ -17,17 +17,15 @@ Bug Shell:
   - '{req:level}Level: {attr:level}'
   - '{req:cost}Cost: {attr:cost}'
   - ''
-  - '&ePassively restore 1 armor per sec out'
-  - '&eof combat. Recover health quicker on'
-  - '&edeep levels. '
-  - '&eTaking damage lowers your armor.'
-  - '&eEvery 30 points of armor passively'
+  - '&eBloodrush increases by 1 for every'
+  - "&esec you're in combat. You lose 2"
+  - '&eBloodrush every second out of combat.'
+  - '&eEvery 30 points of Bloodrush passively'
   - '&eincreases your damage resistance.'
   - ''
-  - '&2Combat Tag Duration: &610'
-  - '&2Armor/Hit: {attr:armorLoss.value}'
+  - '&2Combat Tag Duration: &66'
   attributes:
-    level-base: 3
+    level-base: 1
     level-scale: 2
     cost-base: 1
     cost-scale: 0
@@ -40,31 +38,12 @@ Bug Shell:
     incompatible:
     - ''
   components:
-    Took Physical Damage-a:
-      type: 'trigger'
-      data:
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'False'
-        target: 'True'
-        type: 'Both'
-        dmg-min: 0
-        dmg-max: 999
-      children:
-        Mana-b:
-          type: 'mechanic'
-          data:
-            icon-key: 'armorLoss'
-            counts: 'False'
-            type: 'Mana'
-            value-base: -10
-            value-scale: 1
-    Initialize-c:
+    Initialize-a:
       type: 'trigger'
       data:
         icon-key: ''
       children:
-        Passive-d:
+        Passive-b:
           type: 'mechanic'
           data:
             icon-key: ''
@@ -72,13 +51,26 @@ Bug Shell:
             seconds-base: 1
             seconds-scale: 0
           children:
-            Combat-e:
+            Combat-c:
               type: 'condition'
               data:
                 icon-key: ''
-                combat: 'False'
+                combat: 'True'
                 seconds: 10
               children:
+                Else-d:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                  children:
+                    Mana-e:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Mana'
+                        value-base: -2
+                        value-scale: 0
                 Mana-f:
                   type: 'condition'
                   data:
@@ -86,7 +78,7 @@ Bug Shell:
                     type: 'Mana'
                     min-value-base: 0
                     min-value-scale: 0
-                    max-value-base: 39
+                    max-value-base: 59
                     max-value-scale: 10
                   children:
                     Mana-g:
@@ -97,25 +89,7 @@ Bug Shell:
                         type: 'Mana'
                         value-base: 1
                         value-scale: 0
-            Elevation-h:
-              type: 'condition'
-              data:
-                icon-key: ''
-                type: 'Normal'
-                min-value-base: 1
-                min-value-scale: 0
-                max-value-base: 40
-                max-value-scale: 0
-              children:
-                Heal-i:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Health'
-                    value-base: 0.25
-                    value-scale: 0
-            Mana-j:
+            Mana-h:
               type: 'condition'
               data:
                 icon-key: ''
@@ -125,7 +99,7 @@ Bug Shell:
                 max-value-base: 59
                 max-value-scale: 0
               children:
-                Potion-k:
+                Potion-i:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -136,7 +110,7 @@ Bug Shell:
                     tier-scale: 0
                     seconds-base: 1.5
                     seconds-scale: 0
-            Mana-l:
+            Mana-j:
               type: 'condition'
               data:
                 icon-key: ''
@@ -146,7 +120,7 @@ Bug Shell:
                 max-value-base: 89
                 max-value-scale: 0
               children:
-                Potion-m:
+                Potion-k:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -157,7 +131,7 @@ Bug Shell:
                     tier-scale: 0
                     seconds-base: 1.5
                     seconds-scale: 0
-            Mana-n:
+            Mana-l:
               type: 'condition'
               data:
                 icon-key: ''
@@ -167,7 +141,7 @@ Bug Shell:
                 max-value-base: 100
                 max-value-scale: 0
               children:
-                Potion-o:
+                Potion-m:
                   type: 'mechanic'
                   data:
                     icon-key: ''

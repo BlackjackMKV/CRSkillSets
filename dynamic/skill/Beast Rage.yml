@@ -1,0 +1,131 @@
+Beast Rage:
+  name: 'Beast Rage'
+  type: 'Offense'
+  max-level: 5
+  skill-req: 'Primal Instinct'
+  skill-req-lvl: 5
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Rotten Flesh'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eInstantly restore Bloorush. Rapidly'
+  - '&egain Bloodrush during Beast Rage. '
+  - '&eEvery nearby hostile is marked, revealing'
+  - '&etheir position to you. Killing foes'
+  - '&eduring Beast Rage grants you a health'
+  - '&ebarrier.'
+  - ''
+  - '&2Instant Bloodrush: {attr:instantBloodrush.value}'
+  - '&2Rage Duration: {attr:rageDuration.repetitions}'
+  - '&2Barrier Duration: {attr:rageBarrier.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 60
+    cooldown-scale: -5
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Mana-b:
+          type: 'mechanic'
+          data:
+            icon-key: 'instantBloodrush'
+            counts: 'True'
+            type: 'Mana'
+            value-base: 20
+            value-scale: 5
+        Repeat-c:
+          type: 'mechanic'
+          data:
+            icon-key: 'rageDuration'
+            counts: 'True'
+            repetitions-base: 8
+            repetitions-scale: 1
+            period: 1
+            delay: 1
+          children:
+            Mana-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                type: 'Mana'
+                value-base: 3
+                value-scale: 0
+        Sound-e:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            version: '1.9+'
+            newsound: 'Ambient Cave'
+            volume-base: 200
+            volume-scale: 0
+            pitch-base: 0.5
+            pitch-scale: 0
+        Area-f:
+          type: 'target'
+          data:
+            icon-key: ''
+            radius-base: 16
+            radius-scale: 0
+            group: 'Enemy'
+            wall: 'True'
+            caster: 'False'
+            max-base: 99
+            max-scale: 0
+          children:
+            Potion-g:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                potion: 'Glowing'
+                ambient: 'True'
+                tier-base: 1
+                tier-scale: 0
+                seconds-base: 8
+                seconds-scale: 1
+        Trigger-h:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            trigger: 'Kill'
+            duration-base: 8
+            duration-scale: 1
+            stackable: 'True'
+            once: 'False'
+          children:
+            Potion-i:
+              type: 'mechanic'
+              data:
+                icon-key: 'rageBarrier'
+                counts: 'True'
+                potion: 'Absorption'
+                ambient: 'False'
+                tier-base: 1
+                tier-scale: 1
+                seconds-base: 12
+                seconds-scale: 1
