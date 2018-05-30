@@ -2,8 +2,8 @@ Warp Gate:
   name: 'Warp Gate'
   type: 'Mobility'
   max-level: 5
-  skill-req: 'Celestial Storm'
-  skill-req-lvl: 3
+  skill-req: ''
+  skill-req-lvl: 0
   needs-permission: 'False'
   msg: '&6{player} &2has cast &6{skill}'
   combo: ''
@@ -48,7 +48,7 @@ Warp Gate:
           type: 'mechanic'
           data:
             icon-key: ''
-            counts: 'False'
+            counts: 'True'
             key: 'WarpGateStart'
         Location-c:
           type: 'target'
@@ -73,7 +73,7 @@ Warp Gate:
                   type: 'mechanic'
                   data:
                     icon-key: 'warpGateBuff'
-                    counts: 'False'
+                    counts: 'True'
                     type: 'DAMAGE'
                     modifier: 'Multiplier'
                     value-base: 1.2

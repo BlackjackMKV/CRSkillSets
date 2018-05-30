@@ -34,7 +34,7 @@ Arcane Bolt:
     points-spent-req-base: 0
     points-spent-req-scale: 0
     incompatible:
-    - 'Celestial Storm'
+    - ''
   components:
     Cast-a:
       type: 'trigger'
@@ -123,8 +123,8 @@ Arcane Bolt:
             counts: 'False'
             repetitions-base: 4
             repetitions-scale: 0
-            period: 1
-            delay: 1
+            period: 0.25
+            delay: 0.25
           children:
             Value Add-j:
               type: 'mechanic'
