@@ -84,7 +84,7 @@ Warp Gate:
           type: 'mechanic'
           data:
             icon-key: ''
-            counts: 'False'
+            counts: 'True'
             trigger: 'Crouch'
             duration-base: 6
             duration-scale: 0
@@ -96,5 +96,5 @@ Warp Gate:
               type: 'mechanic'
               data:
                 icon-key: ''
-                counts: 'False'
+                counts: 'True'
                 key: 'WarpGateStart'
