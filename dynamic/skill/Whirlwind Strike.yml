@@ -92,3 +92,11 @@ Whirlwind Strike:
                     tier-scale: 0
                     seconds-base: 1
                     seconds-scale: 0.5
+                Status-g:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    status: 'Stun'
+                    duration-base: 1
+                    duration-scale: 0.5
