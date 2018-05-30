@@ -1,26 +1,16 @@
-Swarmling: 
+Swarmling:
   name: 'Swarmling'
   type: 'Summon'
   max-level: 5
+  skill-req: 'None'
   skill-req-lvl: 1
   needs-permission: 'false'
-  attributes: 
-    cost-base: '1'
-    cooldown-scale: '-10'
-    incompatible: 
-    - ''
-    cost-scale: '0'
-    level-scale: '0'
-    level-base: '1'
-    mana-base: '0'
-    points-spent-req-base: '0'
-    mana-scale: '0'
-    cooldown-base: '120'
-    points-spent-req-scale: '0'
   msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
   icon: 'STRING'
   icon-data: 0
-  icon-lore: 
+  icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
@@ -36,39 +26,50 @@ Swarmling:
   - '&2Swarmling Amount: {attr:swarmling.Amount}'
   - '&2Summon Duration {attr:swarmling.Duration}'
   - '&2Cooldown: {attr:cooldown}'
-  desc:  []
-  components: 
-    Cast: 
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 120
+    cooldown-scale: -10
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
       type: 'trigger'
-      data: 
+      data:
         icon-key: ''
-      children: 
-        Wolf-b: 
+      children:
+        Wolf-b:
           type: 'mechanic'
-          data: 
-            health-base: '20'
-            color: 'Black'
-            counts: 'True'
-            health-scale: '5'
-            amount-base: '2'
-            damage-base: '4'
-            seconds-scale: '5'
-            seconds-base: '20'
-            skills: 
-            - ''
-            damage-scale: '1'
-            name: "{player}'s Minion"
+          data:
             icon-key: 'swarmling'
-            amount-scale: '1'
-          children: 
-            Disguise-c: 
+            counts: 'True'
+            color: 'Black'
+            name: '"{player}s Minion"'
+            health-base: 10
+            health-scale: 2.5
+            damage-base: 4
+            damage-scale: 0.5
+            seconds-base: 20
+            seconds-scale: 5
+            amount-base: 2
+            amount-scale: 1
+            skills:
+            - ''
+          children:
+            Disguise-c:
               type: 'mechanic'
-              data: 
-                mob: 'Silverfish'
-                duration-base: '-1'
-                counts: 'True'
+              data:
                 icon-key: ''
-                duration-scale: '0'
+                counts: 'True'
+                duration-base: -1
+                duration-scale: 0
                 type: 'Mob'
+                mob: 'Silverfish'
                 adult: 'True'
-              children:  {}
