@@ -1,26 +1,16 @@
-Scratch: 
+Scratch:
   name: 'Scratch'
   type: 'Offensive'
   max-level: 5
+  skill-req: ''
   skill-req-lvl: 1
-  needs-permission: 'false'
-  attributes: 
-    cost-base: '1'
-    cooldown-scale: '1'
-    incompatible: 
-    - ''
-    cost-scale: '0'
-    level-scale: '0'
-    level-base: '1'
-    mana-base: '0'
-    points-spent-req-base: '0'
-    mana-scale: '0'
-    cooldown-base: '16'
-    points-spent-req-scale: '0'
+  needs-permission: 'False'
   msg: '&6{player} &2has cast &6{skill}'
-  icon: 'IRON_SWORD'
+  combo: ''
+  indicator: '2D'
+  icon: 'Iron Sword'
   icon-data: 0
-  icon-lore: 
+  icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
@@ -31,24 +21,70 @@ Scratch:
   - '&e4 sec to deal additional bleed damage over'
   - '&e1.5 sec, ignoring armor.'
   - ''
-  - '&2True Damage/0.5 sec: {attr:bleedDamage.value}'
+  - '&2True Damage/0.5 sec: {attr:trueBleedDamage.value}'
   - '&2Cooldown: {attr:cooldown}'
-  desc:  []
-  components: 
-    Cast: 
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 16
+    cooldown-scale: 1
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
       type: 'trigger'
-      data: 
+      data:
         icon-key: ''
-      children: 
-        Sound-e: 
+      children:
+        Sound-b:
           type: 'mechanic'
-          data: 
-            pitch-scale: '0'
-            counts: 'True'
-            volume-base: '100'
-            volume-scale: '0'
+          data:
             icon-key: ''
-            pitch-base: '1.5'
+            counts: 'True'
             version: '1.9+'
             newsound: 'Entity Egg Throw'
-          children:  {}
+            volume-base: 100
+            volume-scale: 0
+            pitch-base: 1.5
+            pitch-scale: 0
+        Trigger-c:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            trigger: 'Physical Damage'
+            duration-base: 4
+            duration-scale: 0
+            stackable: 'True'
+            once: 'True'
+            type: 'Melee'
+            target: 'False'
+            dmg-min: 0
+            dmg-max: 999
+          children:
+            Repeat-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                repetitions-base: 3
+                repetitions-scale: 0
+                period: 0.5
+                delay: 0.5
+              children:
+                Damage-e:
+                  type: 'mechanic'
+                  data:
+                    icon-key: 'trueBleedDamage'
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: 2
+                    value-scale: 0.5
+                    true: 'True'
+                    classifier: 'Bleed'
