@@ -48,7 +48,7 @@ Warp Gate:
           type: 'mechanic'
           data:
             icon-key: ''
-            counts: 'True'
+            counts: 'False'
             key: 'WarpGateStart'
         Location-c:
           type: 'target'
@@ -56,35 +56,60 @@ Warp Gate:
             icon-key: 'warpRange'
             range-base: 12
             range-scale: 3
-            ground: 'True'
+            ground: 'False'
           children:
-            Warp Target-d:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                type: 'Caster to Target'
-            Self-e:
+            Self-d:
               type: 'target'
               data:
                 icon-key: ''
               children:
-                Buff-f:
+                Buff-e:
                   type: 'mechanic'
                   data:
                     icon-key: 'warpGateBuff'
-                    counts: 'True'
+                    counts: 'False'
                     type: 'DAMAGE'
                     modifier: 'Multiplier'
                     value-base: 1.2
                     value-scale: 0.1
                     seconds-base: 6
                     seconds-scale: 1
-        Trigger-g:
+            Offset-f:
+              type: 'target'
+              data:
+                icon-key: ''
+                forward-base: 0
+                forward-scale: 0
+                upward-base: 1
+                upward-scale: 0
+                right-base: 0
+                right-scale: 0
+              children:
+                Value Location-g:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    key: 'warpLaterLocation'
+                Delay-h:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    delay-base: 0.1
+                    delay-scale: 0
+                  children:
+                    Warp Value-i:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        key: 'warpLaterLocation'
+        Trigger-j:
           type: 'mechanic'
           data:
             icon-key: ''
-            counts: 'True'
+            counts: 'False'
             trigger: 'Crouch'
             duration-base: 6
             duration-scale: 0
@@ -92,9 +117,9 @@ Warp Gate:
             once: 'True'
             type: 'Start Crouching'
           children:
-            Warp Value-h:
+            Warp Value-k:
               type: 'mechanic'
               data:
                 icon-key: ''
-                counts: 'True'
+                counts: 'False'
                 key: 'WarpGateStart'
