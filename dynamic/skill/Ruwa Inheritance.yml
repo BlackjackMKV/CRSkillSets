@@ -1,26 +1,16 @@
-Ruwa Inheritance: 
+Ruwa Inheritance:
   name: 'Ruwa Inheritance'
   type: 'Passive'
   max-level: 5
+  skill-req: ''
   skill-req-lvl: 1
-  needs-permission: 'false'
-  attributes: 
-    cost-base: '1'
-    cooldown-scale: '0'
-    incompatible: 
-    - ''
-    cost-scale: '0'
-    level-scale: '4'
-    level-base: '1'
-    mana-base: '0'
-    points-spent-req-base: '0'
-    mana-scale: '0'
-    cooldown-base: '0'
-    points-spent-req-scale: '0'
-  msg: '&6{player} &2has cast &6{skill}&r'
-  icon: 'GOLD_HELMET'
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Gold Helmet'
   icon-data: 0
-  icon-lore: 
+  icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
@@ -33,108 +23,127 @@ Ruwa Inheritance:
   - '&2Attack Multiplier: {attr:dmgBuff.value}'
   - '&2Damage Received: {attr:defBuff.value}'
   - '&2Land Move Speed: {attr:speedDebuff.multiplier}'
-  desc:  []
-  components: 
-    Initialize: 
+  attributes:
+    level-base: 1
+    level-scale: 2
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
       type: 'trigger'
-      data: 
+      data:
         icon-key: ''
-      children: 
-        Passive-b: 
+      children:
+        Passive-b:
           type: 'mechanic'
-          data: 
-            counts: 'False'
+          data:
             icon-key: ''
-            seconds-scale: '0'
-            seconds-base: '1'
-          children: 
-            Water-c: 
+            counts: 'False'
+            seconds-base: 3
+            seconds-scale: 0
+          children:
+            Water-c:
               type: 'condition'
-              data: 
+              data:
                 icon-key: ''
                 state: 'In Water'
-              children: 
-                Potion-f: 
+              children:
+                Potion-d:
                   type: 'mechanic'
-                  data: 
+                  data:
+                    icon-key: ''
+                    counts: 'False'
                     potion: 'Speed'
-                    counts: 'False'
-                    icon-key: ''
                     ambient: 'False'
-                    tier-scale: '1'
-                    seconds-scale: '0'
-                    tier-base: '2'
-                    seconds-base: '2'
-                  children:  {}
-                Damage Buff-g: 
+                    tier-base: 2
+                    tier-scale: 1
+                    seconds-base: 3.5
+                    seconds-scale: 0
+                Damage Buff-e:
                   type: 'mechanic'
-                  data: 
-                    counts: 'False'
-                    skill: 'False'
-                    value-scale: '0.1'
+                  data:
                     icon-key: 'dmgBuff'
-                    type: 'Multiplier'
-                    value-base: '1.2'
-                    seconds-scale: '0'
-                    seconds-base: '1'
-                  children:  {}
-                Defense Buff-h: 
-                  type: 'mechanic'
-                  data: 
                     counts: 'False'
+                    type: 'Multiplier'
                     skill: 'False'
-                    value-scale: '-0.05'
+                    value-base: 1.2
+                    value-scale: 0.1
+                    seconds-base: 3.5
+                    seconds-scale: 0
+                Defense Buff-f:
+                  type: 'mechanic'
+                  data:
                     icon-key: 'defBuff'
-                    type: 'Multiplier'
-                    value-base: '0.9'
-                    seconds-scale: '0'
-                    seconds-base: '1'
-                  children:  {}
-                Defense Buff-i: 
-                  type: 'mechanic'
-                  data: 
                     counts: 'False'
+                    type: 'Multiplier'
+                    skill: 'False'
+                    value-base: 0.9
+                    value-scale: -0.05
+                    seconds-base: 3.5
+                    seconds-scale: 0
+                Defense Buff-g:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    type: 'Multiplier'
                     skill: 'True'
-                    value-scale: '-0.05'
-                    icon-key: ''
-                    type: 'Multiplier'
-                    value-base: '0.9'
-                    seconds-scale: '0'
-                    seconds-base: '1'
-                  children:  {}
-                Potion-j: 
+                    value-base: 0.9
+                    value-scale: -0.05
+                    seconds-base: 3.5
+                    seconds-scale: 0
+                Potion-h:
                   type: 'mechanic'
-                  data: 
+                  data:
+                    icon-key: ''
+                    counts: 'False'
                     potion: 'Night Vision'
-                    counts: 'False'
-                    icon-key: ''
                     ambient: 'False'
-                    tier-scale: '0'
-                    seconds-scale: '0'
-                    tier-base: '1'
-                    seconds-base: '12'
-                  children:  {}
-                Potion-k: 
+                    tier-base: 1
+                    tier-scale: 0
+                    seconds-base: 12
+                    seconds-scale: 0
+                Potion-i:
                   type: 'mechanic'
-                  data: 
+                  data:
+                    icon-key: ''
+                    counts: 'False'
                     potion: 'Water Breathing'
-                    counts: 'False'
-                    icon-key: ''
                     ambient: 'False'
-                    tier-scale: '0'
-                    seconds-scale: '0'
-                    tier-base: '1'
-                    seconds-base: '12'
-                  children:  {}
-                Potion-l: 
+                    tier-base: 1
+                    tier-scale: 0
+                    seconds-base: 12
+                    seconds-scale: 0
+                Potion-j:
                   type: 'mechanic'
-                  data: 
-                    potion: 'Jump'
-                    counts: 'False'
+                  data:
                     icon-key: ''
+                    counts: 'False'
+                    potion: 'Jump'
                     ambient: 'False'
-                    tier-scale: '0'
-                    seconds-scale: '0'
-                    tier-base: '2'
-                    seconds-base: '2'
-                  children:  {}
+                    tier-base: 2
+                    tier-scale: 0
+                    seconds-base: 3.5
+                    seconds-scale: 0
+                Else-k:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                  children:
+                    Speed-l:
+                      type: 'mechanic'
+                      data:
+                        icon-key: 'speedDebuff'
+                        counts: 'False'
+                        multiplier-base: 0.9
+                        multiplier-scale: 0.02
+                        duration-base: 3
+                        duration-scale: 0
