@@ -17,11 +17,10 @@ Scratch:
   - '{req:level}Level: {attr:level}'
   - '{req:cost}Cost: {attr:cost}'
   - ''
-  - '&ePrepares your next melee attack within'
-  - '&e4 sec to deal additional bleed damage over'
-  - '&e1.5 sec, ignoring armor.'
+  - '&eDeals armor-piercing damage over'
+  - '&etime.'
   - ''
-  - '&2True Damage/0.5 sec: {attr:trueBleedDamage.value}'
+  - '&2True Damage/0.5 sec: {attr:bleed.value}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -53,26 +52,22 @@ Scratch:
             volume-scale: 0
             pitch-base: 1.5
             pitch-scale: 0
-        Trigger-c:
-          type: 'mechanic'
+        Single-c:
+          type: 'target'
           data:
             icon-key: ''
-            counts: 'True'
-            trigger: 'Physical Damage'
-            duration-base: 4
-            duration-scale: 0
-            stackable: 'True'
-            once: 'True'
-            type: 'Melee'
-            target: 'False'
-            dmg-min: 0
-            dmg-max: 999
+            range-base: 5
+            range-scale: 0
+            tolerance-base: 4
+            tolerance-scale: 0
+            group: 'Enemy'
+            wall: 'True'
           children:
             Repeat-d:
               type: 'mechanic'
               data:
                 icon-key: ''
-                counts: 'True'
+                counts: 'False'
                 repetitions-base: 3
                 repetitions-scale: 0
                 period: 0.5
@@ -81,8 +76,8 @@ Scratch:
                 Damage-e:
                   type: 'mechanic'
                   data:
-                    icon-key: 'trueBleedDamage'
-                    counts: 'True'
+                    icon-key: 'bleed'
+                    counts: 'False'
                     type: 'Damage'
                     value-base: 2
                     value-scale: 0.5

@@ -86,7 +86,7 @@ Bug Shell:
                     type: 'Mana'
                     min-value-base: 0
                     min-value-scale: 0
-                    max-value-base: 39
+                    max-value-base: 59
                     max-value-scale: 10
                   children:
                     Mana-g:

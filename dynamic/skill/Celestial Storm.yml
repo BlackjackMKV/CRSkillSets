@@ -60,7 +60,7 @@ Celestial Storm:
               type: 'mechanic'
               data:
                 icon-key: ''
-                counts: 'True'
+                counts: 'False'
                 damage: 'False'
                 forward-base: 0
                 forward-scale: 0
@@ -70,7 +70,7 @@ Celestial Storm:
               type: 'mechanic'
               data:
                 icon-key: 'spellDamage'
-                counts: 'True'
+                counts: 'False'
                 type: 'Damage'
                 value-base: 12
                 value-scale: 3
@@ -92,7 +92,7 @@ Celestial Storm:
               type: 'mechanic'
               data:
                 icon-key: ''
-                counts: 'True'
+                counts: 'False'
                 damage: 'False'
                 forward-base: 0
                 forward-scale: 0
@@ -102,7 +102,7 @@ Celestial Storm:
               type: 'mechanic'
               data:
                 icon-key: 'spellDamage2'
-                counts: 'True'
+                counts: 'False'
                 type: 'Damage'
                 value-base: 10
                 value-scale: 2

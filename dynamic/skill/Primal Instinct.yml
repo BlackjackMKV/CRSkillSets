@@ -58,20 +58,7 @@ Primal Instinct:
                 combat: 'True'
                 seconds: 10
               children:
-                Else-d:
-                  type: 'condition'
-                  data:
-                    icon-key: ''
-                  children:
-                    Mana-e:
-                      type: 'mechanic'
-                      data:
-                        icon-key: ''
-                        counts: 'False'
-                        type: 'Mana'
-                        value-base: -2
-                        value-scale: 0
-                Mana-f:
+                Mana-d:
                   type: 'condition'
                   data:
                     icon-key: ''
@@ -81,7 +68,7 @@ Primal Instinct:
                     max-value-base: 59
                     max-value-scale: 10
                   children:
-                    Mana-g:
+                    Mana-e:
                       type: 'mechanic'
                       data:
                         icon-key: ''
@@ -89,7 +76,7 @@ Primal Instinct:
                         type: 'Mana'
                         value-base: 1
                         value-scale: 0
-            Mana-h:
+            Mana-f:
               type: 'condition'
               data:
                 icon-key: ''
@@ -99,7 +86,7 @@ Primal Instinct:
                 max-value-base: 59
                 max-value-scale: 0
               children:
-                Potion-i:
+                Potion-g:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -110,7 +97,7 @@ Primal Instinct:
                     tier-scale: 0
                     seconds-base: 1.5
                     seconds-scale: 0
-            Mana-j:
+            Mana-h:
               type: 'condition'
               data:
                 icon-key: ''
@@ -120,7 +107,7 @@ Primal Instinct:
                 max-value-base: 89
                 max-value-scale: 0
               children:
-                Potion-k:
+                Potion-i:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -131,7 +118,7 @@ Primal Instinct:
                     tier-scale: 0
                     seconds-base: 1.5
                     seconds-scale: 0
-            Mana-l:
+            Mana-j:
               type: 'condition'
               data:
                 icon-key: ''
@@ -141,7 +128,7 @@ Primal Instinct:
                 max-value-base: 100
                 max-value-scale: 0
               children:
-                Potion-m:
+                Potion-k:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -152,3 +139,18 @@ Primal Instinct:
                     tier-scale: 0
                     seconds-base: 1.5
                     seconds-scale: 0
+            Combat-l:
+              type: 'condition'
+              data:
+                icon-key: ''
+                combat: 'False'
+                seconds: 10
+              children:
+                Mana-m:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    type: 'Mana'
+                    value-base: -2
+                    value-scale: 0

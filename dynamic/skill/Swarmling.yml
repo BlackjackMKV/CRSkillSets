@@ -2,13 +2,13 @@ Swarmling:
   name: 'Swarmling'
   type: 'Summon'
   max-level: 5
-  skill-req: 'None'
+  skill-req: ''
   skill-req-lvl: 1
-  needs-permission: 'false'
+  needs-permission: 'False'
   msg: '&6{player} &2has cast &6{skill}'
   combo: ''
   indicator: '2D'
-  icon: 'STRING'
+  icon: 'String'
   icon-data: 0
   icon-lore:
   - '&d{name} &7({level}/{max})'
@@ -24,7 +24,6 @@ Swarmling:
   - '&2Swarmling Health: {attr:swarmling.Health}'
   - '&2Attack Damage: {attr:swarmling.Damage}'
   - '&2Swarmling Amount: {attr:swarmling.Amount}'
-  - '&2Summon Duration {attr:swarmling.Duration}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1

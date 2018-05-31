@@ -21,8 +21,8 @@ Arcane Barrier:
   - '&ethe target or self. Blocks some of the '
   - '&edamage. '
   - ''
-  - '&2Duration: {attr:arcaneBarrierDefense.seconds}'
-  - '&2Damage Received: {attr:arcaneBarrierDefense.value}'
+  - '&2Duration: {attr:barrier.seconds}'
+  - '&2Damage Received: {attr:barrier.value}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -59,29 +59,34 @@ Arcane Barrier:
               data:
                 icon-key: ''
               children:
-                Defense Buff-d:
-                  type: 'mechanic'
-                  data:
-                    icon-key: 'arcaneBarrierDefense'
-                    counts: 'True'
-                    type: 'Multiplier'
-                    skill: 'False'
-                    value-base: 0.3
-                    value-scale: -0.04
-                    seconds-base: 8
-                    seconds-scale: 1
-                Defense Buff-e:
-                  type: 'mechanic'
+                Self-d:
+                  type: 'target'
                   data:
                     icon-key: ''
-                    counts: 'True'
-                    type: 'Multiplier'
-                    skill: 'True'
-                    value-base: 0.3
-                    value-scale: -0.04
-                    seconds-base: 8
-                    seconds-scale: 1
-            Defense Buff-f:
+                  children:
+                    Defense Buff-e:
+                      type: 'mechanic'
+                      data:
+                        icon-key: 'barrier'
+                        counts: 'True'
+                        type: 'Multiplier'
+                        skill: 'False'
+                        value-base: 0.3
+                        value-scale: -0.04
+                        seconds-base: 8
+                        seconds-scale: 1
+                    Defense Buff-f:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Multiplier'
+                        skill: 'True'
+                        value-base: 0.3
+                        value-scale: -0.04
+                        seconds-base: 8
+                        seconds-scale: 1
+            Defense Buff-g:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -92,7 +97,7 @@ Arcane Barrier:
                 value-scale: -0.04
                 seconds-base: 8
                 seconds-scale: 1
-            Defense Buff-g:
+            Defense Buff-h:
               type: 'mechanic'
               data:
                 icon-key: ''
