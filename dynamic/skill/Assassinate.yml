@@ -20,9 +20,9 @@ Assassinate:
   - "&eDeals a percentage of the target's missing"
   - '&ehealth as damage.'
   - ''
-  - '&2Missing Health Damage: {attr:missDmg.value}&6%'
-  - '&2Damage vs Mobs: {attr:mobDmg.value}'
-  - '&2Focus Cost: {attr:fCost.min_value}&6%'
+  - '&2Missing Health Damage: {attr:missdmg.value}&6%'
+  - '&2Damage vs Mobs: {attr:mobdmg.value}'
+  - '&2Focus Cost: {attr:focuscost.min_value}&6%'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -46,7 +46,7 @@ Assassinate:
         Value-b:
           type: 'condition'
           data:
-            icon-key: 'fCost'
+            icon-key: 'focuscost'
             key: 'Focus'
             min-value-base: 100
             min-value-scale: -5
@@ -82,7 +82,7 @@ Assassinate:
                     Damage-f:
                       type: 'mechanic'
                       data:
-                        icon-key: 'missDmg'
+                        icon-key: 'missdmg'
                         counts: 'True'
                         type: 'Percent Missing'
                         value-base: 200
@@ -97,7 +97,7 @@ Assassinate:
                         Damage-h:
                           type: 'mechanic'
                           data:
-                            icon-key: 'mobDmg'
+                            icon-key: 'mobdmg'
                             counts: 'True'
                             type: 'Damage'
                             value-base: 20

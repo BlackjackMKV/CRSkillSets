@@ -21,8 +21,8 @@ Swift Strike:
   - '&emarked. Crouching within this duration warps'
   - '&eyou to the target. '
   - ''
-  - '&2Mark Duration: {attr:warpStrike.duration}'
-  - '&2Damage: {attr:warpDmg.value}'
+  - '&2Mark Duration: {attr:wS.duration}'
+  - '&2Damage: {attr:wD.value}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -81,7 +81,7 @@ Swift Strike:
                 Trigger-e:
                   type: 'mechanic'
                   data:
-                    icon-key: 'warpStrike'
+                    icon-key: 'wS'
                     counts: 'True'
                     trigger: 'Crouch'
                     duration-base: 6
@@ -105,7 +105,7 @@ Swift Strike:
                         Damage-h:
                           type: 'mechanic'
                           data:
-                            icon-key: 'warpDmg'
+                            icon-key: 'wD'
                             counts: 'True'
                             type: 'Damage'
                             value-base: 12

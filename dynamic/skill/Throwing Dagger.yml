@@ -18,7 +18,7 @@ Throwing Dagger:
   - '{req:cost}Cost: {attr:cost}'
   - ''
   - '&eThrow a projectile which deals damage'
-  - '6eand inflicts slowness on impact. '
+  - '&eand inflicts slowness on impact. '
   - ''
   - '&2Damage: {attr:skillDmg.value}'
   - '&2Slow III Duration: {attr:strongSlow.seconds}'

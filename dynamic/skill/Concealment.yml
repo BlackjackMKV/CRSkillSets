@@ -23,7 +23,7 @@ Concealment:
   - ''
   - '&2AoE Radius: &616'
   - '&2Duration: {attr:conceal.seconds}'
-  - '&2Stun Duration: {attr:tStun.duration}'
+  - '&2Stun Duration: {attr:targetStun.duration}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -107,7 +107,7 @@ Concealment:
                 Status-g:
                   type: 'mechanic'
                   data:
-                    icon-key: 'tStun'
+                    icon-key: 'targetStun'
                     counts: 'True'
                     status: 'Stun'
                     duration-base: 1.6

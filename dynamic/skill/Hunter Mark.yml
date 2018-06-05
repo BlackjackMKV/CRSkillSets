@@ -23,9 +23,9 @@ Hunter Mark:
   - "&eReveals the target's position."
   - '&e*&bFocus &eis used in other skills.'
   - ''
-  - '&2Focus/Hit: {attr:fGain.amount}&6%'
-  - '&2Damage Multiplier: {attr: '
-  - '&2Mark Duration: {attr:mDur.duration}'
+  - '&2Focus/Hit: {attr:focusgain.amount}&6%'
+  - '&2Damage Multiplier: {attr:dmgmulti.value}'
+  - '&2Mark Duration: {attr:mdur.duration}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -60,7 +60,7 @@ Hunter Mark:
             Trigger-c:
               type: 'mechanic'
               data:
-                icon-key: 'mDur'
+                icon-key: 'mdur'
                 counts: 'True'
                 trigger: 'Took Physical Damage'
                 duration-base: 10
@@ -90,7 +90,7 @@ Hunter Mark:
                         Value Add-f:
                           type: 'mechanic'
                           data:
-                            icon-key: 'fGain'
+                            icon-key: 'focusgain'
                             counts: 'True'
                             key: 'Focus'
                             amount-base: 2
@@ -98,7 +98,7 @@ Hunter Mark:
             Defense Buff-g:
               type: 'mechanic'
               data:
-                icon-key: ''
+                icon-key: 'dmgmulti'
                 counts: 'True'
                 type: 'Multiplier'
                 skill: 'False'

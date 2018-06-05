@@ -25,7 +25,6 @@ Predator:
   - '&2Combat Tag Duration: &610'
   - '&2Damage Multiplier: &6x{attr:dBuff.value}'
   - '&2Focus/sec: {attr:fG.amount}&6%'
-  - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
     level-scale: 0

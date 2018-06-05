@@ -23,10 +23,10 @@ Deep Mark:
   - '&eagainst mobs.'
   - ''
   - '&2Duration: &66'
-  - '&2True Damage/sec: {attr:tDam1.value}'
-  - '&2Damage vs Mobs: {attr:mobDam.value}'
-  - '&2Focus Cost on Players: {attr:fV1.min_value}&6%'
-  - '&2Focus Cost on Mobs: {attr:fV2.min_value}&6%'
+  - '&2True Damage/sec: {attr:tdam.value}'
+  - '&2Damage vs Mobs: {attr:mobdam.value}'
+  - '&2Focus Cost on Players: {attr:fvone.min_value}&6%'
+  - '&2Focus Cost on Mobs: {attr:fvtwo.min_value}&6%'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -79,7 +79,7 @@ Deep Mark:
                     Value-f:
                       type: 'condition'
                       data:
-                        icon-key: 'fV1'
+                        icon-key: 'fvone'
                         key: 'Focus'
                         min-value-base: 100
                         min-value-scale: -5
@@ -116,7 +116,7 @@ Deep Mark:
                                 Damage-k:
                                   type: 'mechanic'
                                   data:
-                                    icon-key: 'tDam1'
+                                    icon-key: 'tdam'
                                     counts: 'True'
                                     type: 'Damage'
                                     value-base: 0.8
@@ -150,7 +150,7 @@ Deep Mark:
                         Value-p:
                           type: 'condition'
                           data:
-                            icon-key: 'fV2'
+                            icon-key: 'fvtwo'
                             key: 'Focus'
                             min-value-base: 40
                             min-value-scale: -5
@@ -177,7 +177,7 @@ Deep Mark:
                                 Damage-t:
                                   type: 'mechanic'
                                   data:
-                                    icon-key: 'mobDam'
+                                    icon-key: 'mobdam'
                                     counts: 'True'
                                     type: 'Damage'
                                     value-base: 16
