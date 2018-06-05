@@ -1,0 +1,130 @@
+Hunter Mark:
+  name: 'Hunter Mark'
+  type: 'Target, Offense'
+  max-level: 5
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Gold Nugget'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eMark the target, getting &bFocus'
+  - '&ewhenever you hit them while the'
+  - '&emark is active. Weakens their defense. '
+  - "&eReveals the target's position."
+  - '&e*&bFocus &eis used in other skills.'
+  - ''
+  - '&2Focus/Hit: {attr:fGain.amount}&6%'
+  - '&2Damage Multiplier: {attr: '
+  - '&2Mark Duration: {attr:mDur.duration}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 32
+    cooldown-scale: -2
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Single-b:
+          type: 'target'
+          data:
+            icon-key: ''
+            range-base: 5
+            range-scale: 0
+            tolerance-base: 4
+            tolerance-scale: 0
+            group: 'Enemy'
+            wall: 'True'
+          children:
+            Trigger-c:
+              type: 'mechanic'
+              data:
+                icon-key: 'mDur'
+                counts: 'True'
+                trigger: 'Took Physical Damage'
+                duration-base: 10
+                duration-scale: 1.5
+                stackable: 'True'
+                once: 'False'
+                type: 'Both'
+                target: 'False'
+                dmg-min: 0
+                dmg-max: 999
+              children:
+                Self-d:
+                  type: 'target'
+                  data:
+                    icon-key: ''
+                  children:
+                    Value-e:
+                      type: 'condition'
+                      data:
+                        icon-key: ''
+                        key: 'Focus'
+                        min-value-base: 0
+                        min-value-scale: 0
+                        max-value-base: 100
+                        max-value-scale: 0
+                      children:
+                        Value Add-f:
+                          type: 'mechanic'
+                          data:
+                            icon-key: 'fGain'
+                            counts: 'True'
+                            key: 'Focus'
+                            amount-base: 2
+                            amount-scale: 2
+            Defense Buff-g:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                type: 'Multiplier'
+                skill: 'False'
+                value-base: 1.2
+                value-scale: 0.075
+                seconds-base: 10
+                seconds-scale: 1.5
+            Defense Buff-h:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                type: 'Multiplier'
+                skill: 'True'
+                value-base: 1.2
+                value-scale: 0.075
+                seconds-base: 10
+                seconds-scale: 1.5
+            Potion-i:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                potion: 'Glowing'
+                ambient: 'False'
+                tier-base: 1
+                tier-scale: 0
+                seconds-base: 10
+                seconds-scale: 1.5

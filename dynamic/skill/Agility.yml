@@ -1,0 +1,64 @@
+Agility:
+  name: 'Agility'
+  type: 'Mobility'
+  max-level: 5
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Feather'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eTemporarily increases movement speed'
+  - '&eand jump height.'
+  - ''
+  - '&2Duration: {attr:skillPotion.seconds}'
+  - '&2Speed Multiplier: {attr:goFast.multiplier}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 20
+    cooldown-scale: -1
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Potion-b:
+          type: 'mechanic'
+          data:
+            icon-key: 'skillPotion'
+            counts: 'True'
+            potion: 'Jump'
+            ambient: 'False'
+            tier-base: 2
+            tier-scale: 0
+            seconds-base: 8
+            seconds-scale: 2
+        Speed-c:
+          type: 'mechanic'
+          data:
+            icon-key: 'goFast'
+            counts: 'True'
+            multiplier-base: 1.2
+            multiplier-scale: 0.075
+            duration-base: 8
+            duration-scale: 2

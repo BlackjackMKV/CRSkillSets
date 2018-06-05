@@ -1,0 +1,101 @@
+Throwing Dagger:
+  name: 'Throwing Dagger'
+  type: 'Offense, Pursuit'
+  max-level: 5
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Stone Sword'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eThrow a projectile which deals damage'
+  - '6eand inflicts slowness on impact. '
+  - ''
+  - '&2Damage: {attr:skillDmg.value}'
+  - '&2Slow III Duration: {attr:strongSlow.seconds}'
+  - '&2Slow II Duration: {attr:weakSlow.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 8
+    cooldown-scale: -1
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Item Projectile-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            item: 'Iron Sword'
+            item-data: 0
+            group: 'Enemy'
+            spread: 'Cone'
+            amount-base: 1
+            amount-scale: 0
+            velocity-base: 3
+            velocity-scale: 0
+            angle-base: 30
+            angle-scale: 0
+            position: 1
+            forward-base: 0
+            forward-scale: 0
+            upward-base: 0
+            upward-scale: 0
+            right-base: 0
+            right-scale: 0
+            use-effect: 'False'
+          children:
+            Damage-c:
+              type: 'mechanic'
+              data:
+                icon-key: 'skillDmg'
+                counts: 'True'
+                type: 'Damage'
+                value-base: 6
+                value-scale: 1
+                true: 'False'
+                classifier: 'default'
+            Potion-d:
+              type: 'mechanic'
+              data:
+                icon-key: 'strongSlow'
+                counts: 'True'
+                potion: 'Slow'
+                ambient: 'False'
+                tier-base: 3
+                tier-scale: 0
+                seconds-base: 0.5
+                seconds-scale: 0.25
+            Potion-e:
+              type: 'mechanic'
+              data:
+                icon-key: 'weakSlow'
+                counts: 'True'
+                potion: 'Slow'
+                ambient: 'False'
+                tier-base: 2
+                tier-scale: 0
+                seconds-base: 4
+                seconds-scale: 0.25

@@ -1,0 +1,46 @@
+Rogue:
+  name: 'Rogue'
+  prefix: ''
+  group: 'Class'
+  mana: ''
+  max-level: 15
+  parent: ''
+  needs-permission: 'False'
+  exp-source: 273
+  mana-regen: 0
+  tree: 'Requirement'
+  skills:
+  - 'Hunter Mark'
+  - 'Deep Mark'
+  - 'Predator'
+  - 'Assassinate'
+  - 'Concealment'
+  - 'Agility'
+  - 'Throwing Dagger'
+  - 'Swift Strike'
+  icon: 'Ink Sack'
+  icon-data: 0
+  icon-lore:
+  - '&2Rogue - Assassin Class'
+  - '&bRogues have high offensive capabilities'
+  - '&band several skills which increase their'
+  - '&bmobility. They excel at slaying prioritized'
+  - '&btargets. '
+  blacklist:
+  - ''
+  action-bar: ''
+  attributes:
+    health-base: 0
+    health-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    vitality-base: 0
+    vitality-scale: 0
+    spirit-base: 0
+    spirit-scale: 0
+    intelligence-base: 0
+    intelligence-scale: 0
+    dexterity-base: 0
+    dexterity-scale: 0
+    strength-base: 0
+    strength-scale: 0

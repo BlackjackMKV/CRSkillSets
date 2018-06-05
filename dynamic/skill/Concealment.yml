@@ -1,0 +1,114 @@
+Concealment:
+  name: 'Concealment'
+  type: 'Utility'
+  max-level: 5
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Elytra'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eTurn yourself and nearby allies invisible.'
+  - '&eAttacking while hidden removes stealth and'
+  - '&estuns the target.'
+  - ''
+  - '&2AoE Radius: &616'
+  - '&2Duration: {attr:conceal.seconds}'
+  - '&2Stun Duration: {attr:tStun.duration}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 32
+    cooldown-scale: -2
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Area-b:
+          type: 'target'
+          data:
+            icon-key: ''
+            radius-base: 16
+            radius-scale: 0
+            group: 'Ally'
+            wall: 'True'
+            caster: 'True'
+            max-base: 99
+            max-scale: 0
+          children:
+            Potion-c:
+              type: 'mechanic'
+              data:
+                icon-key: 'conceal'
+                counts: 'True'
+                potion: 'Invisibility'
+                ambient: 'False'
+                tier-base: 1
+                tier-scale: 0
+                seconds-base: 12
+                seconds-scale: 3
+            Trigger-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                trigger: 'Physical Damage'
+                duration-base: 12
+                duration-scale: 3
+                stackable: 'True'
+                once: 'True'
+                type: 'Both'
+                target: 'True'
+                dmg-min: 0
+                dmg-max: 999
+              children:
+                Purge-e:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Invisibility'
+                    status: ''
+            Trigger-f:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                trigger: 'Physical Damage'
+                duration-base: 12
+                duration-scale: 3
+                stackable: 'True'
+                once: 'True'
+                type: 'Both'
+                target: 'False'
+                dmg-min: 0
+                dmg-max: 999
+              children:
+                Status-g:
+                  type: 'mechanic'
+                  data:
+                    icon-key: 'tStun'
+                    counts: 'True'
+                    status: 'Stun'
+                    duration-base: 1.6
+                    duration-scale: 0.2

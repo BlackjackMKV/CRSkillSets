@@ -1,0 +1,200 @@
+Deep Mark:
+  name: 'Deep Mark'
+  type: 'Offense'
+  max-level: 5
+  skill-req: 'Hunter Mark'
+  skill-req-lvl: 3
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Iron Nugget'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eInflicts a mortal wound on the target,'
+  - '&edealing armor-piercing damage over'
+  - '&etime on players. Deals burst damage'
+  - '&eagainst mobs.'
+  - ''
+  - '&2Duration: &66'
+  - '&2True Damage/sec: {attr:tDam1.value}'
+  - '&2Damage vs Mobs: {attr:mobDam.value}'
+  - '&2Focus Cost on Players: {attr:fV1.min_value}&6%'
+  - '&2Focus Cost on Mobs: {attr:fV2.min_value}&6%'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 12
+    cooldown-scale: -1
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Single-b:
+          type: 'target'
+          data:
+            icon-key: ''
+            range-base: 5
+            range-scale: 0
+            tolerance-base: 4
+            tolerance-scale: 0
+            group: 'Enemy'
+            wall: 'True'
+          children:
+            Remember Targets-c:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                key: 'DeepMarkT'
+            Entity Type-d:
+              type: 'condition'
+              data:
+                icon-key: ''
+                types:
+                - 'PLAYER'
+              children:
+                Self-e:
+                  type: 'target'
+                  data:
+                    icon-key: ''
+                  children:
+                    Value-f:
+                      type: 'condition'
+                      data:
+                        icon-key: 'fV1'
+                        key: 'Focus'
+                        min-value-base: 100
+                        min-value-scale: -5
+                        max-value-base: 200
+                        max-value-scale: 0
+                      children:
+                        Else-g:
+                          type: 'condition'
+                          data:
+                            icon-key: ''
+                          children:
+                            Message-h:
+                              type: 'mechanic'
+                              data:
+                                icon-key: ''
+                                counts: 'True'
+                                message: 'Not enough &bFocus&f! You only have {Focus}&f% and will need {attr.fV1.min_value}&f%.'
+                        Remember-i:
+                          type: 'target'
+                          data:
+                            icon-key: ''
+                            key: 'DeepMarkT'
+                          children:
+                            Repeat-j:
+                              type: 'mechanic'
+                              data:
+                                icon-key: ''
+                                counts: 'True'
+                                repetitions-base: 6
+                                repetitions-scale: 0
+                                period: 1
+                                delay: 1
+                              children:
+                                Damage-k:
+                                  type: 'mechanic'
+                                  data:
+                                    icon-key: 'tDam1'
+                                    counts: 'True'
+                                    type: 'Damage'
+                                    value-base: 0.8
+                                    value-scale: 0.3
+                                    true: 'True'
+                                    classifier: 'default'
+                            Forget Targets-l:
+                              type: 'mechanic'
+                              data:
+                                icon-key: ''
+                                counts: 'True'
+                                key: 'DeepMarkT'
+                        Value Add-m:
+                          type: 'mechanic'
+                          data:
+                            icon-key: ''
+                            counts: 'True'
+                            key: 'Focus'
+                            amount-base: 100
+                            amount-scale: -5
+                Else-n:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                  children:
+                    Self-o:
+                      type: 'target'
+                      data:
+                        icon-key: ''
+                      children:
+                        Value-p:
+                          type: 'condition'
+                          data:
+                            icon-key: 'fV2'
+                            key: 'Focus'
+                            min-value-base: 40
+                            min-value-scale: -5
+                            max-value-base: 200
+                            max-value-scale: 0
+                          children:
+                            Else-q:
+                              type: 'condition'
+                              data:
+                                icon-key: ''
+                              children:
+                                Message-r:
+                                  type: 'mechanic'
+                                  data:
+                                    icon-key: ''
+                                    counts: 'True'
+                                    message: 'Not enough &bFocus&f! You only have {Focus}&f% and will need {attr.fV2.min_value}&f%.'
+                            Remember-s:
+                              type: 'target'
+                              data:
+                                icon-key: ''
+                                key: 'DeepMarkT'
+                              children:
+                                Damage-t:
+                                  type: 'mechanic'
+                                  data:
+                                    icon-key: 'mobDam'
+                                    counts: 'True'
+                                    type: 'Damage'
+                                    value-base: 16
+                                    value-scale: 4
+                                    true: 'False'
+                                    classifier: 'default'
+                                Forget Targets-u:
+                                  type: 'mechanic'
+                                  data:
+                                    icon-key: ''
+                                    counts: 'True'
+                                    key: 'DeepMarkT'
+                            Value Add-v:
+                              type: 'mechanic'
+                              data:
+                                icon-key: ''
+                                counts: 'True'
+                                key: 'Focus'
+                                amount-base: 40
+                                amount-scale: -5
