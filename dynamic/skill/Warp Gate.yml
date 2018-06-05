@@ -21,9 +21,9 @@ Warp Gate:
   - '&eyourself increased attack strength. Crouch'
   - '&ewithin 6 sec after casting to teleport back. '
   - ''
-  - '&2Warp Range: {attr:warpRange.range}'
-  - '&2Damage Multiplier: &6x{attr:warpGateBuff.value}'
-  - '&2Buff Duration: {attr:warpGateBuff.seconds}'
+  - '&2Warp Range: {attr:wGRange.range}'
+  - '&2Damage Multiplier: &6x{attr:wGBuff.value}'
+  - '&2Buff Duration: {attr:wGBuff.seconds}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -49,11 +49,11 @@ Warp Gate:
           data:
             icon-key: ''
             counts: 'False'
-            key: 'WarpGateStart'
+            key: 'WGStart'
         Location-c:
           type: 'target'
           data:
-            icon-key: 'warpRange'
+            icon-key: 'wGRange'
             range-base: 12
             range-scale: 3
             ground: 'False'
@@ -66,7 +66,7 @@ Warp Gate:
                 Buff-e:
                   type: 'mechanic'
                   data:
-                    icon-key: 'warpGateBuff'
+                    icon-key: 'wGBuff'
                     counts: 'False'
                     type: 'DAMAGE'
                     modifier: 'Multiplier'
@@ -90,7 +90,7 @@ Warp Gate:
                   data:
                     icon-key: ''
                     counts: 'False'
-                    key: 'warpLaterLocation'
+                    key: 'wLLocation'
                 Delay-h:
                   type: 'mechanic'
                   data:
@@ -104,7 +104,7 @@ Warp Gate:
                       data:
                         icon-key: ''
                         counts: 'True'
-                        key: 'warpLaterLocation'
+                        key: 'wLLocation'
         Trigger-j:
           type: 'mechanic'
           data:
@@ -122,4 +122,4 @@ Warp Gate:
               data:
                 icon-key: ''
                 counts: 'False'
-                key: 'WarpGateStart'
+                key: 'WGStart'

@@ -18,12 +18,9 @@ Celestial Storm:
   - '{req:cost}Cost: {attr:cost}'
   - ''
   - '&eStrike lightning on all nearby hostiles. '
-  - '&eDeals bonus damage to the nearest'
-  - '&eopponent. '
   - ''
   - '&2Radius: {attr:spellRange.radius}'
   - '&2AoE Damage: {attr:spellDamage2.value}'
-  - '&2Nearest Damage: {attr:spellDamage.value}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -32,7 +29,7 @@ Celestial Storm:
     cost-scale: 0
     cooldown-base: 24
     cooldown-scale: -2
-    mana-base: NaN
+    mana-base: 0
     mana-scale: 0
     points-spent-req-base: 0
     points-spent-req-scale: 0
@@ -44,39 +41,7 @@ Celestial Storm:
       data:
         icon-key: ''
       children:
-        Nearest-b:
-          type: 'target'
-          data:
-            icon-key: 'spellRange'
-            radius-base: 8
-            radius-scale: 1
-            group: 'Enemy'
-            wall: 'True'
-            caster: 'False'
-            max-base: 1
-            max-scale: 0
-          children:
-            Lightning-c:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'False'
-                damage: 'False'
-                forward-base: 0
-                forward-scale: 0
-                right-base: 0
-                right-scale: 0
-            Damage-d:
-              type: 'mechanic'
-              data:
-                icon-key: 'spellDamage'
-                counts: 'False'
-                type: 'Damage'
-                value-base: 12
-                value-scale: 3
-                true: 'False'
-                classifier: 'Lightning'
-        Area-e:
+        Area-b:
           type: 'target'
           data:
             icon-key: ''
@@ -88,31 +53,31 @@ Celestial Storm:
             max-base: 99
             max-scale: 0
           children:
-            Lightning-f:
+            Lightning-c:
               type: 'mechanic'
               data:
                 icon-key: ''
-                counts: 'False'
+                counts: 'True'
                 damage: 'False'
                 forward-base: 0
                 forward-scale: 0
                 right-base: 0
                 right-scale: 0
-            Damage-g:
+            Damage-d:
               type: 'mechanic'
               data:
                 icon-key: 'spellDamage2'
-                counts: 'False'
+                counts: 'True'
                 type: 'Damage'
                 value-base: 10
                 value-scale: 2
                 true: 'False'
                 classifier: 'Lightning'
-        Sound-h:
+        Sound-e:
           type: 'mechanic'
           data:
             icon-key: ''
-            counts: 'True'
+            counts: 'False'
             version: '1.9+'
             newsound: 'Ambient Cave'
             volume-base: 60

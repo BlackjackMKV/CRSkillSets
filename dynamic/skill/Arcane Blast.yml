@@ -29,7 +29,7 @@ Arcane Blast:
     level-scale: 0
     cost-base: 1
     cost-scale: 0
-    cooldown-base: 24
+    cooldown-base: 16
     cooldown-scale: -2
     mana-base: 0
     mana-scale: 0
@@ -63,8 +63,8 @@ Arcane Blast:
                 icon-key: 'blastDamage'
                 counts: 'False'
                 type: 'Damage'
-                value-base: 8
-                value-scale: 2
+                value-base: 10
+                value-scale: 2.5
                 true: 'False'
                 classifier: 'Explosive'
             Potion-d:

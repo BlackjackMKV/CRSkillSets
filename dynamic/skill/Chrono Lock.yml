@@ -1,0 +1,129 @@
+Chrono Lock:
+  name: 'Chrono Lock'
+  type: 'Control'
+  max-level: 5
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Watch'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eLock the target in time, temporarily'
+  - '&eparalyzing them. The next attack which'
+  - '&elands on them cancels the effect and'
+  - '6edeals bonus damage after a 0.5 sec'
+  - '&edelay. &aWhile locked in time, the target'
+  - '&amay not receive damage from skills.'
+  - ''
+  - '&2Time Lock Duration: {attr:tLock.duration}'
+  - '&2Bonus Damage: {attr:tDam.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 24
+    cooldown-scale: -2
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Single-b:
+          type: 'target'
+          data:
+            icon-key: ''
+            range-base: 5
+            range-scale: 0
+            tolerance-base: 4
+            tolerance-scale: 0
+            group: 'Enemy'
+            wall: 'True'
+          children:
+            Status-c:
+              type: 'mechanic'
+              data:
+                icon-key: 'tLock'
+                counts: 'True'
+                status: 'Stun'
+                duration-base: 4
+                duration-scale: 1
+            Trigger-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                trigger: 'Took Physical Damage'
+                duration-base: 4
+                duration-scale: 1
+                stackable: 'True'
+                once: 'True'
+                type: 'Both'
+                target: 'True'
+                dmg-min: 0
+                dmg-max: 999
+              children:
+                Cleanse-e:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    potion: ''
+                    status: 'Stun'
+                Delay-f:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    delay-base: 0.5
+                    delay-scale: 0
+                  children:
+                    Damage-g:
+                      type: 'mechanic'
+                      data:
+                        icon-key: 'tDam'
+                        counts: 'True'
+                        type: 'Damage'
+                        value-base: 10
+                        value-scale: 2
+                        true: 'False'
+                        classifier: 'default'
+                Defense Buff-h:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    type: 'Multiplier'
+                    skill: 'True'
+                    value-base: 1
+                    value-scale: 0
+                    seconds-base: 1
+                    seconds-scale: 0
+            Defense Buff-i:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                type: 'Multiplier'
+                skill: 'True'
+                value-base: 0
+                value-scale: 0
+                seconds-base: 4
+                seconds-scale: 1

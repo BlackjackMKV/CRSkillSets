@@ -1,0 +1,85 @@
+Chrono Haste:
+  name: 'Chrono Haste'
+  type: 'Support'
+  max-level: 5
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Watch'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eHeal the target and reduce all their'
+  - '&ecooldowns. Additionally grants'
+  - '&eregeneration. '
+  - ''
+  - '&2Heal: {attr:tHeal.value}'
+  - '&2Regen II Duration: {attr:tRegen.seconds}'
+  - '&2Cooldown Reduction: {attr:tCooldown.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 30
+    cooldown-scale: -3
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Single-b:
+          type: 'target'
+          data:
+            icon-key: ''
+            range-base: 8
+            range-scale: 0
+            tolerance-base: 4
+            tolerance-scale: 0
+            group: 'Ally'
+            wall: 'True'
+          children:
+            Heal-c:
+              type: 'mechanic'
+              data:
+                icon-key: 'tHeal'
+                counts: 'True'
+                type: 'Health'
+                value-base: 4
+                value-scale: 1
+            Potion-d:
+              type: 'mechanic'
+              data:
+                icon-key: 'tRegen'
+                counts: 'True'
+                potion: 'Regeneration'
+                ambient: 'False'
+                tier-base: 2
+                tier-scale: 0
+                seconds-base: 4
+                seconds-scale: 1
+            Cooldown-e:
+              type: 'mechanic'
+              data:
+                icon-key: 'tCooldown'
+                counts: 'True'
+                skill: 'all'
+                type: 'Seconds'
+                value-base: 0.8
+                value-scale: 0.3

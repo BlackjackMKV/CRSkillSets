@@ -18,8 +18,8 @@ Arcane Barrier:
   - '{req:cost}Cost: {attr:cost}'
   - ''
   - '&eProject a shield of pure mana around'
-  - '&ethe target or self. Blocks some of the '
-  - '&edamage. '
+  - '&eyourself. Blocks some of all received'
+  - '&edamage.'
   - ''
   - '&2Duration: {attr:barrier.seconds}'
   - '&2Damage Received: {attr:barrier.value}'
@@ -43,53 +43,15 @@ Arcane Barrier:
       data:
         icon-key: ''
       children:
-        Single-b:
+        Self-b:
           type: 'target'
           data:
             icon-key: ''
-            range-base: 16
-            range-scale: 0
-            tolerance-base: 4
-            tolerance-scale: 0
-            group: 'Ally'
-            wall: 'True'
           children:
-            Else-c:
-              type: 'condition'
-              data:
-                icon-key: ''
-              children:
-                Self-d:
-                  type: 'target'
-                  data:
-                    icon-key: ''
-                  children:
-                    Defense Buff-e:
-                      type: 'mechanic'
-                      data:
-                        icon-key: 'barrier'
-                        counts: 'True'
-                        type: 'Multiplier'
-                        skill: 'False'
-                        value-base: 0.3
-                        value-scale: -0.04
-                        seconds-base: 8
-                        seconds-scale: 1
-                    Defense Buff-f:
-                      type: 'mechanic'
-                      data:
-                        icon-key: ''
-                        counts: 'True'
-                        type: 'Multiplier'
-                        skill: 'True'
-                        value-base: 0.3
-                        value-scale: -0.04
-                        seconds-base: 8
-                        seconds-scale: 1
-            Defense Buff-g:
+            Defense Buff-c:
               type: 'mechanic'
               data:
-                icon-key: ''
+                icon-key: 'barrier'
                 counts: 'True'
                 type: 'Multiplier'
                 skill: 'False'
@@ -97,7 +59,7 @@ Arcane Barrier:
                 value-scale: -0.04
                 seconds-base: 8
                 seconds-scale: 1
-            Defense Buff-h:
+            Defense Buff-d:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -108,3 +70,64 @@ Arcane Barrier:
                 value-scale: -0.04
                 seconds-base: 8
                 seconds-scale: 1
+        Offset-e:
+          type: 'target'
+          data:
+            icon-key: ''
+            forward-base: 0
+            forward-scale: 0
+            upward-base: 2
+            upward-scale: 0
+            right-base: 0
+            right-scale: 0
+          children:
+            Particle-f:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                particle: 'Cloud'
+                arrangement: 'Circle'
+                radius-base: 1
+                radius-scale: 0
+                particles-base: 8
+                particles-scale: 0
+                direction: 'XZ'
+                visible-radius: 25
+                dx: 0
+                dy: 0
+                dz: 0
+                speed: 1
+                amount: 1
+                forward: 0
+                upward: 0
+                right: 0
+            Delay-g:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                delay-base: 8
+                delay-scale: 1
+              children:
+                Particle-h:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    particle: 'Angry Villager'
+                    arrangement: 'Circle'
+                    radius-base: 1
+                    radius-scale: 0
+                    particles-base: 8
+                    particles-scale: 0
+                    direction: 'XZ'
+                    visible-radius: 25
+                    dx: 0
+                    dy: 0
+                    dz: 0
+                    speed: 1
+                    amount: 1
+                    forward: 0
+                    upward: 0
+                    right: 0
