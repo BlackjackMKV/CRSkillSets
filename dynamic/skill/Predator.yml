@@ -17,14 +17,11 @@ Predator:
   - '{req:level}Level: {attr:level}'
   - '{req:cost}Cost: {attr:cost}'
   - ''
-  - '&ePassively restore &bFocus &eout of'
-  - '&ecombat. Your first physical attack in'
-  - '&ecombat deals bonus damage.'
-  - '&e*&bFocus &eis used in other skills.'
+  - '&ePassively makes your first physical'
+  - '&eattack in combat deal bonus damage.'
   - ''
   - '&2Combat Tag Duration: &610'
-  - '&2Damage Multiplier: &6x{attr:dBuff.value}'
-  - '&2Focus/sec: {attr:fG.amount}&6%'
+  - '&2Damage Multiplier: &6x{attr:dmgbuff.value}'
   attributes:
     level-base: 1
     level-scale: 0
@@ -62,7 +59,7 @@ Predator:
                 Damage Buff-d:
                   type: 'mechanic'
                   data:
-                    icon-key: 'dBuff'
+                    icon-key: 'dmgbuff'
                     counts: 'True'
                     type: 'Multiplier'
                     skill: 'False'
@@ -86,21 +83,3 @@ Predator:
                         value-scale: 0
                         seconds-base: 1.5
                         seconds-scale: 0
-                Value-g:
-                  type: 'condition'
-                  data:
-                    icon-key: ''
-                    key: 'Focus'
-                    min-value-base: 0
-                    min-value-scale: 0
-                    max-value-base: 100
-                    max-value-scale: 0
-                  children:
-                    Value Add-h:
-                      type: 'mechanic'
-                      data:
-                        icon-key: 'fG'
-                        counts: 'True'
-                        key: 'Focus'
-                        amount-base: 2
-                        amount-scale: 1

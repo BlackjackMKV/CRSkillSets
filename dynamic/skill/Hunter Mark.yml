@@ -17,15 +17,11 @@ Hunter Mark:
   - '{req:level}Level: {attr:level}'
   - '{req:cost}Cost: {attr:cost}'
   - ''
-  - '&eMark the target, getting &bFocus'
-  - '&ewhenever you hit them while the'
-  - '&emark is active. Weakens their defense. '
+  - '&eMark the target, weakening their defense.'
   - "&eReveals the target's position."
-  - '&e*&bFocus &eis used in other skills.'
   - ''
-  - '&2Focus/Hit: {attr:focusgain.amount}&6%'
   - '&2Damage Multiplier: {attr:dmgmulti.value}'
-  - '&2Mark Duration: {attr:mdur.duration}'
+  - '&2Mark Duration: {attr:dmgmulti.seconds}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -57,45 +53,7 @@ Hunter Mark:
             group: 'Enemy'
             wall: 'True'
           children:
-            Trigger-c:
-              type: 'mechanic'
-              data:
-                icon-key: 'mdur'
-                counts: 'True'
-                trigger: 'Took Physical Damage'
-                duration-base: 10
-                duration-scale: 1.5
-                stackable: 'True'
-                once: 'False'
-                type: 'Both'
-                target: 'False'
-                dmg-min: 0
-                dmg-max: 999
-              children:
-                Self-d:
-                  type: 'target'
-                  data:
-                    icon-key: ''
-                  children:
-                    Value-e:
-                      type: 'condition'
-                      data:
-                        icon-key: ''
-                        key: 'Focus'
-                        min-value-base: 0
-                        min-value-scale: 0
-                        max-value-base: 100
-                        max-value-scale: 0
-                      children:
-                        Value Add-f:
-                          type: 'mechanic'
-                          data:
-                            icon-key: 'focusgain'
-                            counts: 'True'
-                            key: 'Focus'
-                            amount-base: 2
-                            amount-scale: 2
-            Defense Buff-g:
+            Defense Buff-c:
               type: 'mechanic'
               data:
                 icon-key: 'dmgmulti'
@@ -106,7 +64,7 @@ Hunter Mark:
                 value-scale: 0.075
                 seconds-base: 10
                 seconds-scale: 1.5
-            Defense Buff-h:
+            Defense Buff-d:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -117,7 +75,7 @@ Hunter Mark:
                 value-scale: 0.075
                 seconds-base: 10
                 seconds-scale: 1.5
-            Potion-i:
+            Potion-e:
               type: 'mechanic'
               data:
                 icon-key: ''

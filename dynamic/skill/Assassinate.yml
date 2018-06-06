@@ -2,7 +2,7 @@ Assassinate:
   name: 'Assassinate'
   type: 'Offense'
   max-level: 5
-  skill-req: 'Predator'
+  skill-req: ''
   skill-req-lvl: 3
   needs-permission: 'False'
   msg: '&6{player} &2has cast &6{skill}'
@@ -18,19 +18,19 @@ Assassinate:
   - '{req:cost}Cost: {attr:cost}'
   - ''
   - "&eDeals a percentage of the target's missing"
-  - '&ehealth as damage.'
+  - '&ehealth as damage. Deals normal damage'
+  - '&eagainst mobs. '
   - ''
   - '&2Missing Health Damage: {attr:missdmg.value}&6%'
   - '&2Damage vs Mobs: {attr:mobdmg.value}'
-  - '&2Focus Cost: {attr:focuscost.min_value}&6%'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
     level-scale: 0
     cost-base: 1
     cost-scale: 0
-    cooldown-base: 6
-    cooldown-scale: 0
+    cooldown-base: 40
+    cooldown-scale: -2.5
     mana-base: 0
     mana-scale: 0
     points-spent-req-base: 0
@@ -43,64 +43,46 @@ Assassinate:
       data:
         icon-key: ''
       children:
-        Value-b:
-          type: 'condition'
+        Single-b:
+          type: 'target'
           data:
-            icon-key: 'focuscost'
-            key: 'Focus'
-            min-value-base: 100
-            min-value-scale: -5
-            max-value-base: 200
-            max-value-scale: 0
+            icon-key: ''
+            range-base: 5
+            range-scale: 0
+            tolerance-base: 4
+            tolerance-scale: 0
+            group: 'Enemy'
+            wall: 'True'
           children:
-            Value Add-c:
-              type: 'mechanic'
+            Entity Type-c:
+              type: 'condition'
               data:
                 icon-key: ''
-                counts: 'True'
-                key: 'Focus'
-                amount-base: 100
-                amount-scale: -5
-            Single-d:
-              type: 'target'
-              data:
-                icon-key: ''
-                range-base: 5
-                range-scale: 0
-                tolerance-base: 4
-                tolerance-scale: 0
-                group: 'Enemy'
-                wall: 'True'
+                types:
+                - 'PLAYER'
               children:
-                Entity Type-e:
+                Damage-d:
+                  type: 'mechanic'
+                  data:
+                    icon-key: 'missdmg'
+                    counts: 'True'
+                    type: 'Percent Missing'
+                    value-base: 200
+                    value-scale: 75
+                    true: 'False'
+                    classifier: 'default'
+                Else-e:
                   type: 'condition'
                   data:
                     icon-key: ''
-                    types:
-                    - 'PLAYER'
                   children:
                     Damage-f:
                       type: 'mechanic'
                       data:
-                        icon-key: 'missdmg'
+                        icon-key: 'mobdmg'
                         counts: 'True'
-                        type: 'Percent Missing'
-                        value-base: 200
-                        value-scale: 75
+                        type: 'Damage'
+                        value-base: 20
+                        value-scale: 10
                         true: 'False'
                         classifier: 'default'
-                    Else-g:
-                      type: 'condition'
-                      data:
-                        icon-key: ''
-                      children:
-                        Damage-h:
-                          type: 'mechanic'
-                          data:
-                            icon-key: 'mobdmg'
-                            counts: 'True'
-                            type: 'Damage'
-                            value-base: 20
-                            value-scale: 10
-                            true: 'False'
-                            classifier: 'default'
