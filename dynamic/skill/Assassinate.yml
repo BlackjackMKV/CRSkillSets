@@ -2,7 +2,7 @@ Assassinate:
   name: 'Assassinate'
   type: 'Offense'
   max-level: 5
-  skill-req: ''
+  skill-req: 'Predator'
   skill-req-lvl: 3
   needs-permission: 'False'
   msg: '&6{player} &2has cast &6{skill}'
@@ -18,11 +18,9 @@ Assassinate:
   - '{req:cost}Cost: {attr:cost}'
   - ''
   - "&eDeals a percentage of the target's missing"
-  - '&ehealth as damage. Deals normal damage'
-  - '&eagainst mobs. '
+  - '&ehealth as damage. '
   - ''
   - '&2Missing Health Damage: {attr:missdmg.value}&6%'
-  - '&2Damage vs Mobs: {attr:mobdmg.value}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -54,35 +52,13 @@ Assassinate:
             group: 'Enemy'
             wall: 'True'
           children:
-            Entity Type-c:
-              type: 'condition'
+            Damage-c:
+              type: 'mechanic'
               data:
-                icon-key: ''
-                types:
-                - 'PLAYER'
-              children:
-                Damage-d:
-                  type: 'mechanic'
-                  data:
-                    icon-key: 'missdmg'
-                    counts: 'True'
-                    type: 'Percent Missing'
-                    value-base: 200
-                    value-scale: 75
-                    true: 'False'
-                    classifier: 'default'
-                Else-e:
-                  type: 'condition'
-                  data:
-                    icon-key: ''
-                  children:
-                    Damage-f:
-                      type: 'mechanic'
-                      data:
-                        icon-key: 'mobdmg'
-                        counts: 'True'
-                        type: 'Damage'
-                        value-base: 20
-                        value-scale: 10
-                        true: 'False'
-                        classifier: 'default'
+                icon-key: 'missdmg'
+                counts: 'True'
+                type: 'Percent Missing'
+                value-base: 200
+                value-scale: 75
+                true: 'False'
+                classifier: 'default'

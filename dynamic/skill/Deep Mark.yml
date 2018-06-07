@@ -2,7 +2,7 @@ Deep Mark:
   name: 'Deep Mark'
   type: 'Offense'
   max-level: 5
-  skill-req: ''
+  skill-req: 'Hunter Mark'
   skill-req-lvl: 3
   needs-permission: 'False'
   msg: '&6{player} &2has cast &6{skill}'
@@ -18,13 +18,12 @@ Deep Mark:
   - '{req:cost}Cost: {attr:cost}'
   - ''
   - '&eInflicts a mortal wound on the target,'
-  - '&edealing armor-piercing damage over'
-  - '&etime on players. Deals normal damage'
-  - '&eover time on mobs.'
+  - '&edealing damage over time. Debuffs'
+  - "&enearby enemy players' healing skills."
   - ''
   - '&2Duration: {attr:srepeat.repetitions}'
-  - '&2True Damage/sec (Players): {attr:tdmg.value}'
-  - '&2Damage/sec (Mobs): {attr:mobdmg.value}'
+  - '&2Damage/sec: {attr:skilldmg.value}'
+  - '&2Healing Efficiency: &6x{attr:skillheal.value}'
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
@@ -56,55 +55,46 @@ Deep Mark:
             group: 'Enemy'
             wall: 'True'
           children:
-            Entity Type-c:
-              type: 'condition'
+            Repeat-c:
+              type: 'mechanic'
               data:
-                icon-key: ''
-                types:
-                - 'PLAYER'
+                icon-key: 'srepeat'
+                counts: 'True'
+                repetitions-base: 8
+                repetitions-scale: 0
+                period: 1
+                delay: 1
               children:
-                Repeat-d:
+                Damage-d:
                   type: 'mechanic'
                   data:
-                    icon-key: 'srepeat'
+                    icon-key: 'skilldmg'
                     counts: 'True'
-                    repetitions-base: 4
-                    repetitions-scale: 1
-                    period: 1
-                    delay: 1
-                  children:
-                    Damage-e:
-                      type: 'mechanic'
-                      data:
-                        icon-key: 'tdmg'
-                        counts: 'True'
-                        type: 'Damage'
-                        value-base: 0.8
-                        value-scale: 0.3
-                        true: 'True'
-                        classifier: 'default'
-                Else-f:
-                  type: 'condition'
+                    type: 'Damage'
+                    value-base: 3
+                    value-scale: 0.5
+                    true: 'False'
+                    classifier: 'default'
+            Area-e:
+              type: 'target'
+              data:
+                icon-key: ''
+                radius-base: 8
+                radius-scale: 0
+                group: 'Enemy'
+                wall: 'True'
+                caster: 'False'
+                max-base: 99
+                max-scale: 0
+              children:
+                Buff-f:
+                  type: 'mechanic'
                   data:
-                    icon-key: ''
-                  children:
-                    Repeat-g:
-                      type: 'mechanic'
-                      data:
-                        icon-key: ''
-                        counts: 'True'
-                        repetitions-base: 4
-                        repetitions-scale: 1
-                        period: 1
-                        delay: 1
-                      children:
-                        Damage-h:
-                          type: 'mechanic'
-                          data:
-                            icon-key: 'mobdmg'
-                            counts: 'True'
-                            type: 'Damage'
-                            value-base: 8
-                            value-scale: 2
-                            true: 'False'
-                            classifier: 'default'
+                    icon-key: 'skillheal'
+                    counts: 'True'
+                    type: 'HEALING'
+                    modifier: 'Multiplier'
+                    value-base: 0.6
+                    value-scale: 0.1
+                    seconds-base: 8
+                    seconds-scale: 0

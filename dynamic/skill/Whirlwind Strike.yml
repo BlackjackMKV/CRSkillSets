@@ -41,62 +41,56 @@ Whirlwind Strike:
       data:
         icon-key: ''
       children:
-        Crouch-b:
-          type: 'condition'
+        Sound-b:
+          type: 'mechanic'
           data:
             icon-key: ''
-            crouch: 'True'
+            counts: 'True'
+            version: '1.9+'
+            newsound: 'Entity Egg Throw'
+            volume-base: 100
+            volume-scale: 0
+            pitch-base: 1.5
+            pitch-scale: 0
+        Single-c:
+          type: 'target'
+          data:
+            icon-key: ''
+            range-base: 6
+            range-scale: 0
+            tolerance-base: 4
+            tolerance-scale: 0
+            group: 'Enemy'
+            wall: 'True'
           children:
-            Sound-c:
+            Launch-d:
               type: 'mechanic'
               data:
                 icon-key: ''
                 counts: 'True'
-                version: '1.9+'
-                newsound: 'Entity Egg Throw'
-                volume-base: 100
-                volume-scale: 0
-                pitch-base: 1.5
-                pitch-scale: 0
-            Single-d:
-              type: 'target'
+                relative: 'Target'
+                forward-base: 0
+                forward-scale: 0
+                upward-base: 1
+                upward-scale: 0
+                right-base: 0
+                right-scale: 0
+            Potion-e:
+              type: 'mechanic'
+              data:
+                icon-key: 'airborne'
+                counts: 'True'
+                potion: 'Levitation'
+                ambient: 'False'
+                tier-base: 1
+                tier-scale: 0
+                seconds-base: 1
+                seconds-scale: 0.5
+            Status-f:
+              type: 'mechanic'
               data:
                 icon-key: ''
-                range-base: 6
-                range-scale: 0
-                tolerance-base: 4
-                tolerance-scale: 0
-                group: 'Enemy'
-                wall: 'True'
-              children:
-                Launch-e:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    relative: 'Target'
-                    forward-base: 0
-                    forward-scale: 0
-                    upward-base: 2
-                    upward-scale: 0
-                    right-base: 0
-                    right-scale: 0
-                Potion-f:
-                  type: 'mechanic'
-                  data:
-                    icon-key: 'airborne'
-                    counts: 'True'
-                    potion: 'Levitation'
-                    ambient: 'False'
-                    tier-base: 1
-                    tier-scale: 0
-                    seconds-base: 1
-                    seconds-scale: 0.5
-                Status-g:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    status: 'Stun'
-                    duration-base: 1
-                    duration-scale: 0.5
+                counts: 'True'
+                status: 'Stun'
+                duration-base: 1
+                duration-scale: 0.5

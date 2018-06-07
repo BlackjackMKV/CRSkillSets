@@ -118,7 +118,7 @@ Swift Strike:
                       data:
                         icon-key: ''
                         counts: 'True'
-                        delay-base: 5.9
+                        delay-base: 5.5
                         delay-scale: 1
                       children:
                         Flag-j:
@@ -136,7 +136,7 @@ Swift Strike:
                                 skill: 'Swift Strike'
                                 type: 'Seconds'
                                 value-base: -12
-                                value-scale: +1
+                                value-scale: 1
             Remember-l:
               type: 'target'
               data:
@@ -160,16 +160,16 @@ Swift Strike:
                         icon-key: ''
                         counts: 'True'
                         type: 'Caster to Target'
-                    Damage-o:
-                      type: 'mechanic'
-                      data:
-                        icon-key: 'warpdmg'
-                        counts: 'True'
-                        type: 'Damage'
-                        value-base: 12
-                        value-scale: 3
-                        true: 'False'
-                        classifier: 'default'
+                Damage-o:
+                  type: 'mechanic'
+                  data:
+                    icon-key: 'warpdmg'
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: 12
+                    value-scale: 3
+                    true: 'False'
+                    classifier: 'default'
             Self-p:
               type: 'target'
               data:

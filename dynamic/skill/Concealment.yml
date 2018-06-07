@@ -81,5 +81,5 @@ Concealment:
                         ambient: 'False'
                         tier-base: 1
                         tier-scale: 0
-                        seconds-base: 1
+                        seconds-base: 1.5
                         seconds-scale: 0
