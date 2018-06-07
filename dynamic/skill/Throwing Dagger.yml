@@ -8,7 +8,7 @@ Throwing Dagger:
   msg: '&6{player} &2has cast &6{skill}'
   combo: ''
   indicator: '2D'
-  icon: 'Stone Sword'
+  icon: 'Stick'
   icon-data: 0
   icon-lore:
   - '&d{name} &7({level}/{max})'

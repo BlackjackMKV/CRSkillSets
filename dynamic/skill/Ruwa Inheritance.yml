@@ -8,7 +8,7 @@ Ruwa Inheritance:
   msg: ''
   combo: ''
   indicator: '2D'
-  icon: 'Gold Helmet'
+  icon: 'Gold Ingot'
   icon-data: 0
   icon-lore:
   - '&d{name} &7({level}/{max})'
