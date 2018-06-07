@@ -22,7 +22,7 @@ Ruwa Inheritance:
   - ''
   - '&2Attack Multiplier: {attr:dmgBuff.value}'
   - '&2Damage Received: {attr:defBuff.value}'
-  - '&2Land Move Speed: {attr:speedDebuff.multiplier}'
+  - '&2Land Move Speed: {attr:spddebuff.multiplier}'
   attributes:
     level-base: 1
     level-scale: 2
@@ -141,7 +141,7 @@ Ruwa Inheritance:
                     Speed-l:
                       type: 'mechanic'
                       data:
-                        icon-key: 'speedDebuff'
+                        icon-key: 'spddebuff'
                         counts: 'False'
                         multiplier-base: 0.9
                         multiplier-scale: 0.02

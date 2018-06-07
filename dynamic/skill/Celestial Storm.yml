@@ -44,7 +44,7 @@ Celestial Storm:
         Area-b:
           type: 'target'
           data:
-            icon-key: ''
+            icon-key: 'spellRange'
             radius-base: 8
             radius-scale: 1
             group: 'Enemy'

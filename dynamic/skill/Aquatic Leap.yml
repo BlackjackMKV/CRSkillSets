@@ -1,26 +1,16 @@
-Aquatic Leap: 
+Aquatic Leap:
   name: 'Aquatic Leap'
   type: 'Mobility'
   max-level: 5
+  skill-req: 'None'
   skill-req-lvl: 1
   needs-permission: 'false'
-  attributes: 
-    cost-base: '1'
-    cooldown-scale: '-1'
-    incompatible: 
-    - ''
-    cost-scale: '0'
-    level-scale: '0'
-    level-base: '1'
-    mana-base: '0'
-    points-spent-req-base: '0'
-    mana-scale: '0'
-    cooldown-base: '8'
-    points-spent-req-scale: '0'
   msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
   icon: 'INK_SACK'
   icon-data: 0
-  icon-lore: 
+  icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
@@ -30,29 +20,50 @@ Aquatic Leap:
   - '&eLeap a long distance from water.'
   - ''
   - '&2Cooldown: {attr:cooldown}'
-  desc:  []
-  components: 
-    Cast: 
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 8
+    cooldown-scale: -1
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
       type: 'trigger'
-      data: 
+      data:
         icon-key: ''
-      children: 
-        Water-b: 
+      children:
+        Water-b:
           type: 'condition'
-          data: 
+          data:
             icon-key: ''
             state: 'In Water'
-          children: 
-            Launch-c: 
+          children:
+            Launch-c:
               type: 'mechanic'
-              data: 
-                right-scale: '0'
-                forward-base: '3'
-                right-base: '0'
-                forward-scale: '0.5'
-                counts: 'True'
-                upward-scale: '0.5'
+              data:
                 icon-key: ''
-                upward-base: '2'
+                counts: 'True'
                 relative: 'Target'
-              children:  {}
+                forward-base: 3
+                forward-scale: 0.25
+                upward-base: 2
+                upward-scale: 0.25
+                right-base: 0
+                right-scale: 0
+            Immunity-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                type: 'Fall'
+                seconds-base: 6
+                seconds-scale: 0
+                multiplier-base: 0
+                multiplier-scale: 0

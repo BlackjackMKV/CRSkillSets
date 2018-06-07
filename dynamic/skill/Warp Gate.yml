@@ -17,9 +17,9 @@ Warp Gate:
   - '{req:level}Level: {attr:level}'
   - '{req:cost}Cost: {attr:cost}'
   - ''
-  - '&eTeleport to the target location, granting'
-  - '&eyourself increased attack strength. Crouch'
-  - '&ewithin 6 sec after casting to teleport back. '
+  - '&eTeleport to the target location, before'
+  - '&etemporarily granting yourself increased'
+  - '&eattack strength.'
   - ''
   - '&2Warp Range: {attr:wGRange.range}'
   - '&2Damage Multiplier: &6x{attr:wGBuff.value}'
@@ -44,13 +44,7 @@ Warp Gate:
       data:
         icon-key: ''
       children:
-        Value Location-b:
-          type: 'mechanic'
-          data:
-            icon-key: ''
-            counts: 'False'
-            key: 'WGStart'
-        Location-c:
+        Location-b:
           type: 'target'
           data:
             icon-key: 'wGRange'
@@ -58,23 +52,23 @@ Warp Gate:
             range-scale: 3
             ground: 'False'
           children:
-            Self-d:
+            Self-c:
               type: 'target'
               data:
                 icon-key: ''
               children:
-                Buff-e:
+                Buff-d:
                   type: 'mechanic'
                   data:
                     icon-key: 'wGBuff'
-                    counts: 'False'
+                    counts: 'True'
                     type: 'DAMAGE'
                     modifier: 'Multiplier'
                     value-base: 1.2
                     value-scale: 0.1
                     seconds-base: 6
                     seconds-scale: 1
-            Offset-f:
+            Offset-e:
               type: 'target'
               data:
                 icon-key: ''
@@ -85,41 +79,9 @@ Warp Gate:
                 right-base: 0
                 right-scale: 0
               children:
-                Value Location-g:
+                Warp Target-f:
                   type: 'mechanic'
                   data:
                     icon-key: ''
-                    counts: 'False'
-                    key: 'wLLocation'
-                Delay-h:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'False'
-                    delay-base: 0.1
-                    delay-scale: 0
-                  children:
-                    Warp Value-i:
-                      type: 'mechanic'
-                      data:
-                        icon-key: ''
-                        counts: 'True'
-                        key: 'wLLocation'
-        Trigger-j:
-          type: 'mechanic'
-          data:
-            icon-key: ''
-            counts: 'False'
-            trigger: 'Crouch'
-            duration-base: 6
-            duration-scale: 0
-            stackable: 'True'
-            once: 'True'
-            type: 'Start Crouching'
-          children:
-            Warp Value-k:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'False'
-                key: 'WGStart'
+                    counts: 'True'
+                    type: 'Caster to Target'
