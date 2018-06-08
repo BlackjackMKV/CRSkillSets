@@ -175,3 +175,14 @@ Swift Strike:
                         value-scale: 3
                         true: 'False'
                         classifier: 'default'
+                Self-q:
+                  type: 'target'
+                  data:
+                    icon-key: ''
+                  children:
+                    Flag Clear-r:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        key: 'SwiftStrikeLoaded'
