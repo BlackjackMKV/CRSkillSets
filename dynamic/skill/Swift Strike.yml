@@ -91,93 +91,87 @@ Swift Strike:
                     icon-key: ''
                     counts: 'True'
                     key: 'SwiftStrikeTarget'
-                Self-f:
-                  type: 'target'
-                  data:
-                    icon-key: ''
-                  children:
-                    Flag-g:
-                      type: 'mechanic'
-                      data:
-                        icon-key: 'warpstrike'
-                        counts: 'True'
-                        key: 'SwiftStrikeLoaded'
-                        seconds-base: 6
-                        seconds-scale: 1
-                    Cooldown-h:
-                      type: 'mechanic'
-                      data:
-                        icon-key: ''
-                        counts: 'True'
-                        skill: 'Swift Strike'
-                        type: 'Seconds'
-                        value-base: 12
-                        value-scale: -1
-                    Delay-i:
-                      type: 'mechanic'
-                      data:
-                        icon-key: ''
-                        counts: 'True'
-                        delay-base: 5.5
-                        delay-scale: 1
-                      children:
-                        Flag-j:
-                          type: 'condition'
-                          data:
-                            icon-key: ''
-                            type: 'Set'
-                            key: 'SwiftStrikeLoaded'
-                          children:
-                            Cooldown-k:
-                              type: 'mechanic'
-                              data:
-                                icon-key: ''
-                                counts: 'True'
-                                skill: 'Swift Strike'
-                                type: 'Seconds'
-                                value-base: -12
-                                value-scale: 1
-            Remember-l:
-              type: 'target'
-              data:
-                icon-key: ''
-                key: 'SwiftStrikeTarget'
-              children:
-                Offset-m:
-                  type: 'target'
-                  data:
-                    icon-key: ''
-                    forward-base: 0
-                    forward-scale: 0
-                    upward-base: 1
-                    upward-scale: 0
-                    right-base: 0
-                    right-scale: 0
-                  children:
-                    Warp Target-n:
-                      type: 'mechanic'
-                      data:
-                        icon-key: ''
-                        counts: 'True'
-                        type: 'Caster to Target'
-                Damage-o:
-                  type: 'mechanic'
-                  data:
-                    icon-key: 'warpdmg'
-                    counts: 'True'
-                    type: 'Damage'
-                    value-base: 12
-                    value-scale: 3
-                    true: 'False'
-                    classifier: 'default'
-            Self-p:
+            Self-f:
               type: 'target'
               data:
                 icon-key: ''
               children:
-                Flag Clear-q:
+                Flag-g:
                   type: 'mechanic'
                   data:
-                    icon-key: ''
+                    icon-key: 'warpstrike'
                     counts: 'True'
                     key: 'SwiftStrikeLoaded'
+                    seconds-base: 6
+                    seconds-scale: 1
+                Cooldown-h:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    skill: 'Swift Strike'
+                    type: 'Seconds'
+                    value-base: 12
+                    value-scale: -1
+                Delay-i:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    delay-base: 5.5
+                    delay-scale: 1
+                  children:
+                    Flag-j:
+                      type: 'condition'
+                      data:
+                        icon-key: ''
+                        type: 'Set'
+                        key: 'SwiftStrikeLoaded'
+                      children:
+                        Cooldown-k:
+                          type: 'mechanic'
+                          data:
+                            icon-key: ''
+                            counts: 'True'
+                            skill: 'Swift Strike'
+                            type: 'Seconds'
+                            value-base: -12
+                            value-scale: 1
+            Else-l:
+              type: 'condition'
+              data:
+                icon-key: ''
+              children:
+                Remember-m:
+                  type: 'target'
+                  data:
+                    icon-key: ''
+                    key: 'SwiftStrikeTarget'
+                  children:
+                    Offset-n:
+                      type: 'target'
+                      data:
+                        icon-key: ''
+                        forward-base: 0
+                        forward-scale: 0
+                        upward-base: 1
+                        upward-scale: 0
+                        right-base: 0
+                        right-scale: 0
+                      children:
+                        Warp Target-o:
+                          type: 'mechanic'
+                          data:
+                            icon-key: ''
+                            counts: 'True'
+                            type: 'Caster to Target'
+                    Damage-p:
+                      type: 'mechanic'
+                      data:
+                        icon-key: 'warpdmg'
+                        counts: 'True'
+                        type: 'Damage'
+                        value-base: 12
+                        value-scale: 3
+                        true: 'False'
+                        classifier: 'default'
