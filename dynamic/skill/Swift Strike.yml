@@ -17,11 +17,9 @@ Swift Strike:
   - '{req:level}Level: {attr:level}'
   - '{req:cost}Cost: {attr:cost}'
   - ''
-  - '&eThrow a sword. Whatever it hits is temporarily'
-  - '&emarked. Re-cast within this duration to warp to'
-  - '&ethe target, stun them and deal damage.'
+  - "&eThrow a sword. After a brief delay you'll"
+  - '&eteleport to whatever it hits and deal damage.'
   - ''
-  - '&2Mark Duration: {attr:warpstrike.seconds}'
   - '&2Projectile Damage: {attr:bladedmg.value}'
   - '&2Warp Damage: {attr:warpdmg.value}'
   - '&2Cooldown: {attr:cooldown}'
@@ -30,7 +28,7 @@ Swift Strike:
     level-scale: 0
     cost-base: 1
     cost-scale: 0
-    cooldown-base: 12
+    cooldown-base: 16
     cooldown-scale: -1
     mana-base: 0
     mana-scale: 0
@@ -44,145 +42,84 @@ Swift Strike:
       data:
         icon-key: ''
       children:
-        Flag-b:
-          type: 'condition'
+        Item Projectile-b:
+          type: 'mechanic'
           data:
             icon-key: ''
-            type: 'Not Set'
-            key: 'SwiftStrikeLoaded'
+            counts: 'True'
+            item: 'Diamond Sword'
+            item-data: 0
+            group: 'Enemy'
+            spread: 'Cone'
+            amount-base: 1
+            amount-scale: 0
+            velocity-base: 3
+            velocity-scale: 0
+            angle-base: 30
+            angle-scale: 0
+            position: 1
+            forward-base: 0
+            forward-scale: 0
+            upward-base: 0
+            upward-scale: 0
+            right-base: 0
+            right-scale: 0
+            use-effect: 'False'
           children:
-            Item Projectile-c:
+            Damage-c:
+              type: 'mechanic'
+              data:
+                icon-key: 'bladedmg'
+                counts: 'True'
+                type: 'Damage'
+                value-base: 6
+                value-scale: 1.5
+                true: 'False'
+                classifier: 'default'
+            Delay-d:
               type: 'mechanic'
               data:
                 icon-key: ''
                 counts: 'True'
-                item: 'Diamond Sword'
-                item-data: 0
-                group: 'Enemy'
-                spread: 'Cone'
-                amount-base: 1
-                amount-scale: 0
-                velocity-base: 3
-                velocity-scale: 0
-                angle-base: 30
-                angle-scale: 0
-                position: 1
-                forward-base: 0
-                forward-scale: 0
-                upward-base: 0
-                upward-scale: 0
-                right-base: 0
-                right-scale: 0
-                use-effect: 'False'
+                delay-base: 2
+                delay-scale: 0
               children:
-                Damage-d:
+                Offset-e:
+                  type: 'target'
+                  data:
+                    icon-key: ''
+                    forward-base: 0
+                    forward-scale: 0
+                    upward-base: 1
+                    upward-scale: 0
+                    right-base: 0
+                    right-scale: 0
+                  children:
+                    Warp Target-f:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Caster to Target'
+                Damage-g:
                   type: 'mechanic'
                   data:
-                    icon-key: 'bladedmg'
+                    icon-key: 'warpdmg'
                     counts: 'True'
                     type: 'Damage'
-                    value-base: 6
-                    value-scale: 1.5
+                    value-base: 12
+                    value-scale: 3
                     true: 'False'
                     classifier: 'default'
-                Remember Targets-e:
+                Launch-h:
                   type: 'mechanic'
                   data:
                     icon-key: ''
                     counts: 'True'
-                    key: 'SwiftStrikeTarget'
-            Self-f:
-              type: 'target'
-              data:
-                icon-key: ''
-              children:
-                Flag-g:
-                  type: 'mechanic'
-                  data:
-                    icon-key: 'warpstrike'
-                    counts: 'True'
-                    key: 'SwiftStrikeLoaded'
-                    seconds-base: 6
-                    seconds-scale: 1
-                Cooldown-h:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    skill: 'Swift Strike'
-                    type: 'Seconds'
-                    value-base: 12
-                    value-scale: -1
-                Delay-i:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    delay-base: 5.5
-                    delay-scale: 1
-                  children:
-                    Flag-j:
-                      type: 'condition'
-                      data:
-                        icon-key: ''
-                        type: 'Set'
-                        key: 'SwiftStrikeLoaded'
-                      children:
-                        Cooldown-k:
-                          type: 'mechanic'
-                          data:
-                            icon-key: ''
-                            counts: 'True'
-                            skill: 'Swift Strike'
-                            type: 'Seconds'
-                            value-base: -12
-                            value-scale: 1
-            Else-l:
-              type: 'condition'
-              data:
-                icon-key: ''
-              children:
-                Remember-m:
-                  type: 'target'
-                  data:
-                    icon-key: ''
-                    key: 'SwiftStrikeTarget'
-                  children:
-                    Offset-n:
-                      type: 'target'
-                      data:
-                        icon-key: ''
-                        forward-base: 0
-                        forward-scale: 0
-                        upward-base: 1
-                        upward-scale: 0
-                        right-base: 0
-                        right-scale: 0
-                      children:
-                        Warp Target-o:
-                          type: 'mechanic'
-                          data:
-                            icon-key: ''
-                            counts: 'True'
-                            type: 'Caster to Target'
-                    Damage-p:
-                      type: 'mechanic'
-                      data:
-                        icon-key: 'warpdmg'
-                        counts: 'True'
-                        type: 'Damage'
-                        value-base: 12
-                        value-scale: 3
-                        true: 'False'
-                        classifier: 'default'
-                Self-q:
-                  type: 'target'
-                  data:
-                    icon-key: ''
-                  children:
-                    Flag Clear-r:
-                      type: 'mechanic'
-                      data:
-                        icon-key: ''
-                        counts: 'True'
-                        key: 'SwiftStrikeLoaded'
+                    relative: 'Target'
+                    forward-base: -2
+                    forward-scale: 0
+                    upward-base: 1
+                    upward-scale: 0
+                    right-base: 0
+                    right-scale: 0
