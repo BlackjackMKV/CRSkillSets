@@ -1,0 +1,89 @@
+Haste: 
+  name: 'Haste'
+  type: 'Mobility, Support'
+  max-level: 5
+  skill-req: 'Servitude'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '24'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'RABBIT_FOOT'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eWarp to your master and increase their'
+  - '&emovement speed. Additionally lowers'
+  - '&ethe cooldown of their skills.'
+  - ''
+  - '&2Warp Range: &624'
+  - '&2Speed Multiplier: {attr:haste.multiplier}'
+  - '&2Master Skill Cooldown: {attr:hasteCooldown.value}'
+  - '&2Speed Duration: {attr:haste.duration}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Remember-b: 
+          type: 'target'
+          data: 
+            icon-key: ''
+            key: 'ServitudeTarget'
+          children: 
+            Value-d: 
+              type: 'condition'
+              data: 
+                min-value-scale: '0'
+                max-value-scale: '0'
+                icon-key: ''
+                max-value-base: '24'
+                key: 'hasteMasterDistance'
+                min-value-base: '0'
+              children: 
+                Warp Target-e: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'True'
+                    icon-key: ''
+                    type: 'Caster to Target'
+                  children:  {}
+                Speed-f: 
+                  type: 'mechanic'
+                  data: 
+                    multiplier-base: '1.2'
+                    duration-base: '8'
+                    counts: 'True'
+                    icon-key: 'haste'
+                    multiplier-scale: '0.05'
+                    duration-scale: '1'
+                  children:  {}
+                Cooldown-g: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'True'
+                    skill: 'all'
+                    value-scale: '0.5'
+                    icon-key: 'hasteCooldown'
+                    type: 'Seconds'
+                    value-base: '2'
+                  children:  {}

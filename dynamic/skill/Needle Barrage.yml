@@ -1,0 +1,100 @@
+Needle Barrage: 
+  name: 'Needle Barrage'
+  type: 'Offense, Rapid'
+  max-level: 5
+  skill-req: 'Needle Burst'
+  skill-req-lvl: 3
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-2'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '16'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'IRON_SWORD'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eThrow several daggers, damaging and'
+  - '&eslowing the targets. '
+  - ''
+  - '&2Damage: {attr:impactdamage.value}'
+  - '&2Slow II Duration: {attr:impactslow.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Repeat-b: 
+          type: 'mechanic'
+          data: 
+            period: '0.7'
+            delay: '0.7'
+            repetitions-base: '3'
+            counts: 'True'
+            icon-key: ''
+            repetitions-scale: '0'
+          children: 
+            Item Projectile-c: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                item: 'Iron Sword'
+                forward-base: '0'
+                right-base: '0'
+                forward-scale: '0'
+                counts: 'True'
+                upward-scale: '0'
+                amount-base: '1'
+                spread: 'Cone'
+                angle-scale: '0'
+                use-effect: 'False'
+                velocity-base: '3'
+                icon-key: ''
+                amount-scale: '0'
+                position: '0'
+                item-data: '0'
+                angle-base: '30'
+                upward-base: '0'
+                velocity-scale: '0'
+                group: 'Enemy'
+              children: 
+                Damage-d: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'True'
+                    value-scale: '2'
+                    true: 'False'
+                    classifier: 'default'
+                    icon-key: 'impactdamage'
+                    type: 'Damage'
+                    value-base: '8'
+                  children:  {}
+                Potion-e: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Slow'
+                    counts: 'True'
+                    icon-key: 'impactslow'
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '0.2'
+                    tier-base: '2'
+                    seconds-base: '1'
+                  children:  {}

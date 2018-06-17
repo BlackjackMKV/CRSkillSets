@@ -1,0 +1,120 @@
+Duty: 
+  name: 'Duty'
+  type: 'Passive, Survival'
+  max-level: 5
+  skill-req: 'Servitude'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'IRON_AXE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePassively makes both you and your'
+  - '&emaster take less damage when close'
+  - '&eto each other.'
+  - ''
+  - '&2Duty Range: &616'
+  - '&2Damage Multiplier: &6x{attr:dmgMulti.value}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '4'
+          children: 
+            Remember-c: 
+              type: 'target'
+              data: 
+                icon-key: ''
+                key: 'ServitudeTarget'
+              children: 
+                Value-e: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '0'
+                    icon-key: ''
+                    max-value-base: '16'
+                    key: 'dutyMasterDistance'
+                    min-value-base: '0'
+                  children: 
+                    Self-f: 
+                      type: 'target'
+                      data: 
+                        icon-key: ''
+                      children: 
+                        Defense Buff-g: 
+                          type: 'mechanic'
+                          data: 
+                            counts: 'True'
+                            skill: 'False'
+                            value-scale: '-0.05'
+                            icon-key: 'dmgMulti'
+                            type: 'Multiplier'
+                            value-base: '0.8'
+                            seconds-scale: '0'
+                            seconds-base: '4.5'
+                          children:  {}
+                        Defense Buff-h: 
+                          type: 'mechanic'
+                          data: 
+                            counts: 'True'
+                            skill: 'True'
+                            value-scale: '-0.05'
+                            icon-key: ''
+                            type: 'Multiplier'
+                            value-base: '0.8'
+                            seconds-scale: '0'
+                            seconds-base: '4.5'
+                          children:  {}
+                    Defense Buff-i: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        skill: 'False'
+                        value-scale: '-0.05'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.8'
+                        seconds-scale: '0'
+                        seconds-base: '4.5'
+                      children:  {}
+                    Defense Buff-j: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        skill: 'True'
+                        value-scale: '-0.05'
+                        icon-key: ''
+                        type: 'Multiplier'
+                        value-base: '0.8'
+                        seconds-scale: '0'
+                        seconds-base: '4.5'
+                      children:  {}

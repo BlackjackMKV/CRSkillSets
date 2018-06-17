@@ -1,0 +1,42 @@
+Servant: 
+  name: 'Servant'
+  prefix: ''
+  group: 'Class'
+  mana: ''
+  max-level: 15
+  parent: ''
+  needs-permission: 'false'
+  attributes: 
+    health-base: '0'
+    spirit-scale: '0'
+    strength-base: '0'
+    dexterity-base: '0'
+    dexterity-scale: '0'
+    mana-base: '0'
+    health-scale: '0'
+    vitality-scale: '0'
+    spirit-base: '0'
+    intelligence-scale: '0'
+    strength-scale: '0'
+    mana-scale: '0'
+    vitality-base: '0'
+    intelligence-base: '0'
+  mana-regen: 0.0
+  tree: 'BASIC_VERTICAL'
+  skills: 
+  - 'Servitude'
+  - 'Wound Treatment'
+  - 'Haste'
+  - 'Bodyguard'
+  - 'Needle Burst'
+  - 'Needle Barrage'
+  - 'Duty'
+  icon: 'SPONGE'
+  icon-data: 0
+  icon-lore: 
+  - '&2Sevant - Focused Support Class'
+  - '&bServants dedicate their lives to protect'
+  - "&btheir master. They're strengthened when"
+  - '&bnear their master and their skills are'
+  - '&bbased on assisting them.'
+  exp-source: 273

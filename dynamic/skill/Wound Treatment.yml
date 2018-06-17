@@ -1,0 +1,106 @@
+Wound Treatment: 
+  name: 'Wound Treatment'
+  type: 'Support'
+  max-level: 5
+  skill-req: 'Servitude'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-2'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '24'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'PAPER'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePassively heal your master when close'
+  - '&eto them. Cast to clear negative potion '
+  - '&eeffects.'
+  - ''
+  - '&2Skill Range: &616'
+  - '&2Passive Heal/4sec: {attr:wtheal.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Remember-b: 
+          type: 'target'
+          data: 
+            icon-key: ''
+            key: 'ServitudeTarget'
+          children: 
+            Value-d: 
+              type: 'condition'
+              data: 
+                min-value-scale: '0'
+                max-value-scale: '0'
+                icon-key: ''
+                max-value-base: '16'
+                key: 'wtCastMasterDistance'
+                min-value-base: '0'
+              children: 
+                Cleanse-e: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'All'
+                    counts: 'True'
+                    icon-key: ''
+                    status: 'All'
+                  children:  {}
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-g: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '4'
+          children: 
+            Remember-h: 
+              type: 'target'
+              data: 
+                icon-key: ''
+                key: 'ServitudeTarget'
+              children: 
+                Value-j: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '0'
+                    max-value-scale: '0'
+                    icon-key: ''
+                    max-value-base: '16'
+                    key: 'wtMasterDistance'
+                    min-value-base: '0'
+                  children: 
+                    Heal-k: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0.3'
+                        icon-key: 'wtheal'
+                        type: 'Health'
+                        value-base: '0.8'
+                      children:  {}

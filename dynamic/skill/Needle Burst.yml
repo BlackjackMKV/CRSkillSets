@@ -1,0 +1,77 @@
+Needle Burst: 
+  name: 'Needle Burst'
+  type: 'Offense, Spread'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-2'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '20'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'TRIPWIRE_HOOK'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eThrow various sharp objects, '
+  - '&edealing damage in a cone.'
+  - ''
+  - '&2Projectiles: {attr:sprojectile.amount}'
+  - '&2Damage: {attr:simpact.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Item Projectile-b: 
+          type: 'mechanic'
+          data: 
+            right-scale: '0'
+            item: 'Iron Sword'
+            forward-base: '0'
+            right-base: '0'
+            forward-scale: '0'
+            counts: 'True'
+            upward-scale: '0'
+            amount-base: '4'
+            spread: 'Cone'
+            angle-scale: '0'
+            use-effect: 'False'
+            velocity-base: '2.5'
+            icon-key: 'sprojectile'
+            amount-scale: '1'
+            position: '0'
+            item-data: '0'
+            angle-base: '30'
+            upward-base: '0'
+            velocity-scale: '0'
+            group: 'Enemy'
+          children: 
+            Damage-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '2.5'
+                true: 'False'
+                classifier: 'default'
+                icon-key: 'simpact'
+                type: 'Damage'
+                value-base: '10'
+              children:  {}

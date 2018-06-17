@@ -1,0 +1,116 @@
+Bodyguard: 
+  name: 'Bodyguard'
+  type: 'Defense, Support'
+  max-level: 5
+  skill-req: 'Servitude'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '24'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'IRON_CHESTPLATE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eGrants your master a strong health'
+  - '&ebarrier and a weaker barrier to'
+  - '&eyourself. Slows hostiles near'
+  - '&eyour master.'
+  - ''
+  - '&2Skill Range: &616'
+  - '&2Barrier Duration: {attr:barrier.seconds}'
+  - '&2Slow III Radius: {attr:slowarea.radius}'
+  - '&2Slow III Duration: {attr:sloweffect.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Remember-b: 
+          type: 'target'
+          data: 
+            icon-key: ''
+            key: 'ServitudeTarget'
+          children: 
+            Value-d: 
+              type: 'condition'
+              data: 
+                min-value-scale: '0'
+                max-value-scale: '0'
+                icon-key: ''
+                max-value-base: '16'
+                key: 'bMasterDistance'
+                min-value-base: '0'
+              children: 
+                Potion-e: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Absorption'
+                    counts: 'True'
+                    icon-key: 'barrier'
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '2'
+                    tier-base: '2'
+                    seconds-base: '12'
+                  children:  {}
+                Self-f: 
+                  type: 'target'
+                  data: 
+                    icon-key: ''
+                  children: 
+                    Potion-g: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Absorption'
+                        counts: 'True'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '2'
+                        tier-base: '1'
+                        seconds-base: '12'
+                      children:  {}
+                Area-h: 
+                  type: 'target'
+                  data: 
+                    caster: 'False'
+                    max-base: '99'
+                    radius-scale: '1'
+                    icon-key: 'slowarea'
+                    radius-base: '6'
+                    wall: 'True'
+                    group: 'Enemy'
+                    max-scale: '0'
+                  children: 
+                    Potion-i: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Slow'
+                        counts: 'True'
+                        icon-key: 'sloweffect'
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '0.5'
+                        tier-base: '3'
+                        seconds-base: '3'
+                      children:  {}
