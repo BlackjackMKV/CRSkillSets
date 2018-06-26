@@ -1,13 +1,12 @@
 Wound Treatment: 
   name: 'Wound Treatment'
-  type: 'Support'
+  type: 'Support, Heal'
   max-level: 5
-  skill-req: 'Servitude'
   skill-req-lvl: 1
   needs-permission: 'false'
   attributes: 
     cost-base: '1'
-    cooldown-scale: '-2'
+    cooldown-scale: '-1'
     incompatible: 
     - ''
     cost-scale: '0'
@@ -16,7 +15,7 @@ Wound Treatment:
     mana-base: '0'
     points-spent-req-base: '0'
     mana-scale: '0'
-    cooldown-base: '24'
+    cooldown-base: '8'
     points-spent-req-scale: '0'
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'PAPER'
@@ -28,13 +27,15 @@ Wound Treatment:
   - '{req:level}Level: {attr:level}'
   - '{req:cost}Cost: {attr:cost}'
   - ''
-  - '&ePassively heal your master when close'
-  - '&eto them. Cast to clear negative potion '
-  - '&eeffects.'
+  - '&ePassively heal nearby allied players.'
+  - '&b*Cast to toggle between an aura heal'
+  - '&band a focused heal targeting the closest'
+  - '&bally.'
   - ''
-  - '&2Skill Range: &616'
-  - '&2Passive Heal/4sec: {attr:wtheal.value}'
-  - '&2Cooldown: {attr:cooldown}'
+  - '&2Skill Radius: &616'
+  - '&2Aura Heal/4 sec: {attr:wtaheal.value}'
+  - '&2Focus Heal/4 sec: {attr:wtfheal.value}'
+  - '&2Toggle Cooldown: {attr:cooldown}'
   desc:  []
   components: 
     Cast: 
@@ -42,36 +43,47 @@ Wound Treatment:
       data: 
         icon-key: ''
       children: 
-        Remember-b: 
-          type: 'target'
+        Flag Toggle-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            key: 'woundTreatmentToggle'
+          children:  {}
+        Flag-c: 
+          type: 'condition'
           data: 
             icon-key: ''
-            key: 'ServitudeTarget'
+            type: 'Set'
+            key: 'woundTreatmentToggle'
           children: 
-            Value-d: 
-              type: 'condition'
+            Message-d: 
+              type: 'mechanic'
               data: 
-                min-value-scale: '0'
-                max-value-scale: '0'
+                counts: 'True'
                 icon-key: ''
-                max-value-base: '16'
-                key: 'wtCastMasterDistance'
-                min-value-base: '0'
-              children: 
-                Cleanse-e: 
-                  type: 'mechanic'
-                  data: 
-                    potion: 'All'
-                    counts: 'True'
-                    icon-key: ''
-                    status: 'All'
-                  children:  {}
+                message: '&eWound Treatment: &cFOCUSED'
+              children:  {}
+        Flag-e: 
+          type: 'condition'
+          data: 
+            icon-key: ''
+            type: 'Not Set'
+            key: 'woundTreatmentToggle'
+          children: 
+            Message-f: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                icon-key: ''
+                message: '&eWound Treatment: &aAURA'
+              children:  {}
     Initialize: 
       type: 'trigger'
       data: 
         icon-key: ''
       children: 
-        Passive-g: 
+        Passive-h: 
           type: 'mechanic'
           data: 
             counts: 'True'
@@ -79,28 +91,59 @@ Wound Treatment:
             seconds-scale: '0'
             seconds-base: '4'
           children: 
-            Remember-h: 
-              type: 'target'
+            Flag-i: 
+              type: 'condition'
               data: 
                 icon-key: ''
-                key: 'ServitudeTarget'
+                type: 'Set'
+                key: 'woundTreatmentToggle'
               children: 
-                Value-j: 
-                  type: 'condition'
+                Nearest-j: 
+                  type: 'target'
                   data: 
-                    min-value-scale: '0'
-                    max-value-scale: '0'
+                    caster: 'False'
+                    max-base: '1'
+                    radius-scale: '0'
                     icon-key: ''
-                    max-value-base: '16'
-                    key: 'wtMasterDistance'
-                    min-value-base: '0'
+                    radius-base: '16'
+                    wall: 'True'
+                    group: 'Ally'
+                    max-scale: '0'
                   children: 
                     Heal-k: 
                       type: 'mechanic'
                       data: 
                         counts: 'True'
                         value-scale: '0.3'
-                        icon-key: 'wtheal'
+                        icon-key: 'wtfheal'
                         type: 'Health'
                         value-base: '0.8'
+                      children:  {}
+            Flag-m: 
+              type: 'condition'
+              data: 
+                icon-key: ''
+                type: 'Not Set'
+                key: 'woundTreatmentToggle'
+              children: 
+                Area-n: 
+                  type: 'target'
+                  data: 
+                    caster: 'False'
+                    max-base: '99'
+                    radius-scale: '0'
+                    icon-key: ''
+                    radius-base: '16'
+                    wall: 'True'
+                    group: 'Ally'
+                    max-scale: '0'
+                  children: 
+                    Heal-o: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0.15'
+                        icon-key: ''
+                        type: 'Health'
+                        value-base: '0.4'
                       children:  {}

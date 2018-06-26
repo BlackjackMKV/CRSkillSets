@@ -30,6 +30,7 @@ Needle Barrage:
   - ''
   - '&eThrow several daggers, damaging and'
   - '&eslowing the targets. '
+  - '&b*Requires Needle Burst lv.3'
   - ''
   - '&2Damage: {attr:impactdamage.value}'
   - '&2Slow II Duration: {attr:impactslow.seconds}'

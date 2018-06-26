@@ -22,10 +22,10 @@ Servant:
     vitality-base: '0'
     intelligence-base: '0'
   mana-regen: 0.0
-  tree: 'BASIC_VERTICAL'
+  tree: 'REQUIREMENT'
   skills: 
-  - 'Servitude'
   - 'Wound Treatment'
+  - 'Healing Syringe'
   - 'Haste'
   - 'Bodyguard'
   - 'Needle Burst'
@@ -36,7 +36,6 @@ Servant:
   icon-lore: 
   - '&2Sevant - Focused Support Class'
   - '&bServants dedicate their lives to protect'
-  - "&btheir master. They're strengthened when"
-  - '&bnear their master and their skills are'
-  - '&bbased on assisting them.'
+  - '&bothers. Their support skills increase'
+  - "&bother players' offense and defense capabilities."
   exp-source: 273

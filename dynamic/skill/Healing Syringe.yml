@@ -1,0 +1,130 @@
+Healing Syringe: 
+  name: 'Healing Syringe'
+  type: 'Support, Focused Heal'
+  max-level: 4
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-4'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '2'
+    level-base: '5'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '30'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'INK_SACK'
+  icon-data: 1
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eInstantly restore health to the target'
+  - '&eand grant them incremental heal over time.'
+  - "&b*Burst heal doesn't apply to self."
+  - ''
+  - '&2Skill Range: &68'
+  - '&2Burst Heal: {attr:burstHeal.value}'
+  - '&2Incremental Heal Duration: {attr:incHealDur.repetitions}'
+  - '&2Incremental Heal: {attr:incrementalHeal.amount}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Single-b: 
+          type: 'target'
+          data: 
+            range-scale: '0'
+            range-base: '8'
+            tolerance-scale: '0'
+            tolerance-base: '4'
+            icon-key: ''
+            wall: 'True'
+            group: 'Ally'
+          children: 
+            Heal-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '1'
+                icon-key: 'burstHeal'
+                type: 'Health'
+                value-base: '4'
+              children:  {}
+            Repeat-d: 
+              type: 'mechanic'
+              data: 
+                period: '1'
+                delay: '1'
+                repetitions-base: '3'
+                counts: 'True'
+                icon-key: 'incHealDur'
+                repetitions-scale: '1'
+              children: 
+                Value Add-e: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'True'
+                    icon-key: 'incrementalHeal'
+                    amount-scale: '0.1'
+                    amount-base: '0.2'
+                    key: 'healingInc'
+                  children:  {}
+                Heal-f: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'True'
+                    value-scale: '0'
+                    icon-key: ''
+                    type: 'Health'
+                    value-base: 'healingInc'
+                  children:  {}
+                Value Add-g: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'True'
+                    icon-key: ''
+                    amount-scale: '0'
+                    amount-base: '1'
+                    key: 'skillRepeat'
+                  children:  {}
+                Value-h: 
+                  type: 'condition'
+                  data: 
+                    min-value-scale: '1'
+                    max-value-scale: '0'
+                    icon-key: ''
+                    max-value-base: '999'
+                    key: 'skillRepeat'
+                    min-value-base: '3'
+                  children: 
+                    Value Set-i: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        value-base: '0'
+                        key: 'healingInc'
+                      children:  {}
+                    Value Set-j: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        value-base: '0'
+                        key: 'skillRepeat'
+                      children:  {}

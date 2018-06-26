@@ -2,7 +2,6 @@ Duty:
   name: 'Duty'
   type: 'Passive, Survival'
   max-level: 5
-  skill-req: 'Servitude'
   skill-req-lvl: 1
   needs-permission: 'false'
   attributes: 
@@ -28,11 +27,10 @@ Duty:
   - '{req:level}Level: {attr:level}'
   - '{req:cost}Cost: {attr:cost}'
   - ''
-  - '&ePassively makes both you and your'
-  - '&emaster take less damage when close'
-  - '&eto each other.'
+  - '&ePassively decrease the amount of damage'
+  - '&eyou and nearby allies receive.'
   - ''
-  - '&2Duty Range: &616'
+  - '&2Duty Range: {attr:dutyRange.radius}'
   - '&2Damage Multiplier: &6x{attr:dmgMulti.value}'
   desc:  []
   components: 
@@ -49,72 +47,27 @@ Duty:
             seconds-scale: '0'
             seconds-base: '4'
           children: 
-            Remember-c: 
+            Area-c: 
               type: 'target'
               data: 
-                icon-key: ''
-                key: 'ServitudeTarget'
+                caster: 'True'
+                max-base: '99'
+                radius-scale: '2'
+                icon-key: 'dutyRange'
+                radius-base: '16'
+                wall: 'True'
+                group: 'Ally'
+                max-scale: '0'
               children: 
-                Value-e: 
-                  type: 'condition'
+                Defense Buff-d: 
+                  type: 'mechanic'
                   data: 
-                    min-value-scale: '0'
-                    max-value-scale: '0'
-                    icon-key: ''
-                    max-value-base: '16'
-                    key: 'dutyMasterDistance'
-                    min-value-base: '0'
-                  children: 
-                    Self-f: 
-                      type: 'target'
-                      data: 
-                        icon-key: ''
-                      children: 
-                        Defense Buff-g: 
-                          type: 'mechanic'
-                          data: 
-                            counts: 'True'
-                            skill: 'False'
-                            value-scale: '-0.05'
-                            icon-key: 'dmgMulti'
-                            type: 'Multiplier'
-                            value-base: '0.8'
-                            seconds-scale: '0'
-                            seconds-base: '4.5'
-                          children:  {}
-                        Defense Buff-h: 
-                          type: 'mechanic'
-                          data: 
-                            counts: 'True'
-                            skill: 'True'
-                            value-scale: '-0.05'
-                            icon-key: ''
-                            type: 'Multiplier'
-                            value-base: '0.8'
-                            seconds-scale: '0'
-                            seconds-base: '4.5'
-                          children:  {}
-                    Defense Buff-i: 
-                      type: 'mechanic'
-                      data: 
-                        counts: 'True'
-                        skill: 'False'
-                        value-scale: '-0.05'
-                        icon-key: ''
-                        type: 'Multiplier'
-                        value-base: '0.8'
-                        seconds-scale: '0'
-                        seconds-base: '4.5'
-                      children:  {}
-                    Defense Buff-j: 
-                      type: 'mechanic'
-                      data: 
-                        counts: 'True'
-                        skill: 'True'
-                        value-scale: '-0.05'
-                        icon-key: ''
-                        type: 'Multiplier'
-                        value-base: '0.8'
-                        seconds-scale: '0'
-                        seconds-base: '4.5'
-                      children:  {}
+                    counts: 'True'
+                    skill: 'False'
+                    value-scale: '-0.05'
+                    icon-key: 'dmgMulti'
+                    type: 'Flat'
+                    value-base: '0.8'
+                    seconds-scale: '0'
+                    seconds-base: '5'
+                  children:  {}
